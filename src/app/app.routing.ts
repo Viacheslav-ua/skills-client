@@ -19,6 +19,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/contacts/contacts.module').then(m => m.ContactsModule),
       },
       {
+        path: AppRouteEnum.ContactEdit,
+        loadChildren: () => import('./pages/contact-edit/contact-edit.module').then(m => m.ContactEditModule),
+      },
+      {
         path: AppRouteEnum.User,
         loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule),
       },

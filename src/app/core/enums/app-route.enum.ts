@@ -1,7 +1,6 @@
 export enum AppRouteEnum {
   Contacts = 'contacts',
-  ContactsView = 'contacts/view',
-  ContactsEdit = 'contacts/edit',
+  ContactEdit = 'contact-edit/:id',
   User = 'user',
   Login = 'login',
   Registration = 'registration',
