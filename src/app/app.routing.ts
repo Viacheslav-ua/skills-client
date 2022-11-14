@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
+import { AppRouteEnum } from './core/enums'
 
 import { MainLayoutComponent } from './layouts'
 
@@ -10,12 +11,16 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'user',
+        redirectTo: AppRouteEnum.Contacts,
         pathMatch: 'full'
       },
       {
-        path: 'user',
-        loadChildren: () => import('./pages/user/user.module').then(module => module.UserModule),
+        path: AppRouteEnum.Contacts,
+        loadChildren: () => import('./pages/contacts/contacts.module').then(m => m.ContactsModule),
+      },
+      {
+        path: AppRouteEnum.User,
+        loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule),
       },
       {
         path: '**',
