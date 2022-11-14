@@ -27,6 +27,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule),
       },
       {
+        path: AppRouteEnum.Login,
+        loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
+      },
+      {
         path: '**',
         pathMatch: 'full',
         loadChildren: () => import('./pages/not-found/not-found.module').then((m) => m.NotFoundModule),
