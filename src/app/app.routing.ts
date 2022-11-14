@@ -1,8 +1,22 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { AppComponent } from './app.component'
 
-const routes: Routes = []
+import { MainLayoutComponent } from './layouts'
+
+const routes: Routes = [
+  {
+    path: '',
+    // component: MainLayoutComponent,
+    children: [
+      {
+        path: '**',
+        pathMatch: 'full',
+        loadChildren: () => import('./pages/not-found/not-found.module').then((m) => m.NotFoundModule),
+      }
+    ]
+  }
+
+]
 
 @NgModule({
     imports: [
