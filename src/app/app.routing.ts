@@ -31,6 +31,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
       },
       {
+        path: AppRouteEnum.Registration,
+        loadChildren: () => import('./pages/registration/registration.module').then(m => m.RegistrationModule),
+      },
+      {
         path: '**',
         pathMatch: 'full',
         loadChildren: () => import('./pages/not-found/not-found.module').then((m) => m.NotFoundModule),
