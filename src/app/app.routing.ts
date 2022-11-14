@@ -9,6 +9,15 @@ const routes: Routes = [
     // component: MainLayoutComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'user',
+        pathMatch: 'full'
+      },
+      {
+        path: 'user',
+        loadChildren: () => import('./pages/user/user.module').then(module => module.UserModule),
+      },
+      {
         path: '**',
         pathMatch: 'full',
         loadChildren: () => import('./pages/not-found/not-found.module').then((m) => m.NotFoundModule),
