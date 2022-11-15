@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common'
 
 import { LoginComponent } from './login.component'
 import { LoginRoutingModule } from './login.routing'
+import { LoginBlockModule } from 'src/app/view/login-block'
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { LoginRoutingModule } from './login.routing'
   ],
   imports: [
     CommonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    LoginBlockModule,
   ]
 })
 export class LoginModule { }
