@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { ReactiveFormsModule } from '@angular/forms'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+import { MatButtonModule } from '@angular/material/button'
 
 import { LoginBlockComponent } from './login-block.component'
 import { LoginBlockUiComponent } from './login-block-ui'
+
 
 @NgModule({
   declarations: [
@@ -10,7 +15,11 @@ import { LoginBlockUiComponent } from './login-block-ui'
     LoginBlockUiComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
   ],
   exports: [
     LoginBlockComponent,

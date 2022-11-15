@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core'
 })
 export class LoginBlockComponent implements OnInit {
 
+  serverError = ''
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onLogin(value: {login: string, password: string}) {
+    console.log('OnLogin', value)
   }
 
 }
