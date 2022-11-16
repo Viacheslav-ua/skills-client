@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
+import { DEFAULT_ROUTER_FEATURENAME, routerReducer } from '@ngrx/router-store'
+import { StoreModule } from '@ngrx/store'
 import { AppRouteEnum } from './core/enums'
 
 import { MainLayoutComponent } from './layouts'
@@ -45,11 +47,12 @@ const routes: Routes = [
 ]
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot(routes)
+  imports: [
+    StoreModule.forFeature(DEFAULT_ROUTER_FEATURENAME, routerReducer),
+    RouterModule.forRoot(routes),
     ],
-    exports: [
-        RouterModule
-    ]
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule {}
