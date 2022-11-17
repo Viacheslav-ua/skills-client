@@ -15,7 +15,7 @@ export interface AuthState {
 
 const initialState: AuthState = {
   loading: false,
-  loaded: false,
+  loaded: true,
   serverError: '',
 }
 

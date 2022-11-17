@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core'
+import { select, Store } from '@ngrx/store'
+import { Observable } from 'rxjs'
+import * as authSelectors from 'src/app/store/auth-store/auth-store.selectors'
 
 @Component({
   selector: 'app-login-block',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core'
 })
 export class LoginBlockComponent implements OnInit {
 
-  serverError = ''
+  loading$: Observable<boolean> = this.store$.pipe(select(authSelectors.getLoading))
+  loaded$: Observable<boolean> = this.store$.pipe(select(authSelectors.getLoaded))
+  serverError$: Observable<string> = this.store$.pipe(select(authSelectors.getServerError))
 
-  constructor() { }
+  constructor(private store$: Store) { }
 
   ngOnInit(): void {
   }

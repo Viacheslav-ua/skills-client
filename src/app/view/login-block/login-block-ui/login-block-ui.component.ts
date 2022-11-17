@@ -10,8 +10,8 @@ export class LoginBlockUiComponent implements OnInit {
 
   formGroup!: FormGroup
 
-  @Input()
-  formError = ''
+  @Input() formError: string | null = ''
+  @Input() disabled!: boolean | null
 
   @Output()
   login = new EventEmitter()
