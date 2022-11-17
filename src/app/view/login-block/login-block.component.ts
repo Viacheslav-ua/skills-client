@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
+import { login } from 'src/app/store/auth-store/auth-store.actions'
 import * as authSelectors from 'src/app/store/auth-store/auth-store.selectors'
 
 @Component({
@@ -19,8 +20,8 @@ export class LoginBlockComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onLogin(value: {login: string, password: string}) {
-    console.log('OnLogin', value)
+  onLogin(loginPayload: {login: string, password: string}) {
+    this.store$.dispatch(login(loginPayload))
   }
 
 }
