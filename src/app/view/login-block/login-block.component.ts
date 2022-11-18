@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
-import { login } from 'src/app/store/auth-store/auth-store.actions'
-import * as authSelectors from 'src/app/store/auth-store/auth-store.selectors'
+import { login } from 'src/app/store/auth-store/store/auth-store.actions'
+import * as authSelectors from 'src/app/store/auth-store/store/auth-store.selectors'
 
 @Component({
   selector: 'app-login-block',

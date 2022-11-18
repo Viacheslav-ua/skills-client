@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { StoreModule } from '@ngrx/store'
-import { AuthReducer, AUTH_FEATURE_NAME } from './auth-store.reducer'
+import { AuthReducer, AUTH_FEATURE_NAME } from './store/auth-store.reducer'
 
 @NgModule({
   declarations: [],
