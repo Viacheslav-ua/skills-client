@@ -5,6 +5,9 @@ export const AUTH_FEATURE_NAME = 'auth'
 
 export interface AuthData {
   accessToken: string
+  id: number
+  iat: number
+  exp: number
 }
 
 export interface AuthState {
