@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { StoreModule } from '@ngrx/store'
-import { AuthReducer, AUTH_FEATURE_NAME } from './store/auth-store.reducer'
 import { EffectsModule } from '@ngrx/effects'
-import { AuthEffects } from './store/auth-store.effects'
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { JwtModule } from '@auth0/angular-jwt'
+import { AuthReducer, AUTH_FEATURE_NAME } from './store/auth-store.reducer'
+import { AuthEffects } from './store/auth-store.effects'
+import { AuthInterceptor } from './interceptors/auth.interceptor'
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -19,6 +19,13 @@ import { JwtModule } from '@auth0/angular-jwt'
     }),
     StoreModule.forFeature(AUTH_FEATURE_NAME, AuthReducer),
     EffectsModule.forFeature([AuthEffects])
+  ],
+   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    }
   ]
 })
 export class AuthStoreModule { }
