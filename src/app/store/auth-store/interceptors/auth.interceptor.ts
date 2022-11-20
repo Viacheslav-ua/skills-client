@@ -5,26 +5,33 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http'
-import { Observable } from 'rxjs'
-import { AuthService } from '../services/auth.service';
+import { first, mergeMap, Observable } from 'rxjs'
+import { select, Store } from '@ngrx/store'
+import { getAccessToken } from '../store/auth-store.selectors'
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private authService: AuthService) {}
+  constructor(private store$: Store) {}
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler,
   ): Observable<HttpEvent<unknown>> {
-    if (this.authService.accessToken) {
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${this.authService.accessToken}`
-        }
-      })
-    }
+    return this.store$.pipe(
+      select(getAccessToken),
+      first(),
+      mergeMap(token => {
+        const authReq = token
+          ? request.clone({
+              setHeaders: {
+                Authorization: `Bearer ${token}`
+              }
+            })
+          : request
 
-    return next.handle(request)
+        return next.handle(authReq)
+      })
+    )
   }
 }

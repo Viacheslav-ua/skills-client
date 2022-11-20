@@ -20,7 +20,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor'
     StoreModule.forFeature(AUTH_FEATURE_NAME, AuthReducer),
     EffectsModule.forFeature([AuthEffects])
   ],
-   providers: [
+  providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

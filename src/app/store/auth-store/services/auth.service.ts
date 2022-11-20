@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs'
 import { JwtHelperService } from '@auth0/angular-jwt'
-import { select, Store } from '@ngrx/store'
-import { getAccessToken } from '../store/auth-store.selectors'
-
 @Injectable({
   providedIn: 'root'
 })
@@ -14,11 +11,7 @@ export class AuthService {
   constructor(
     private httpClient: HttpClient,
     private jwtHelperService: JwtHelperService,
-    private store$: Store
-  ) {
-    this.store$.pipe(select(getAccessToken))
-    .subscribe(accessToken => this.accessToken = accessToken)
-  }
+  ) { }
 
   login(body: { login: string, password: string }) {
     return this.httpClient
