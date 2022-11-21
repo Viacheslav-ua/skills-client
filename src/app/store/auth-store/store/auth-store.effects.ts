@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects"
 import { select, Store } from "@ngrx/store"
 import { delayWhen, first, map, filter, switchMap, timer, tap } from "rxjs"
 import { AuthService } from "../services/auth.service"
-import { login, loginSuccess } from "./auth-store.actions"
+import { initAuth, login, loginSuccess, logoutSuccess } from "./auth-store.actions"
 import { AuthData } from "./auth-store.reducer"
 import { isAuth } from "./auth-store.selectors"
 
@@ -43,6 +43,23 @@ export class AuthEffects {
     })
 
   ), {dispatch: false})
+
+  extractLoginData$ = createEffect(() => this.actions$.pipe(
+    ofType(initAuth),
+    map(() => {
+      const authDataString = localStorage.getItem('authData')
+      if (!authDataString) {
+        return logoutSuccess()
+      }
+
+      const authData: AuthData = JSON.parse(authDataString)
+      if ((authData.exp * 1000 - 10 * 1000 - Date.now()) < 0) {
+        return logoutSuccess()
+      }
+
+      return loginSuccess(authData)
+    })
+  ))
 
   constructor(
     private actions$: Actions,

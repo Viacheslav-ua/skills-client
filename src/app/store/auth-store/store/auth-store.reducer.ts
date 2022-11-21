@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store"
-import { login, loginFailed, loginSuccess } from "./auth-store.actions"
+import { login, loginFailed, loginSuccess, logoutSuccess } from "./auth-store.actions"
 
 export const AUTH_FEATURE_NAME = 'auth'
 
@@ -42,5 +42,9 @@ export const AuthReducer = createReducer(
     loaded: true,
     loading: false,
     serverError,
-  }))
+  })),
+  on(logoutSuccess, () => ({
+    ...initialState,
+    authData: null,
+  })),
 )
