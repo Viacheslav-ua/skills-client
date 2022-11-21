@@ -30,9 +30,8 @@ export class AuthEffects {
       first(),
       filter(authActs => authActs),
     )),
-    switchMap(() => this.authService.refresh().pipe(
-      map(loginSuccessData => loginSuccess(loginSuccessData)),
-    ))
+    switchMap(() => this.authService.refresh()),
+    map((loginSuccessData: AuthData) => loginSuccess(loginSuccessData)),
   ))
 
   saveAuthDataToLocalStorage$ = createEffect(() => this.actions$.pipe(
