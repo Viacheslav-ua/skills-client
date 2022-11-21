@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core"
 import { Actions, createEffect, ofType } from "@ngrx/effects"
 import { select, Store } from "@ngrx/store"
-import { delayWhen, first, map, filter, switchMap, timer } from "rxjs"
+import { delayWhen, first, map, filter, switchMap, timer, tap } from "rxjs"
 import { AuthService } from "../services/auth.service"
 import { login, loginSuccess } from "./auth-store.actions"
 import { AuthData } from "./auth-store.reducer"
@@ -34,6 +34,15 @@ export class AuthEffects {
       map(loginSuccessData => loginSuccess(loginSuccessData)),
     ))
   ))
+
+  saveAuthDataToLocalStorage$ = createEffect(() => this.actions$.pipe(
+    ofType(loginSuccess),
+    tap(loginSuccessData => {
+      const { type, ...authData } = loginSuccessData
+      localStorage.setItem('authData', JSON.stringify(authData))
+    })
+
+  ), {dispatch: false})
 
   constructor(
     private actions$: Actions,
