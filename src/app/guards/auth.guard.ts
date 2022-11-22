@@ -11,10 +11,14 @@ import {
 } from '@angular/router'
 import { first, map, Observable, of } from 'rxjs'
 import { AppRouteEnum } from '../core/enums'
+import { AuthService } from '../store/auth-store/services/auth.service'
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+  ) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -28,7 +32,7 @@ export class AuthGuard implements CanActivate, CanLoad {
   }
 
   private getIsAuth(): Observable<boolean> {
-    return of(true).pipe(
+    return this.authService.isAuth$.pipe(
       first(),
       map(isAuth => {
         if (!isAuth) {

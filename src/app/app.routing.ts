@@ -39,10 +39,14 @@ const routes: Routes = [
       {
         path: AppRouteEnum.Login,
         loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
+        canLoad: [GuestGuard],
+        canActivate: [GuestGuard],
       },
       {
         path: AppRouteEnum.Registration,
         loadChildren: () => import('./pages/registration/registration.module').then(m => m.RegistrationModule),
+        canLoad: [GuestGuard],
+        canActivate: [GuestGuard],
       },
       {
         path: '**',
