@@ -29,14 +29,14 @@ export const AuthReducer = createReducer(
     ...store,
     loading: true
   })),
-   on(loginSuccess, (state, { type, ...authData }: { type: string } & AuthData) => ({
+  on(loginSuccess, (state, { authData }) => ({
     ...state,
     authData,
     loaded: true,
     loading: false,
     serverError: '',
   })),
-  on(loginFailed, (state, {serverError}) => ({
+  on(loginFailed, (state, { serverError }) => ({
     ...state,
     authData: null,
     loaded: true,

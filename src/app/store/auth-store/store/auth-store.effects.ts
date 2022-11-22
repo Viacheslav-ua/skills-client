@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core"
 import { Actions, createEffect, ofType } from "@ngrx/effects"
 import { select, Store } from "@ngrx/store"
-import { delayWhen, first, map, filter, switchMap, timer, tap } from "rxjs"
+import { first, map, filter, switchMap, timer, tap, fromEvent } from "rxjs"
 import { AuthService } from "../services/auth.service"
-import { initAuth, login, loginSuccess, logoutSuccess } from "./auth-store.actions"
+import { extractLoginData, initAuth, login, loginSuccess, logoutSuccess } from "./auth-store.actions"
 import { AuthData } from "./auth-store.reducer"
 import { isAuth } from "./auth-store.selectors"
 
@@ -16,14 +16,14 @@ export class AuthEffects {
       login: action.login,
       password: action.password,
     }).pipe(
-      map(loginSuccessData => loginSuccess(loginSuccessData))
+      map((authData: AuthData) => loginSuccess({ authData })),
     ))
   ))
 
   refresh$ = createEffect(() => this.actions$.pipe(
     ofType(loginSuccess),
-    delayWhen((action: AuthData) => timer(
-      action.exp*1000 - 60*1000 - Date.now()
+    switchMap((action) => timer(
+      action.authData.exp*1000 - 60*1000 - Date.now()
     )),
     switchMap(() => this.store.pipe(
       select(isAuth),
@@ -31,20 +31,19 @@ export class AuthEffects {
       filter(authActs => authActs),
     )),
     switchMap(() => this.authService.refresh()),
-    map((loginSuccessData: AuthData) => loginSuccess(loginSuccessData)),
+    map(authData => loginSuccess({ authData })),
   ))
 
   saveAuthDataToLocalStorage$ = createEffect(() => this.actions$.pipe(
     ofType(loginSuccess),
-    tap(loginSuccessData => {
-      const { type, ...authData } = loginSuccessData
+    tap(({ authData }) => {
       localStorage.setItem('authData', JSON.stringify(authData))
     })
 
   ), {dispatch: false})
 
   extractLoginData$ = createEffect(() => this.actions$.pipe(
-    ofType(initAuth),
+    ofType(initAuth, extractLoginData),
     map(() => {
       const authDataString = localStorage.getItem('authData')
       if (!authDataString) {
@@ -56,8 +55,14 @@ export class AuthEffects {
         return logoutSuccess()
       }
 
-      return loginSuccess(authData)
+      return loginSuccess({ authData })
     })
+  ))
+
+  listenStorageEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(initAuth),
+    switchMap(() => fromEvent(window, 'storage')),
+    map(() => extractLoginData()),
   ))
 
   constructor(
