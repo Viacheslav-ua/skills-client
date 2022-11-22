@@ -27,3 +27,7 @@ export const isAuth = createSelector(
   getAccessToken,
   accessToken => !!accessToken
 )
+export const isAuthData = createSelector(
+  getFeature,
+  state => state.loadAuthData && !!state.authData,
+)
