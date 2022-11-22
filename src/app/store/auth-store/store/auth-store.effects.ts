@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core"
+import { Router } from "@angular/router"
 import { Actions, createEffect, ofType } from "@ngrx/effects"
 import { select, Store } from "@ngrx/store"
-import { first, map, filter, switchMap, timer, tap, fromEvent } from "rxjs"
+import { first, map, filter, switchMap, timer, tap, fromEvent, distinctUntilChanged, skip } from "rxjs"
+import { AppRouteEnum } from "src/app/core/enums"
 import { AuthService } from "../services/auth.service"
 import { extractLoginData, initAuth, login, loginSuccess, logoutSuccess } from "./auth-store.actions"
 import { AuthData } from "./auth-store.reducer"
@@ -65,10 +67,26 @@ export class AuthEffects {
     map(() => extractLoginData()),
   ))
 
+  listenAuthorizeEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(initAuth),
+    switchMap(() => this.authService.isAuth$),
+    distinctUntilChanged(),
+    skip(1),
+    tap(isAuthorized => {
+      this.router.navigateByUrl(
+        isAuthorized ? AppRouteEnum.Contacts : AppRouteEnum.Login
+      )
+    })
+
+
+  ), {dispatch: false})
+
+
   constructor(
     private actions$: Actions,
     private authService: AuthService,
     private store: Store,
+    private router: Router,
   ) { }
 
 
