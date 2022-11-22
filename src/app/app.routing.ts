@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router'
 import { DEFAULT_ROUTER_FEATURENAME, routerReducer } from '@ngrx/router-store'
 import { StoreModule } from '@ngrx/store'
 import { AppRouteEnum } from './core/enums'
+import { AuthGuard } from './guards/auth.guard'
 
 import { MainLayoutComponent } from './layouts'
 
@@ -19,14 +20,20 @@ const routes: Routes = [
       {
         path: AppRouteEnum.Contacts,
         loadChildren: () => import('./pages/contacts/contacts.module').then(m => m.ContactsModule),
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard],
       },
       {
         path: AppRouteEnum.ContactEdit,
         loadChildren: () => import('./pages/contact-edit/contact-edit.module').then(m => m.ContactEditModule),
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard],
       },
       {
         path: AppRouteEnum.User,
         loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule),
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard],
       },
       {
         path: AppRouteEnum.Login,
@@ -39,7 +46,7 @@ const routes: Routes = [
       {
         path: '**',
         pathMatch: 'full',
-        loadChildren: () => import('./pages/not-found/not-found.module').then((m) => m.NotFoundModule),
+        loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule),
       }
     ]
   }
@@ -53,6 +60,9 @@ const routes: Routes = [
     ],
   exports: [
     RouterModule
+  ],
+  providers: [
+    AuthGuard,
   ]
 })
 export class AppRoutingModule {}
