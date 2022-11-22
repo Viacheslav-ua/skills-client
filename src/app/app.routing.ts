@@ -4,6 +4,7 @@ import { DEFAULT_ROUTER_FEATURENAME, routerReducer } from '@ngrx/router-store'
 import { StoreModule } from '@ngrx/store'
 import { AppRouteEnum } from './core/enums'
 import { AuthGuard } from './guards/auth.guard'
+import { GuestGuard } from './guards/guest.guard'
 
 import { MainLayoutComponent } from './layouts'
 
@@ -63,6 +64,7 @@ const routes: Routes = [
   ],
   providers: [
     AuthGuard,
+    GuestGuard,
   ]
 })
 export class AppRoutingModule {}
