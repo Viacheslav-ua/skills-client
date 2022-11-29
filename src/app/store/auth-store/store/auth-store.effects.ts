@@ -2,10 +2,10 @@ import { Injectable } from "@angular/core"
 import { Router } from "@angular/router"
 import { Actions, createEffect, ofType } from "@ngrx/effects"
 import { select, Store } from "@ngrx/store"
-import { first, map, filter, switchMap, timer, tap, fromEvent, distinctUntilChanged, skip } from "rxjs"
+import { first, map, filter, switchMap, timer, tap, fromEvent, distinctUntilChanged, skip, catchError, of } from "rxjs"
 import { AppRouteEnum } from "src/app/core/enums"
 import { AuthService } from "../services/auth.service"
-import { extractLoginData, initAuth, login, loginSuccess, logoutSuccess } from "./auth-store.actions"
+import { extractLoginData, initAuth, login, loginFailed, loginSkipError, loginSuccess, logoutSuccess } from "./auth-store.actions"
 import { AuthData } from "./auth-store.reducer"
 import { isAuth } from "./auth-store.selectors"
 
@@ -19,6 +19,12 @@ export class AuthEffects {
       password: action.password,
     }).pipe(
       map((authData: AuthData) => loginSuccess({ authData })),
+      catchError(
+        error => (of(loginFailed({
+          serverError: error.message,
+          }),
+        ))
+      )
     ))
   ))
 
@@ -80,6 +86,15 @@ export class AuthEffects {
 
 
   ), {dispatch: false})
+
+  skipServerError$ = createEffect(() => this.actions$.pipe(
+    ofType(loginSkipError),
+    map(() => {
+      if (true) {
+        return loginFailed({serverError: ''})
+      }
+    })
+  ))
 
 
   constructor(

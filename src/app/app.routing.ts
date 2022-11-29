@@ -59,6 +59,9 @@ const routes: Routes = [
 ]
 
 @NgModule({
+  // declarations: [
+  //   MainLayoutComponent,
+  // ],
   imports: [
     StoreModule.forFeature(DEFAULT_ROUTER_FEATURENAME, routerReducer),
     RouterModule.forRoot(routes),

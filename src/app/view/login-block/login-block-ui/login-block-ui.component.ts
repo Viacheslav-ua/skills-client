@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-login-block-ui',
   templateUrl: './login-block-ui.component.html',
   styleUrls: ['./login-block-ui.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginBlockUiComponent implements OnInit {
 
@@ -15,6 +16,8 @@ export class LoginBlockUiComponent implements OnInit {
 
   @Output()
   login = new EventEmitter()
+  @Output()
+  errorSkip = new EventEmitter()
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
@@ -24,7 +27,7 @@ export class LoginBlockUiComponent implements OnInit {
   }
 
   onFormChange() {
-    this.formError = ''
+    this.errorSkip.emit()
   }
 
   onSubmit() {

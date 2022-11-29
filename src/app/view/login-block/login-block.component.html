@@ -3,6 +3,7 @@
   [formError]="serverError$ | async"
   [disabled]="loading$ | async"
   (login)="onLogin($event)"
+  (errorSkip)="onErrorSkip()"
 ></app-login-block-ui>
 
 <button (click)="testProfile()">TEST PROFILE LINK</button>
