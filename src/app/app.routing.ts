@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router'
 import { DEFAULT_ROUTER_FEATURENAME, routerReducer } from '@ngrx/router-store'
 import { StoreModule } from '@ngrx/store'
 import { AppRouteEnum } from './core/enums'
@@ -24,12 +24,12 @@ const routes: Routes = [
         canLoad: [AuthGuard],
         canActivate: [AuthGuard],
       },
-      {
-        path: AppRouteEnum.ContactEdit,
-        loadChildren: () => import('./pages/contact-edit/contact-edit.module').then(m => m.ContactEditModule),
-        canLoad: [AuthGuard],
-        canActivate: [AuthGuard],
-      },
+      // {
+      //   path: AppRouteEnum.ContactEdit,
+      //   loadChildren: () => import('./pages/contact-edit/contact-edit.module').then(m => m.ContactEditModule),
+      //   canLoad: [AuthGuard],
+      //   canActivate: [AuthGuard],
+      // },
       {
         path: AppRouteEnum.User,
         loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule),
@@ -64,6 +64,7 @@ const routes: Routes = [
   // ],
   imports: [
     StoreModule.forFeature(DEFAULT_ROUTER_FEATURENAME, routerReducer),
+    // RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
     RouterModule.forRoot(routes),
     ],
   exports: [

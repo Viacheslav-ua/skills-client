@@ -18,7 +18,11 @@ export class AuthEffects {
       login: action.login,
       password: action.password,
     }).pipe(
-      map((authData: AuthData) => loginSuccess({ authData })),
+      map((authData: AuthData) => {
+       this.router.navigateByUrl(AppRouteEnum.Contacts)
+       return loginSuccess({ authData })
+      }),
+
       catchError(
         error => (of(loginFailed({
           serverError: error.message,
@@ -79,9 +83,9 @@ export class AuthEffects {
     distinctUntilChanged(),
     skip(1),
     tap(isAuthorized => {
-      this.router.navigateByUrl(
-        isAuthorized ? AppRouteEnum.Contacts : AppRouteEnum.Login
-      )
+      if (!isAuthorized) {
+        this.router.navigateByUrl(AppRouteEnum.Login)
+      }
     })
 
 
