@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-
 import { ContactEditComponent } from './contact-edit.component'
-
-
 
 const routes: Routes = [
   {
@@ -16,8 +13,5 @@ const routes: Routes = [
     imports: [
         RouterModule.forChild(routes)
     ],
-    exports: [
-        RouterModule
-    ]
 })
 export class ContactEditRoutingModule {}

@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-
 import { ContactEditComponent } from './contact-edit.component'
 import { ContactEditRoutingModule } from './contact-edit.routing'
-
 
 @NgModule({
   declarations: [
@@ -11,7 +9,7 @@ import { ContactEditRoutingModule } from './contact-edit.routing'
   ],
   imports: [
     CommonModule,
-    ContactEditRoutingModule
+    ContactEditRoutingModule,
   ]
 })
 export class ContactEditModule { }
