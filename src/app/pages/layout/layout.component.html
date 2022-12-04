@@ -1,7 +1,11 @@
 <div class="grid-container">
   <app-header-block class="header"></app-header-block>
 
-  <nav class="nav">NAV</nav>
+  <nav class="nav">
+    <a [routerLink]="'/book'">Контакты</a>
+    <a [routerLink]="'/book/edit/:id'">Редактор</a>
+    <a [routerLink]="'/book/user'">Аккаунт</a>
+  </nav>
 
   <main class="main">
     <router-outlet></router-outlet>

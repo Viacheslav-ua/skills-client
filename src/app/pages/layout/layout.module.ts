@@ -19,6 +19,13 @@ const routes: Routes = [
     loadChildren: () => import('../contact-edit/contact-edit.module')
       .then(module => module.ContactEditModule),
   },
+  {
+    path: AppRouteEnum.User,
+    component: LayoutComponent,
+    loadChildren: () => import('../user/user.module')
+      .then(module => module.UserModule),
+  },
+
 ]
 
 @NgModule({

@@ -22,12 +22,12 @@ const routes: Routes = [
         canLoad: [AuthGuard],
         canActivate: [AuthGuard],
       },
-      {
-        path: AppRouteEnum.User,
-        loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule),
-        canLoad: [AuthGuard],
-        canActivate: [AuthGuard],
-      },
+      // {
+      //   path: AppRouteEnum.User,
+      //   loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule),
+      //   canLoad: [AuthGuard],
+      //   canActivate: [AuthGuard],
+      // },
       {
         path: AppRouteEnum.Login,
         loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
