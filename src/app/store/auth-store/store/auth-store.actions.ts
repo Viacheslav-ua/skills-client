@@ -24,6 +24,10 @@ export const initAuth = createAction(
   '[Auth] Init Auth',
 )
 
+export const logout = createAction(
+  '[Auth] Logout'
+)
+
 export const logoutSuccess = createAction(
   '[Auth] Logout Success',
 )

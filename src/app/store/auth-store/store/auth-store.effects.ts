@@ -2,10 +2,14 @@ import { Injectable } from "@angular/core"
 import { Router } from "@angular/router"
 import { Actions, createEffect, ofType } from "@ngrx/effects"
 import { select, Store } from "@ngrx/store"
-import { first, map, filter, switchMap, timer, tap, fromEvent, distinctUntilChanged, skip, catchError, of } from "rxjs"
+import {
+  first, map, filter, switchMap, timer, tap, fromEvent, distinctUntilChanged, skip, catchError, of
+} from "rxjs"
 import { AppRouteEnum } from "src/app/core/enums"
 import { AuthService } from "../services/auth.service"
-import { extractLoginData, initAuth, login, loginFailed, loginSkipError, loginSuccess, logoutSuccess } from "./auth-store.actions"
+import {
+  extractLoginData, initAuth, login, loginFailed, loginSkipError, loginSuccess, logout, logoutSuccess
+} from "./auth-store.actions"
 import { AuthData } from "./auth-store.reducer"
 import { isAuth } from "./auth-store.selectors"
 
@@ -83,6 +87,14 @@ export class AuthEffects {
     distinctUntilChanged(),
     skip(1),
     tap(isAuthorized => {
+      const isLogin = this.router.url === '/' + AppRouteEnum.Login
+
+      if (isLogin) {
+        this.router.navigateByUrl(
+          isAuthorized ? AppRouteEnum.Contacts : AppRouteEnum.Login
+        )
+      }
+
       if (!isAuthorized) {
         this.router.navigateByUrl(AppRouteEnum.Login)
       }
@@ -97,6 +109,14 @@ export class AuthEffects {
       if (true) {
         return loginFailed({serverError: ''})
       }
+    })
+  ))
+
+  logout$ = createEffect(() => this.actions$.pipe(
+    ofType(logout),
+    map(() => {
+      localStorage.removeItem('authData')
+      return logoutSuccess()
     })
   ))
 
