@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common'
 import { LayoutComponent } from './layout.component'
 import { RouterModule, Routes } from '@angular/router'
 import { AppRouteEnum } from 'src/app/core/enums'
+import { HeaderBlockModule } from 'src/app/view/header-block/header-block.module'
+import { FooterBlockModule } from 'src/app/view/footer-block/footer-block.module'
 
 const routes: Routes = [
   {
@@ -26,6 +28,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    HeaderBlockModule,
+    FooterBlockModule,
   ]
 })
 export class LayoutModule { }
