@@ -4,6 +4,5 @@
   [disabled]="loading$ | async"
   (login)="onLogin($event)"
   (errorSkip)="onErrorSkip()"
+  (loginTest)="onLoginTest()"
 ></app-login-block-ui>
-
-<button (click)="testProfile()">TEST PROFILE LINK</button>

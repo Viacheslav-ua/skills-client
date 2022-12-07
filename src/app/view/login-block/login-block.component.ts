@@ -37,8 +37,7 @@ export class LoginBlockComponent {
     })
   }
 
-  testProfile() {
-    this.httpClient.get(ServerEndpointsEnum.User)
-    .subscribe(console.log)
+  onLoginTest() {
+    this.onLogin({login: 'Test', password: 'test'})
   }
 }

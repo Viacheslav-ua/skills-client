@@ -7,23 +7,11 @@
   <h2 class="header">Авторизация на сайте</h2>
 
   <div class="container">
-  <p>
-    Вы можете авторизоваться с помощью <br /> Google Account:
-  </p>
-  <div class="btn">
-    <button mat-stroked-button color="primary">
-    <b>Google</b>
-  </button>
-  </div>
-
-  </div>
-
-  <div class="container">
     <p>
-      Или зайти для посмотра тестовых данных
+      Вы можете зайти для посмотра тестовых данных:
     </p>
     <div class="btn">
-      <button mat-stroked-button color="primary">
+      <button mat-stroked-button color="primary" (click)="onLoginTest($event)">
         <b>Войти под тестовым именем</b>
       </button>
     </div>
@@ -32,11 +20,11 @@
 
   <div class="container">
     <p>
-      Или зайти с помощью e-mail и пароля,
+      Или зайти с помощью логина и пароля,
       предварительно зарегистрировавшись:
     </p>
   <mat-form-field class="filed">
-    <mat-label>E-mail</mat-label>
+    <mat-label>Логин</mat-label>
     <input matInput formControlName="login">
     <mat-error
       *ngIf="formGroup.hasError('required', 'login')"
@@ -56,11 +44,12 @@
       [disabled]="disabled || formGroup.invalid || !! formError">
       <b>Войти</b>
     </button>
-    <button
+    <a
       class="btn-register"
+      routerLink="/registration"
       mat-stroked-button color="primary">
       <b>Зарегистрироваться</b>
-    </button>
+    </a>
   </div>
   </div>
 

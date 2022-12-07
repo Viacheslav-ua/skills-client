@@ -18,6 +18,8 @@ export class LoginBlockUiComponent implements OnInit {
   login = new EventEmitter()
   @Output()
   errorSkip = new EventEmitter()
+  @Output()
+  loginTest = new EventEmitter()
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
@@ -28,6 +30,11 @@ export class LoginBlockUiComponent implements OnInit {
 
   onFormChange() {
     this.errorSkip.emit()
+  }
+
+  onLoginTest(e: MouseEvent) {
+    e.preventDefault()
+    this.loginTest.emit()
   }
 
   onSubmit() {
