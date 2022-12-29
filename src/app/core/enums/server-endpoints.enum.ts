@@ -1,5 +1,5 @@
 export enum ServerEndpointsEnum {
-  Login = 'http://localhost:3000/auth/login',
-  Refresh = 'http://localhost:3000/auth/refresh',
-  User = 'http://localhost:3000/auth/profile',
+  Login = 'http://localhost:3002/auth/login',
+  Refresh = 'http://localhost:3002/auth/refresh',
+  User = 'http://localhost:3002/auth/profile',
 }

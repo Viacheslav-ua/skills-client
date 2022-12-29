@@ -1,1 +1,54 @@
-<p>register-block-ui works!</p>
+<form
+  class="form-register"
+  [formGroup]="formGroup"
+  (input)="onFormChange()"
+  (ngSubmit)="onSubmit()"
+>
+  <h2 class="header">Регистрация</h2>
+
+
+  <div class="container">
+
+  <mat-form-field class="filed">
+    <mat-label>Логин</mat-label>
+    <input matInput formControlName="login">
+    <mat-error
+      *ngIf="formGroup.hasError('required', 'login')"
+    >Это поле обязательно</mat-error>
+  </mat-form-field>
+  <mat-form-field class="filed">
+    <mat-label>Пароль</mat-label>
+    <input matInput type="password" formControlName="password">
+    <mat-error
+      *ngIf="formGroup.hasError('required', 'password')"
+    >Это поле обязательно</mat-error>
+  </mat-form-field>
+
+
+  <div class="btn">
+    <button
+      mat-stroked-button color="primary"
+      [disabled]="disabled || formGroup.invalid || !! formError">
+      <b>Зарегистрироваться</b>
+    </button>
+    <a
+      class="btn-auth"
+      routerLink="/login"
+      mat-stroked-button color="primary">
+      <b>Авторизация</b>
+    </a>
+  </div>
+
+  </div>
+
+
+
+
+  <div class="error">
+    <mat-error *ngIf="formError">{{ formError }}</mat-error>
+  </div>
+
+
+  <!-- {{ formGroup.value | json }} -->
+
+</form>
