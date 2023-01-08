@@ -20,7 +20,7 @@ export class LoginBlockComponent {
 
   constructor(
     private store$: Store,
-    private httpClient: HttpClient,
+    // private httpClient: HttpClient,
   ) { }
 
   onLogin(loginPayload: {login: string, password: string}) {

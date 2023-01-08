@@ -23,6 +23,13 @@
       *ngIf="formGroup.hasError('required', 'password')"
     >Это поле обязательно</mat-error>
   </mat-form-field>
+  <mat-form-field class="filed">
+    <mat-label>Підтвердженя пароля</mat-label>
+    <input matInput type="password" formControlName="confirmPassword">
+    <mat-error
+      *ngIf="formGroup.hasError('required', 'confirmPassword')"
+    >Це поле обов'язкове</mat-error>
+  </mat-form-field>
 
 
   <div class="btn">
