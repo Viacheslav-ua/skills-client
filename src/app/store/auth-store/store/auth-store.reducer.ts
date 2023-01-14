@@ -1,10 +1,19 @@
 import { createReducer, on } from "@ngrx/store"
-import { login, loginFailed, loginSuccess, logoutSuccess } from "./auth-store.actions"
+import {
+  login,
+  loginFailed,
+  loginSuccess,
+  logoutSuccess,
+  register,
+  registerSuccess,
+  registerFailed,
+} from "./auth-store.actions"
 
 export const AUTH_FEATURE_NAME = 'auth'
 
 export interface AuthData {
   accessToken: string
+  login: string
   id: number
   iat: number
   exp: number
@@ -51,5 +60,25 @@ export const AuthReducer = createReducer(
     ...initialState,
     loadAuthData: true,
     authData: null,
+  })),
+  on(register, store => ({
+    ...store,
+    loading: true,
+  })),
+  on(registerSuccess, (state, { authData }) => ({
+    ...state,
+    // authData,
+    // loaded: true,
+    // loadAuthData: true,
+    loading: false,
+    // serverError: '',
+  })),
+  on(registerFailed, (state, { serverError }) => ({
+    ...state,
+    // authData: null,
+    // loaded: true,
+    // loadAuthData: true,
+    loading: false,
+    // serverError,
   })),
 )

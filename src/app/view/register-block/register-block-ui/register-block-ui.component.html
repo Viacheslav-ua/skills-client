@@ -18,14 +18,14 @@
   </mat-form-field>
   <mat-form-field class="filed">
     <mat-label>Пароль</mat-label>
-    <input matInput type="password" formControlName="password">
+    <input matInput type="password" (input)="onChangePass()" formControlName="password">
     <mat-error
       *ngIf="formGroup.hasError('required', 'password')"
     >Это поле обязательно</mat-error>
   </mat-form-field>
   <mat-form-field class="filed">
     <mat-label>Підтвердженя пароля</mat-label>
-    <input matInput type="password" formControlName="confirmPassword">
+    <input matInput type="password" (input)="onChangePass()" formControlName="confirmPassword">
     <mat-error
       *ngIf="formGroup.hasError('required', 'confirmPassword')"
     >Це поле обов'язкове</mat-error>
@@ -35,7 +35,7 @@
   <div class="btn">
     <button
       mat-stroked-button color="primary"
-      [disabled]="disabled || formGroup.invalid || !! formError">
+      [disabled]="disabled || formGroup.invalid || !! formError || !isEquate">
       <b>Зарегистрироваться</b>
     </button>
     <a
@@ -48,14 +48,8 @@
 
   </div>
 
-
-
-
   <div class="error">
     <mat-error *ngIf="formError">{{ formError }}</mat-error>
   </div>
-
-
-  <!-- {{ formGroup.value | json }} -->
 
 </form>

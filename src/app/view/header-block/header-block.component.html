@@ -2,10 +2,14 @@
   <mat-toolbar-row>
     <span><i>Phone Book</i></span>
     <span class="spacer"></span>
-    <button mat-raised-button color="primary" (click)="onLogout()">
-      <mat-icon class="icon">logout</mat-icon>
-      Exit
-    </button>
+    <div>
+      <span>Hi {{ login$ | async }}</span>
+      <button mat-raised-button color="primary" (click)="onLogout()">
+        <mat-icon class="icon">logout</mat-icon>
+        Exit
+      </button>
+    </div>
+
 
   </mat-toolbar-row>
 </mat-toolbar>

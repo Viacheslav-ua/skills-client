@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { logout } from 'src/app/store/auth-store/store/auth-store.actions'
+import * as authSelectors from 'src/app/store/auth-store/store/auth-store.selectors'
 
 @Component({
   selector: 'app-header-block',
@@ -9,9 +11,11 @@ import { logout } from 'src/app/store/auth-store/store/auth-store.actions'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderBlockComponent {
-  constructor( private store: Store) {}
+  login$: Observable<string | null | undefined > = this.store$.pipe(select(authSelectors.getLogin))
+
+  constructor( private store$: Store) {}
 
   onLogout() {
-    this.store.dispatch(logout())
+    this.store$.dispatch(logout())
   }
 }

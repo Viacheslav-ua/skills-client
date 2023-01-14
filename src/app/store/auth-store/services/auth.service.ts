@@ -6,16 +6,12 @@ import { AuthData } from '../store/auth-store.reducer'
 import { select, Store } from '@ngrx/store'
 import { isAuthData } from '../store/auth-store.selectors'
 import { ServerEndpointsEnum } from 'src/app/core/enums/server-endpoints.enum'
+import { IAuthUser } from 'src/app/core/interfaces/user.interfaces'
 
-interface IAuth {
-  login: string
-  password: string
-}
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  // accessToken?: string | null
 
   isAuth$ = this.store$.pipe(
     select(isAuthData)
@@ -31,20 +27,20 @@ export class AuthService {
     private store$: Store
   ) { }
 
-  login(body: IAuth): Observable<AuthData> {
+  login(body: IAuthUser): Observable<AuthData> {
     return this.httpClient
       .post<{ accessToken: string }>(ServerEndpointsEnum.Login, body)
       .pipe(
         map(res => ({
-            ...res,
-            ...this.jwtHelperService.decodeToken(res.accessToken)
+          ...res,
+          ...this.jwtHelperService.decodeToken(res.accessToken)
         }))
       )
   }
 
-  register(body: IAuth): Observable<AuthData> {
+  register(body: IAuthUser): Observable<AuthData> {
     return this.httpClient
-      .post<any>(ServerEndpointsEnum.Register, body)
+      .post<{ accessToken: string }>(ServerEndpointsEnum.Register, body)
       .pipe(
         map(res => ({
             ...res,

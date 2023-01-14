@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { select, Store } from '@ngrx/store'
 import { first, Observable } from 'rxjs'
 import { ServerEndpointsEnum } from 'src/app/core/enums/server-endpoints.enum'
+import { IAuthUser } from 'src/app/core/interfaces/user.interfaces'
 import { login, loginSkipError } from 'src/app/store/auth-store/store/auth-store.actions'
 import * as authSelectors from 'src/app/store/auth-store/store/auth-store.selectors'
 
@@ -20,10 +21,9 @@ export class LoginBlockComponent {
 
   constructor(
     private store$: Store,
-    // private httpClient: HttpClient,
   ) { }
 
-  onLogin(loginPayload: {login: string, password: string}) {
+  onLogin(loginPayload: IAuthUser) {
     this.store$.dispatch(login(loginPayload))
   }
 

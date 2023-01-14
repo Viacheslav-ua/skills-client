@@ -1,9 +1,10 @@
 import { createAction, props } from "@ngrx/store";
+import { IAuthUser } from "src/app/core/interfaces/user.interfaces";
 import { AuthData } from "./auth-store.reducer";
 
 export const login = createAction(
   '[Auth] Login',
-  props<{ login: string, password: string }>()
+  props<IAuthUser>()
 )
 
 export const loginSuccess = createAction(
@@ -34,4 +35,19 @@ export const logoutSuccess = createAction(
 
 export const extractLoginData = createAction(
   '[Auth] Extract Login Data'
+)
+
+export const register = createAction(
+  '[Auth] Register',
+  props<IAuthUser>()
+)
+
+export const registerSuccess = createAction(
+  '[Auth] Register Success',
+  props<{ authData: AuthData }>()
+)
+
+export const registerFailed = createAction(
+  '[Auth] Register Failed',
+  props<{ serverError: string }>()
 )

@@ -1,4 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { select, Store } from '@ngrx/store'
+import { first, Observable } from 'rxjs'
+import { IAuthUser } from 'src/app/core/interfaces/user.interfaces'
+import { loginSkipError, register } from 'src/app/store/auth-store/store/auth-store.actions'
+import * as authSelectors from 'src/app/store/auth-store/store/auth-store.selectors'
 
 @Component({
   selector: 'app-register-block',
@@ -6,4 +11,26 @@ import { ChangeDetectionStrategy, Component } from '@angular/core'
   styleUrls: ['./register-block.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RegisterBlockComponent {}
+export class RegisterBlockComponent {
+  loading$: Observable<boolean> = this.store$.pipe(select(authSelectors.getLoading))
+  loaded$: Observable<boolean> = this.store$.pipe(select(authSelectors.getLoaded))
+  serverError$: Observable<string> = this.store$.pipe(select(authSelectors.getServerError))
+
+  constructor(
+    private store$: Store,
+  ) { }
+
+  onRegister(registerPayload: IAuthUser) {
+    this.store$.dispatch(register(registerPayload))
+  }
+
+  onErrorSkip() {
+     this.serverError$.pipe(
+      first(),
+    ).subscribe((err) => {
+      if (err) {
+        this.store$.dispatch(loginSkipError())
+      }
+    })
+  }
+}

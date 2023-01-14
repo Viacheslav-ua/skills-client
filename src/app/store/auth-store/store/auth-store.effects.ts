@@ -8,7 +8,7 @@ import {
 import { AppRouteEnum } from "src/app/core/enums"
 import { AuthService } from "../services/auth.service"
 import {
-  extractLoginData, initAuth, login, loginFailed, loginSkipError, loginSuccess, logout, logoutSuccess
+  extractLoginData, initAuth, login, loginFailed, loginSkipError, loginSuccess, logout, logoutSuccess, register
 } from "./auth-store.actions"
 import { AuthData } from "./auth-store.reducer"
 import { isAuth } from "./auth-store.selectors"
@@ -29,7 +29,26 @@ export class AuthEffects {
 
       catchError(
         error => (of(loginFailed({
-          serverError: error.message,
+          serverError: error.error.message,
+          }),
+        ))
+      )
+    ))
+  ))
+  register$ = createEffect(() => this.actions$.pipe(
+    ofType(register),
+     switchMap(action => this.authService.register({
+      login: action.login,
+      password: action.password,
+    }).pipe(
+      map((authData: AuthData) => {
+       this.router.navigateByUrl(AppRouteEnum.Contacts)
+       return loginSuccess({ authData })
+      }),
+
+      catchError(
+        error => (of(loginFailed({
+          serverError: error.error.message,
           }),
         ))
       )
