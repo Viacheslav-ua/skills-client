@@ -25,6 +25,12 @@ const routes: Routes = [
     loadChildren: () => import('../user/user.module')
       .then(module => module.UserModule),
   },
+  {
+    path: AppRouteEnum.Todos,
+    component: LayoutComponent,
+    loadChildren: () => import('../todos/todos.module')
+      .then(module => module.TodosModule),
+  },
 
 ]
 
