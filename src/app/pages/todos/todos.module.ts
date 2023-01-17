@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodosComponent } from './todos.component';
 import { TodosRoutingModule } from './todos.routing';
+import { TodoListBlockModule } from 'src/app/view/todo-list-block/todo-list-block.module';
 
 
 
@@ -12,6 +13,7 @@ import { TodosRoutingModule } from './todos.routing';
   imports: [
     CommonModule,
     TodosRoutingModule,
+    TodoListBlockModule,
 
   ]
 })
