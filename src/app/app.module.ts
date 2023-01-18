@@ -9,6 +9,7 @@ import { environment } from '../environments/environment'
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app.routing'
 import { AuthStoreModule } from './store/auth-store/auth-store.module'
+import { TodoStoreModule } from './store/todo-store/todo-store.module'
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { AuthStoreModule } from './store/auth-store/auth-store.module'
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreRouterConnectingModule.forRoot(),
     AuthStoreModule,
+    TodoStoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

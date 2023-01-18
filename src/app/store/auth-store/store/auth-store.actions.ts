@@ -18,7 +18,7 @@ export const loginFailed = createAction(
 )
 
 export const loginSkipError = createAction(
-  '[Admin Auth] Login Skip Error',
+  '[Auth] Login Skip Error',
 )
 
 export const initAuth = createAction(

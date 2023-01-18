@@ -65,20 +65,20 @@ export const AuthReducer = createReducer(
     ...store,
     loading: true,
   })),
-  on(registerSuccess, (state, { authData }) => ({
-    ...state,
+  // on(registerSuccess, (state, { authData }) => ({
+    // ...state,
     // authData,
     // loaded: true,
     // loadAuthData: true,
-    loading: false,
+    // loading: false,
     // serverError: '',
-  })),
-  on(registerFailed, (state, { serverError }) => ({
-    ...state,
+  // })),
+  // on(registerFailed, (state, { serverError }) => ({
+    // ...state,
     // authData: null,
     // loaded: true,
     // loadAuthData: true,
-    loading: false,
+    // loading: false,
     // serverError,
-  })),
+  // })),
 )
