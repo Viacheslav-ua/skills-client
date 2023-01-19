@@ -26,6 +26,6 @@ export const update = createAction(
 //   props<{ serverError: string }>()
 // )
 
-// export const loginSkipError = createAction(
-//   '[Todo] Todo Skip Error',
-// )
+export const todoSkipError = createAction(
+  '[Todo] Todo Skip Error',
+)

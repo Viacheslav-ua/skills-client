@@ -1,1 +1,14 @@
-<p>todo-list-ui works!</p>
+<ul>
+  <li *ngFor="let todo of todoData$ | async">
+    <input
+      type="checkbox"
+      name="isCompleted"
+      [checked]="todo.isCompleted"
+      (change)="onComplete(todo)"
+      >
+    <span *ngIf="!todo.isCompleted">{{ todo.title }}</span>
+    <span *ngIf="todo.isCompleted"><del>{{ todo.title }}</del></span>
+    <span (click)="onRemove(todo)">Remove!</span>
+  </li>
+</ul>
+

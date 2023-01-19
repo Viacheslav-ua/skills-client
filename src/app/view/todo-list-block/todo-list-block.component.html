@@ -1,2 +1,14 @@
-<p>todo-list-block works!</p>
-<app-todo-list-ui></app-todo-list-ui>
+<app-add-form-ui
+  [formError]="serverError$ | async"
+  [disabled]="loading$ | async"
+  (add)="onCreate($event)"
+  (errorSkip)="onErrorSkip()"
+></app-add-form-ui>
+
+<app-todo-list-ui
+  [todoData$]="todoData$"
+  (remove)="onRemove($event)"
+  (toggleComplete)="onToggleComplete($event)"
+></app-todo-list-ui>
+
+<span *ngIf="loading$ | async"><b><i>LOADING...</i></b></span>
