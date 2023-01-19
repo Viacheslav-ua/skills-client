@@ -10,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 export class RegisterBlockUiComponent implements OnInit {
 
   public formGroup!: FormGroup
-  public isEquate: boolean = false
+  private isEquate: boolean = false
 
   @Input() public formError: string | null = ''
   @Input() public disabled!: boolean | null
@@ -42,7 +42,7 @@ export class RegisterBlockUiComponent implements OnInit {
   }
 
   public get submitDisabled(): boolean {
-    return this.disabled || this.formGroup.invalid || !! this.formError
+    return this.disabled || this.formGroup.invalid || !! this.formError || !this.isEquate
   }
 
 }
