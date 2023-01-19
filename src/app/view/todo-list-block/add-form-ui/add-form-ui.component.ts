@@ -9,13 +9,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddFormUiComponent implements OnInit {
 
-  formGroup!: FormGroup
+  public formGroup!: FormGroup
 
-  @Input() formError: string | null = ''
-  @Input() disabled!: boolean | null
+  @Input() public formError: string | null = ''
+  @Input() public disabled!: boolean | null
 
-  @Output() add = new EventEmitter()
-  @Output() errorSkip = new EventEmitter()
+  @Output() public add = new EventEmitter()
+  @Output() public errorSkip = new EventEmitter()
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
@@ -23,11 +23,15 @@ export class AddFormUiComponent implements OnInit {
     })
   }
 
-  onFormChange() {
+  public onFormChange():void {
     this.errorSkip.emit()
   }
 
-   onSubmit() {
+  public onSubmit():void {
     this.add.emit(this.formGroup.value)
+  }
+
+  public get submitDisabled(): boolean {
+    return this.disabled || this.formGroup.invalid || !! this.formError
   }
 }

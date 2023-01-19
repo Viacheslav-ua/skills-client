@@ -13,19 +13,19 @@ import * as authSelectors from 'src/app/store/auth-store/store/auth-store.select
 })
 export class LoginBlockComponent {
 
-  loading$: Observable<boolean> = this.store$.pipe(select(authSelectors.getLoading))
-  loaded$: Observable<boolean> = this.store$.pipe(select(authSelectors.getLoaded))
-  serverError$: Observable<string> = this.store$.pipe(select(authSelectors.getServerError))
+  public loading$: Observable<boolean> = this.store$.pipe(select(authSelectors.getLoading))
+  public loaded$: Observable<boolean> = this.store$.pipe(select(authSelectors.getLoaded))
+  public serverError$: Observable<string> = this.store$.pipe(select(authSelectors.getServerError))
 
   constructor(
     private store$: Store,
   ) { }
 
-  onLogin(loginPayload: IAuthUser) {
+  public onLogin(loginPayload: IAuthUser):void {
     this.store$.dispatch(login(loginPayload))
   }
 
-  onErrorSkip() {
+  public onErrorSkip():void {
     this.serverError$.pipe(
       first(),
     ).subscribe((err) => {
@@ -35,7 +35,7 @@ export class LoginBlockComponent {
     })
   }
 
-  onLoginTest() {
+  public onLoginTest():void {
     this.onLogin({login: 'Test', password: 'test'})
   }
 }

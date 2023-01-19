@@ -15,7 +15,6 @@
         <b>Войти под тестовым именем</b>
       </button>
     </div>
-
   </div>
 
   <div class="container">
@@ -23,44 +22,39 @@
       Или зайти с помощью логина и пароля,
       предварительно зарегистрировавшись:
     </p>
-  <mat-form-field class="filed">
-    <mat-label>Логин</mat-label>
-    <input matInput formControlName="login">
-    <mat-error
-      *ngIf="formGroup.hasError('required', 'login')"
-    >Это поле обязательно</mat-error>
-  </mat-form-field>
-  <mat-form-field class="filed">
-    <mat-label>Пароль</mat-label>
-    <input matInput type="password" formControlName="password">
-    <mat-error
-      *ngIf="formGroup.hasError('required', 'password')"
-    >Это поле обязательно</mat-error>
-  </mat-form-field>
 
-  <div class="btn">
-    <button
-      mat-stroked-button color="primary"
-      [disabled]="disabled || formGroup.invalid || !! formError">
-      <b>Войти</b>
-    </button>
-    <a
-      class="btn-register"
-      routerLink="/registration"
-      mat-stroked-button color="primary">
-      <b>Зарегистрироваться</b>
-    </a>
+    <mat-form-field class="filed">
+      <mat-label>Логин</mat-label>
+      <input matInput formControlName="login">
+      <mat-error
+        *ngIf="formGroup.hasError('required', 'login')"
+      >Это поле обязательно</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="filed">
+      <mat-label>Пароль</mat-label>
+      <input matInput type="password" formControlName="password">
+      <mat-error
+        *ngIf="formGroup.hasError('required', 'password')"
+      >Это поле обязательно</mat-error>
+    </mat-form-field>
+
+    <div class="btn">
+      <button
+        mat-stroked-button color="primary"
+        [disabled]="submitDisabled">
+        <b>Войти</b>
+      </button>
+      <a
+        class="btn-register"
+        routerLink="/registration"
+        mat-stroked-button color="primary">
+        <b>Зарегистрироваться</b>
+      </a>
+    </div>
   </div>
-  </div>
-
-
-
 
   <div class="error">
     <mat-error *ngIf="formError">{{ formError }}</mat-error>
   </div>
-
-
-  <!-- {{ formGroup.value | json }} -->
-
 </form>

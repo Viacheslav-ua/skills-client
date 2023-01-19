@@ -12,19 +12,19 @@ import * as authSelectors from 'src/app/store/auth-store/store/auth-store.select
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterBlockComponent {
-  loading$: Observable<boolean> = this.store$.pipe(select(authSelectors.getLoading))
-  loaded$: Observable<boolean> = this.store$.pipe(select(authSelectors.getLoaded))
-  serverError$: Observable<string> = this.store$.pipe(select(authSelectors.getServerError))
+  public loading$: Observable<boolean> = this.store$.pipe(select(authSelectors.getLoading))
+  public loaded$: Observable<boolean> = this.store$.pipe(select(authSelectors.getLoaded))
+  public serverError$: Observable<string> = this.store$.pipe(select(authSelectors.getServerError))
 
   constructor(
     private store$: Store,
   ) { }
 
-  onRegister(registerPayload: IAuthUser) {
+  public onRegister(registerPayload: IAuthUser) {
     this.store$.dispatch(register(registerPayload))
   }
 
-  onErrorSkip() {
+  public onErrorSkip() {
      this.serverError$.pipe(
       first(),
     ).subscribe((err) => {

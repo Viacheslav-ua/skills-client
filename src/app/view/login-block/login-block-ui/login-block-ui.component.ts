@@ -11,15 +11,15 @@ export class LoginBlockUiComponent implements OnInit {
 
   formGroup!: FormGroup
 
-  @Input() formError: string | null = ''
-  @Input() disabled!: boolean | null
+  @Input() public formError: string | null = ''
+  @Input() public disabled!: boolean | null
 
   @Output()
-  login = new EventEmitter()
+  public login = new EventEmitter()
   @Output()
-  errorSkip = new EventEmitter()
+  public errorSkip = new EventEmitter()
   @Output()
-  loginTest = new EventEmitter()
+  public loginTest = new EventEmitter()
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
@@ -28,17 +28,21 @@ export class LoginBlockUiComponent implements OnInit {
     })
   }
 
-  onFormChange() {
+  public onFormChange(): void {
     this.errorSkip.emit()
   }
 
-  onLoginTest(e: MouseEvent) {
+  public onLoginTest(e: MouseEvent): void {
     e.preventDefault()
     this.loginTest.emit()
   }
 
-  onSubmit() {
+  public onSubmit(): void {
     this.login.emit(this.formGroup.value)
+  }
+
+  public get submitDisabled(): boolean {
+    return this.disabled || this.formGroup.invalid || !! this.formError
   }
 
 }

@@ -11,19 +11,19 @@ import { Todo } from 'src/app/store/todo-store/store/todo-store.reducer'
 })
 export class TodoListUiComponent implements OnInit {
 
-  @Input() todoData$!: Observable<Todo[]>
+  @Input() public todoData$!: Observable<Todo[]>
 
-  @Output() remove = new EventEmitter()
-  @Output() toggleComplete = new EventEmitter()
+  @Output() public remove = new EventEmitter()
+  @Output() public toggleComplete = new EventEmitter()
 
   ngOnInit(): void {
   }
 
-  onRemove(todo : Todo) {
+  public onRemove(todo : Todo):void {
     // this.todoService.delete(todo)
   }
 
-  onComplete(todo: Todo) {
+  public onComplete(todo: Todo):void {
     // this.todoService.update({...todo, isCompleted: !todo.isCompleted})
   }
 }

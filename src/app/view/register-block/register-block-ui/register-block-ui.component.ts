@@ -9,16 +9,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class RegisterBlockUiComponent implements OnInit {
 
-  formGroup!: FormGroup
-  isEquate: boolean = false
+  public formGroup!: FormGroup
+  public isEquate: boolean = false
 
-  @Input() formError: string | null = ''
-  @Input() disabled!: boolean | null
+  @Input() public formError: string | null = ''
+  @Input() public disabled!: boolean | null
 
   @Output()
-  register = new EventEmitter()
+  public register = new EventEmitter()
   @Output()
-  errorSkip = new EventEmitter()
+  public errorSkip = new EventEmitter()
 
 
   ngOnInit(): void {
@@ -29,17 +29,20 @@ export class RegisterBlockUiComponent implements OnInit {
     })
   }
 
-  onFormChange() {
+  public onFormChange():void {
     this.errorSkip.emit()
   }
 
-  onSubmit() {
+  public onSubmit():void {
     this.register.emit(this.formGroup.value)
   }
 
-  onChangePass() {
+  public onChangePass(): void {
     this.isEquate = this.formGroup.value.password === this.formGroup.value.confirmPassword ? true : false
+  }
 
+  public get submitDisabled(): boolean {
+    return this.disabled || this.formGroup.invalid || !! this.formError
   }
 
 }

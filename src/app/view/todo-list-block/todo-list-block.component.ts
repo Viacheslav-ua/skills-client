@@ -14,9 +14,9 @@ import * as todoSelectors from 'src/app/store/todo-store/store/todo-store.select
 })
 export class TodoListBlockComponent  implements OnInit {
 
-  todoData$: Observable<Todo[]> = this.store$.pipe(select(todoSelectors.getTodoData))
-  loading$: Observable<boolean> = this.store$.pipe(select(todoSelectors.getLoading))
-  serverError$: Observable<string> = this.store$.pipe(select(todoSelectors.getServerError))
+  public todoData$: Observable<Todo[]> = this.store$.pipe(select(todoSelectors.getTodoData))
+  public loading$: Observable<boolean> = this.store$.pipe(select(todoSelectors.getLoading))
+  public serverError$: Observable<string> = this.store$.pipe(select(todoSelectors.getServerError))
 
   constructor(
     private store$: Store,
@@ -26,11 +26,11 @@ export class TodoListBlockComponent  implements OnInit {
 
   }
 
-  onCreate(e: ICreateTodo) {
+  public onCreate(e: ICreateTodo):void {
 
   }
 
-  onErrorSkip() {
+  public onErrorSkip():void {
     this.serverError$.pipe(
       first(),
     ).subscribe((err) => {
@@ -40,11 +40,11 @@ export class TodoListBlockComponent  implements OnInit {
     })
   }
 
-  onRemove(e: Todo) {
+  public onRemove(e: Todo):void {
 
   }
 
-  onToggleComplete(e: Todo) {
+  public onToggleComplete(e: Todo):void {
 
   }
 }

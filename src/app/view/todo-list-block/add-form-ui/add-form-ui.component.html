@@ -3,17 +3,23 @@
   (input)="onFormChange()"
   (ngSubmit)="onSubmit()"
 >
-  <mat-form-field class="filed">
-    <mat-label>Описание</mat-label>
-    <input matInput formControlName="title">
-    <mat-error
-      *ngIf="formGroup.hasError('required', 'title')"
-    >Поле не должно быть пустым</mat-error>
-  </mat-form-field>
+  <div>
+    <mat-form-field class="filed">
+      <mat-label>Описание</mat-label>
+      <input matInput formControlName="title">
+      <mat-error
+        *ngIf="formGroup.hasError('required', 'title')"
+      >Поле не должно быть пустым</mat-error>
+    </mat-form-field>
 
-  <button
-    mat-stroked-button color="primary"
-    [disabled]="disabled || formGroup.invalid || !! formError">
-      <b>Добавить</b>
-  </button>
+    <button
+      mat-stroked-button color="primary"
+      [disabled]="submitDisabled">
+        <b>Добавить</b>
+    </button>
+  </div>
+
+  <div class="error">
+    <mat-error *ngIf="formError">{{ formError }}</mat-error>
+  </div>
 </form>

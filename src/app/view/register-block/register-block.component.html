@@ -1,8 +1,8 @@
 <app-register-block-ui
-*ngIf="loaded$ | async"
-[formError]="serverError$ | async"
-[disabled]="loading$ | async"
-(register)="onRegister($event)"
-(errorSkip)="onErrorSkip()"
+  *ngIf="loaded$ | async"
+  [formError]="serverError$ | async"
+  [disabled]="loading$ | async"
+  (register)="onRegister($event)"
+  (errorSkip)="onErrorSkip()"
 >
 </app-register-block-ui>
