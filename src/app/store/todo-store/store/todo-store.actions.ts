@@ -1,8 +1,12 @@
 import { createAction, props } from "@ngrx/store";
 import { ICreateTodo, IUpdateTodo } from "src/app/core/interfaces/todo.interfaces";
+import { Todo } from "./todo-store.reducer";
 // import { Todo } from "./todo-store.reducer";
 
 
+export const getAll = createAction(
+  '[Todo] getAll'
+)
 export const add = createAction(
   '[Todo] Add',
   props<ICreateTodo>()
@@ -16,10 +20,10 @@ export const update = createAction(
   props<IUpdateTodo>()
 )
 
-// export const success = createAction(
-//   '[Todo] Success',
-//   props<{ todoData: Todo[] }>()
-// )
+export const getAllSuccess = createAction(
+  '[Todo] Todo Get All Success',
+  props<{ todoData: Todo[] }>()
+)
 
 // export const failed = createAction(
 //   '[Todo] Failed',
