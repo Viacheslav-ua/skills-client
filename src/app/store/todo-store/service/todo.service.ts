@@ -17,6 +17,6 @@ export class TodoService {
 
   getAllTasks(): Observable<Todo[]> {
     return this.httpClient
-      .get<Todo[]>(BACKEND_BASE_DOMAIN + Endpoints.Todo)
+      .get<Todo[]>(BACKEND_BASE_DOMAIN + Endpoints.Todo + '6')
   }
 }

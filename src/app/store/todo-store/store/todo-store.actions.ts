@@ -20,15 +20,15 @@ export const update = createAction(
   props<IUpdateTodo>()
 )
 
-export const getAllSuccess = createAction(
-  '[Todo] Todo Get All Success',
+export const todoSuccess = createAction(
+  '[Todo] Todo Action Success',
   props<{ todoData: Todo[] }>()
 )
 
-// export const failed = createAction(
-//   '[Todo] Failed',
-//   props<{ serverError: string }>()
-// )
+export const todoFailed = createAction(
+  '[Todo]  Todo Action Failed',
+  props<{ serverError: string }>()
+)
 
 export const todoSkipError = createAction(
   '[Todo] Todo Skip Error',
