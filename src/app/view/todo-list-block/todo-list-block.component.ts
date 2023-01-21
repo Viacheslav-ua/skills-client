@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
 import { first, Observable } from 'rxjs'
 import { ICreateTodo } from 'src/app/core/interfaces/todo.interfaces'
-import { add, getAll, todoSkipError } from 'src/app/store/todo-store/store/todo-store.actions'
+import { remove, add, getAll } from 'src/app/store/todo-store/store/todo-store.actions'
 import { Todo } from 'src/app/store/todo-store/store/todo-store.reducer'
 import * as todoSelectors from 'src/app/store/todo-store/store/todo-store.selectors'
 
@@ -32,8 +32,8 @@ export class TodoListBlockComponent  implements OnInit {
     }
   }
 
-  public onRemove(e: Todo):void {
-
+  public onRemove(id: number):void {
+    this.store$.dispatch(remove({ id }))
   }
 
   public onToggleComplete(e: Todo):void {

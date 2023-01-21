@@ -20,7 +20,7 @@ export class TodoListUiComponent implements OnInit {
   }
 
   public onRemove(todo : Todo):void {
-    // this.todoService.delete(todo)
+    this.remove.emit(todo.id)
   }
 
   public onComplete(todo: Todo):void {
