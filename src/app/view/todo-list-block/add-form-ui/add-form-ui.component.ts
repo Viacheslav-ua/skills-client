@@ -19,7 +19,7 @@ export class AddFormUiComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
-      title: new FormControl('', [Validators.required]),
+      title: new FormControl(''),
     })
   }
 
@@ -27,11 +27,12 @@ export class AddFormUiComponent implements OnInit {
     this.errorSkip.emit()
   }
 
-  public onSubmit():void {
+  public onSubmit(): void {
     this.add.emit(this.formGroup.value)
+    this.formGroup.setValue({ title: '' })
   }
 
   public get submitDisabled(): boolean {
-    return this.disabled || this.formGroup.invalid || !! this.formError
+    return this.disabled || !this.formGroup.value.title || !! this.formError
   }
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { Endpoints } from 'src/app/core/enums/server-endpoints.enum';
 import { BACKEND_BASE_DOMAIN } from 'src/env';
 import { Todo } from '../store/todo-store.reducer';
@@ -17,6 +17,15 @@ export class TodoService {
 
   getAllTasks(): Observable<Todo[]> {
     return this.httpClient
-      .get<Todo[]>(BACKEND_BASE_DOMAIN + Endpoints.Todo + '6')
+      .get<Todo[]>(BACKEND_BASE_DOMAIN + Endpoints.Todo)
+  }
+
+  addTask(title: string): Observable<Todo> {
+
+    return this.httpClient
+      .post<Todo>(
+        BACKEND_BASE_DOMAIN + Endpoints.Todo,
+        { title }
+    )
   }
 }

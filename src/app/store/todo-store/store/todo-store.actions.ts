@@ -25,6 +25,11 @@ export const todoSuccess = createAction(
   props<{ todoData: Todo[] }>()
 )
 
+export const todoAddSuccess = createAction(
+  '[Todo] Todo Add Success',
+  props<{ todo: Todo }>()
+)
+
 export const todoFailed = createAction(
   '[Todo]  Todo Action Failed',
   props<{ serverError: string }>()

@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store"
-import { getAll, todoFailed, todoSuccess } from "./todo-store.actions"
+import { add, getAll, todoAddSuccess, todoFailed, todoSuccess } from "./todo-store.actions"
 
 
 export const TODO_FEATURE_NAME = 'todo'
@@ -34,9 +34,19 @@ export const TodoReducer = createReducer(
     ...store,
     loading: true
   })),
+  on(add, store => ({
+    ...store,
+    loading: true
+  })),
   on(todoSuccess, (state, { todoData }) => ({
     ...state,
     todoData,
+    loading: false,
+    serverError: '',
+  })),
+  on(todoAddSuccess, (state, { todo }) => ({
+    ...state,
+    todoData: [...state.todoData, todo],
     loading: false,
     serverError: '',
   })),
