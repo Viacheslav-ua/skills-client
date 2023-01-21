@@ -4,32 +4,56 @@
   (input)="onFormChange()"
   (ngSubmit)="onSubmit()"
 >
-  <h2 class="header">Регистрация</h2>
+  <h2 class="header">Registration</h2>
 
   <div class="container">
 
     <mat-form-field class="filed">
-      <mat-label>Логин</mat-label>
+      <mat-label>Enter your login</mat-label>
       <input matInput formControlName="login">
       <mat-error
         *ngIf="formGroup.hasError('required', 'login')"
-      >Это поле обязательно</mat-error>
+      >This field is required</mat-error>
     </mat-form-field>
 
-    <mat-form-field class="filed">
-      <mat-label>Пароль</mat-label>
-      <input matInput type="password" (input)="onChangePass()" formControlName="password">
+    <mat-form-field class="filed" appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'"
+        (input)="onChangePass()"
+        formControlName="password">
+
       <mat-error
         *ngIf="formGroup.hasError('required', 'password')"
-      >Это поле обязательно</mat-error>
+      >This field is required</mat-error>
+
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
     </mat-form-field>
 
-    <mat-form-field class="filed">
-      <mat-label>Підтвердженя пароля</mat-label>
-      <input matInput type="password" (input)="onChangePass()" formControlName="confirmPassword">
+    <mat-form-field class="filed"class="filed" appearance="fill">
+      <mat-label>Confirm your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'"
+        (input)="onChangePass()"
+        formControlName="confirmPassword">
+
       <mat-error
         *ngIf="formGroup.hasError('required', 'confirmPassword')"
-      >Це поле обов'язкове</mat-error>
+      >This field is required</mat-error>
+
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
     </mat-form-field>
 
 
@@ -37,13 +61,13 @@
       <button
         mat-stroked-button color="primary"
         [disabled]="submitDisabled">
-        <b>Зарегистрироваться</b>
+        <b>Sign up</b>
       </button>
       <a
         class="btn-auth"
         routerLink="/login"
         mat-stroked-button color="primary">
-        <b>Авторизация</b>
+        <b>Authorization</b>
       </a>
     </div>
 
@@ -51,5 +75,6 @@
 
   <div class="error">
     <mat-error *ngIf="formError">{{ formError }}</mat-error>
+    <mat-error>ljash wefwefwef qewf q2e wqeg</mat-error>
   </div>
 </form>

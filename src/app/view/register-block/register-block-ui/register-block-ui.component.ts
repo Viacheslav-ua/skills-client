@@ -9,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class RegisterBlockUiComponent implements OnInit {
 
+  public hide = true;
   public formGroup!: FormGroup
   private isEquate: boolean = false
 
