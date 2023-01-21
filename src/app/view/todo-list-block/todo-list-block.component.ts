@@ -32,16 +32,6 @@ export class TodoListBlockComponent  implements OnInit {
     }
   }
 
-  public onErrorSkip():void {
-    this.serverError$.pipe(
-      first(),
-    ).subscribe((err) => {
-      if (err) {
-        this.store$.dispatch(todoSkipError())
-      }
-    })
-  }
-
   public onRemove(e: Todo):void {
 
   }

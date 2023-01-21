@@ -11,7 +11,7 @@ export class AddFormUiComponent implements OnInit {
 
   public formGroup!: FormGroup
 
-  @Input() public formError: string | null = ''
+  @Input() public serverError: string | null = ''
   @Input() public disabled!: boolean | null
 
   @Output() public add = new EventEmitter()
@@ -23,16 +23,12 @@ export class AddFormUiComponent implements OnInit {
     })
   }
 
-  public onFormChange():void {
-    this.errorSkip.emit()
-  }
-
   public onSubmit(): void {
     this.add.emit(this.formGroup.value)
     this.formGroup.setValue({ title: '' })
   }
 
   public get submitDisabled(): boolean {
-    return this.disabled || !this.formGroup.value.title || !! this.formError
+    return this.disabled || !this.formGroup.value.title //|| !! this.formError
   }
 }

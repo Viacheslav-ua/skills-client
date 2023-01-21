@@ -1,15 +1,11 @@
 <form
   [formGroup]="formGroup"
-  (input)="onFormChange()"
   (ngSubmit)="onSubmit()"
 >
   <div>
     <mat-form-field class="filed">
       <mat-label>Title</mat-label>
       <input matInput formControlName="title">
-      <!-- <mat-error
-        *ngIf="formGroup.hasError('required', 'title')"
-      >Поле не должно быть пустым</mat-error> -->
     </mat-form-field>
 
     <button
@@ -20,6 +16,6 @@
   </div>
 
   <div class="error">
-    <mat-error *ngIf="formError">{{ formError }}</mat-error>
+    <mat-error *ngIf="serverError">{{ serverError }}</mat-error>
   </div>
 </form>
