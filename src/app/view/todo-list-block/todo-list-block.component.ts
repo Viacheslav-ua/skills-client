@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
-import { first, Observable } from 'rxjs'
+import { Observable } from 'rxjs'
 import { ICreateTodo } from 'src/app/core/interfaces/todo.interfaces'
-import { remove, add, getAll } from 'src/app/store/todo-store/store/todo-store.actions'
+import { remove, add, getAll, loadingStatusStart } from 'src/app/store/todo-store/store/todo-store.actions'
 import { Todo } from 'src/app/store/todo-store/store/todo-store.reducer'
 import * as todoSelectors from 'src/app/store/todo-store/store/todo-store.selectors'
 
@@ -15,7 +15,7 @@ import * as todoSelectors from 'src/app/store/todo-store/store/todo-store.select
 export class TodoListBlockComponent  implements OnInit {
 
   public todoData$: Observable<Todo[]> = this.store$.pipe(select(todoSelectors.getTodoData))
-  public loading$: Observable<boolean> = this.store$.pipe(select(todoSelectors.getLoading))
+  public loading$: Observable<boolean> = this.store$.pipe(select(todoSelectors.getLoadingDelay))
   public serverError$: Observable<string> = this.store$.pipe(select(todoSelectors.getServerError))
 
   constructor(
@@ -23,16 +23,19 @@ export class TodoListBlockComponent  implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.store$.dispatch(loadingStatusStart())
     this.store$.dispatch(getAll())
   }
 
   public onCreate(payload: ICreateTodo):void {
     if (payload) {
+      this.store$.dispatch(loadingStatusStart())
       this.store$.dispatch(add(payload))
     }
   }
 
-  public onRemove(id: number):void {
+  public onRemove(id: number): void {
+    this.store$.dispatch(loadingStatusStart())
     this.store$.dispatch(remove({ id }))
   }
 

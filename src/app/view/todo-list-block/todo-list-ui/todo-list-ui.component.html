@@ -1,4 +1,4 @@
-<ul>
+<!-- <ul>
   <li *ngFor="let todo of todoData$ | async">
     <input
       type="checkbox"
@@ -10,5 +10,31 @@
     <span *ngIf="todo.isCompleted"><del>{{ todo.title }}</del></span>
     <span (click)="onRemove(todo)">Remove!</span>
   </li>
-</ul>
+</ul> -->
+
+<table class="table">
+  <tr class="table-head">
+    <td class="cell-item"></td>
+    <td class="cell-status">Status</td>
+    <td class="cell-title">Title</td>
+    <td class="cell-created">Created</td>
+    <td class="cell-conteht">Content</td>
+    <td class="cell-item"></td>
+    <td class="cell-item"></td>
+  </tr>
+
+  <tr *ngFor="let todo of todoData$ | async" class="row-reactive">
+    <td></td>
+    <td></td>
+    <td>
+      <span *ngIf="!todo.isCompleted">{{ todo.title }}</span>
+      <span *ngIf="todo.isCompleted"><del>{{ todo.title }}</del></span>
+    </td>
+    <td>{{ todo.createdAt }}</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
 

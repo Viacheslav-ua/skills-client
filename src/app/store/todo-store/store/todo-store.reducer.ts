@@ -1,5 +1,8 @@
 import { createReducer, on } from "@ngrx/store"
-import { add, getAll, remove, todoAddSuccess, todoFailed, todoRemoveSuccess, todoSuccess } from "./todo-store.actions"
+import {
+  add, getAll, loadingStatusDelay, remove, todoAddSuccess, todoFailed,
+  todoRemoveSuccess, todoSuccess
+} from "./todo-store.actions"
 
 
 export const TODO_FEATURE_NAME = 'todo'
@@ -16,6 +19,7 @@ export interface Todo {
 
 export interface TodoState {
   loading: boolean
+  loadingDelay: boolean
   loadTodoData: boolean
   serverError: string
   todoData: Todo[]
@@ -23,6 +27,7 @@ export interface TodoState {
 
 const initialState: TodoState = {
   loading: false,
+  loadingDelay: false,
   loadTodoData: false,
   serverError: '',
   todoData: []
@@ -30,34 +35,43 @@ const initialState: TodoState = {
 
 export const TodoReducer = createReducer(
   initialState,
-  on(getAll, add, remove, store => ({
-    ...store,
+  on(getAll, add, remove, state => ({
+    ...state,
     loading: true
+  })),
+
+  on(loadingStatusDelay, state => ({
+    ...state,
+    loadingDelay: state.loading ? true : false
   })),
 
    on(todoFailed, (state, { serverError }) => ({
     ...state,
     todoData: [],
     loading: false,
+    loadingDelay: false,
     serverError,
-  })),
+   })),
 
   on(todoSuccess, (state, { todoData }) => ({
     ...state,
     todoData,
     loading: false,
+    loadingDelay: false,
     serverError: '',
   })),
   on(todoAddSuccess, (state, { todo }) => ({
     ...state,
     todoData: [...state.todoData, todo],
     loading: false,
+    loadingDelay: false,
     serverError: '',
   })),
   on(todoRemoveSuccess, (state, { id }) => ({
     ...state,
     todoData: state.todoData.filter(todo => todo.id !== id),
     loading: false,
+    loadingDelay: false,
     serverError: '',
   })),
 )

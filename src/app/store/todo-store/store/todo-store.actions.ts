@@ -1,7 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { ICreateTodo, IUpdateTodo } from "src/app/core/interfaces/todo.interfaces";
 import { Todo } from "./todo-store.reducer";
-// import { Todo } from "./todo-store.reducer";
 
 
 export const getAll = createAction(
@@ -18,6 +17,13 @@ export const remove = createAction(
 export const update = createAction(
   '[Todo] Update',
   props<IUpdateTodo>()
+)
+
+export const loadingStatusStart = createAction(
+  '[Todo] Loading Status Start',
+)
+export const loadingStatusDelay = createAction(
+  '[Todo] Loading Status Delay',
 )
 
 export const todoSuccess = createAction(

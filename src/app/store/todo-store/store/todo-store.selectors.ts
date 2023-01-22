@@ -8,6 +8,10 @@ export const getLoading = createSelector(
   getFeature,
   state => state.loading
 )
+export const getLoadingDelay = createSelector(
+  getFeature,
+  state => state.loading && state.loadingDelay
+)
 export const getServerError = createSelector(
   getFeature,
   state => state.serverError

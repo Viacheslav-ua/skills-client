@@ -1,9 +1,11 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { Store } from "@ngrx/store";
-import { catchError, map, of, switchMap, tap } from "rxjs";
+import { catchError, delay, map, of, switchMap } from "rxjs";
 import { TodoService } from "../service/todo.service";
-import { add, getAll, remove, todoAddSuccess, todoFailed, todoRemoveSuccess, todoSuccess } from "./todo-store.actions";
+import {
+  add, getAll, loadingStatusDelay, loadingStatusStart,
+  remove, todoAddSuccess, todoFailed, todoRemoveSuccess, todoSuccess
+} from "./todo-store.actions";
 
 
 @Injectable()
@@ -50,6 +52,12 @@ export class TodoEffects {
       ))
     ),
 
+  ))
+
+  loadingStatus$ = createEffect(() => this.actions$.pipe(
+    ofType(loadingStatusStart),
+    delay(500),
+    map(() => loadingStatusDelay())
   ))
 
   constructor(
