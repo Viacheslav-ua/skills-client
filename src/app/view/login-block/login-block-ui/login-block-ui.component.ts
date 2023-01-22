@@ -42,6 +42,11 @@ export class LoginBlockUiComponent implements OnInit {
     this.login.emit(this.formGroup.value)
   }
 
+  public onHide(e: MouseEvent) {
+    e.preventDefault()
+    this.hide = !this.hide
+  }
+
   public get submitDisabled(): boolean {
     return this.disabled || this.formGroup.invalid || !! this.formError
   }

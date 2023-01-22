@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { AddFormUiComponent } from './add-form-ui/add-form-ui.component';
 import { TodoListUiComponent } from './todo-list-ui/todo-list-ui.component'
+import { SpinnerComponent } from '../ui/spinner/spinner.component'
+import { SpinnerModule } from '../ui/spinner/spinner.module'
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { TodoListUiComponent } from './todo-list-ui/todo-list-ui.component'
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    SpinnerModule,
   ],
   exports: [TodoListBlockComponent],
 })

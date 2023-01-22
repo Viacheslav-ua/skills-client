@@ -29,7 +29,7 @@
       <button
         mat-icon-button
         matSuffix
-        (click)="hide = !hide"
+        (click)="onHide($event)"
         [attr.aria-label]="'Hide password'"
         [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -49,7 +49,7 @@
       <button
         mat-icon-button
         matSuffix
-        (click)="hide = !hide"
+        (click)="onHide($event)"
         [attr.aria-label]="'Hide password'"
         [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

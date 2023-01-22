@@ -42,6 +42,11 @@ export class RegisterBlockUiComponent implements OnInit {
     this.isEquate = this.formGroup.value.password === this.formGroup.value.confirmPassword ? true : false
   }
 
+  public onHide(e: MouseEvent) {
+    e.preventDefault()
+    this.hide = !this.hide
+  }
+
   public get submitDisabled(): boolean {
     return this.disabled || this.formGroup.invalid || !! this.formError || !this.isEquate
   }

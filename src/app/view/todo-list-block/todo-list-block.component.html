@@ -10,4 +10,4 @@
   (toggleComplete)="onToggleComplete($event)"
 ></app-todo-list-ui>
 
-<span *ngIf="loading$ | async"><b><i>LOADING...</i></b></span>
+<app-spinner *ngIf="loading$ | async"></app-spinner>
