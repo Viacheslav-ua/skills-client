@@ -9,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class LoginBlockUiComponent implements OnInit {
 
+  public hide = true;
   formGroup!: FormGroup
 
   @Input() public formError: string | null = ''
