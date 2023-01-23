@@ -20,6 +20,7 @@ export class TodoListUiComponent implements OnInit {
   @Output() public toggleComplete = new EventEmitter()
   @Output() public statusChange = new EventEmitter()
 
+
   ngOnInit(): void {
   }
 
@@ -30,5 +31,9 @@ export class TodoListUiComponent implements OnInit {
   public onSelectChange(e: MatSelectChange, todo : Todo): void {
     const isCompleted = e.value === 'done' ? true : false
     this.statusChange.emit({ ...todo, status: e.value, isCompleted})
+  }
+
+  public onDelete(id: number): void {
+  this.remove.emit(id)
   }
 }
