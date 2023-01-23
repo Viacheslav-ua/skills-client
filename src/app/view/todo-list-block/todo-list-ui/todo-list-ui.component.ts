@@ -3,6 +3,7 @@ import { Observable } from 'rxjs'
 import { Todo } from 'src/app/store/todo-store/store/todo-store.reducer'
 import { ISelectOptions } from 'src/app/core/interfaces/select.interfaces'
 import { MatSelectChange } from "@angular/material/select"
+import { ITodoExtended } from 'src/app/core/interfaces/todo.interfaces'
 
 @Component({
   selector: 'app-todo-list-ui',
@@ -12,7 +13,7 @@ import { MatSelectChange } from "@angular/material/select"
 })
 export class TodoListUiComponent implements OnInit {
 
-  @Input() public todoData$!: Observable<Todo[]>
+  @Input() public todoData$!: Observable<ITodoExtended[]>
   @Input() public taskStatus!: ISelectOptions[]
 
   @Output() public remove = new EventEmitter()

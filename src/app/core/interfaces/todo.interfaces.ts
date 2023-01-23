@@ -8,3 +8,15 @@ export interface IUpdateTodo {
   readonly isCompleted?: boolean
   readonly status?: string
 }
+
+export interface ITodoExtended {
+  id: number
+  title: string
+  description: string | null
+  isCompleted: boolean
+  status: string
+  createdAt: Date
+  updatedAt: Date
+  icon: string,
+  color: { color: string },
+}

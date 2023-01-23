@@ -5,7 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
-import {MatSelectModule} from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select'
+import { MatIconModule } from '@angular/material/icon'
 import { AddFormUiComponent } from './add-form-ui/add-form-ui.component'
 import { TodoListUiComponent } from './todo-list-ui/todo-list-ui.component'
 import { SpinnerModule } from '../ui/spinner/spinner.module'
@@ -24,6 +25,7 @@ import { SpinnerModule } from '../ui/spinner/spinner.module'
     MatButtonModule,
     MatSelectModule,
     SpinnerModule,
+    MatIconModule,
     ],
   exports: [TodoListBlockComponent],
 })

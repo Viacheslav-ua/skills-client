@@ -1,34 +1,54 @@
-<table class="table">
-  <tr class="table-head">
-    <td class="cell-item"></td>
-    <td class="cell-status">Status</td>
-    <td class="cell-item"></td>
-    <td class="cell-title">Title</td>
-    <td class="cell-created">Created</td>
-    <td class="cell-conteht">Content</td>
-    <td class="cell-item"></td>
-    <td class="cell-item"></td>
-  </tr>
+<table class="table container">
+  <!-- <tdead> -->
+      <tr class="table-head row">
+        <td class="cell-item"></td>
+        <td class="cell-status">Status</td>
+        <td class="cell-center"></td>
+        <td class="cell-title">Title</td>
+        <td class="cell-created">Created</td>
+        <td class="cell-conteht">Content</td>
+        <td class="cell-item"></td>
+        <td class="cell-item"></td>
+      </tr>
+    <!-- </tdead> -->
 
-  <tr *ngFor="let todo of todoData$ | async" class="row-reactive">
-    <td></td>
-    <td>
-      <mat-select [value]="todo.status" (selectionChange)="onSelectChange($event, todo)">
+  <tbody>
+    <tr *ngFor="let todo of todoData$ | async" class="row-reactive row">
+    <td class="">
+      <div class="cell-center">
+        <mat-icon aria-hidden="false" [style]="todo.color" >{{ todo.icon }}</mat-icon>
+      </div>
+    </td>
+    <td class="">
+      <mat-select [value]="todo.status" (selectionChange)="onSelectChange($event, todo)" class="select">
         <mat-option *ngFor="let status of taskStatus" [value]="status.value">
+
           {{status.viewValue}}
         </mat-option>
       </mat-select>
     </td>
     <td></td>
-    <td>
+    <td class="">
       <span *ngIf="!todo.isCompleted">{{ todo.title }}</span>
       <span *ngIf="todo.isCompleted"><del>{{ todo.title }}</del></span>
     </td>
-    <td>{{ todo.createdAt }}</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td class="">{{ todo.createdAt | date: 'dd/MM/YYYY' }}</td>
+    <td class=""></td>
+    <td class="">
+      <button mat-icon-button color="primary">
+        <mat-icon>border_color</mat-icon>
+      </button>
+    </td>
+    <td class="">
+      <button mat-icon-button>
+        <mat-icon style="color: #C62828">delete_forever</mat-icon>
+      </button>
+    </td>
   </tr>
+  </tbody>
+
+
+
 </table>
 
 
