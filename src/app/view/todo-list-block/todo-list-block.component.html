@@ -6,6 +6,7 @@
 
 <app-todo-list-ui
   [todoData$]="todoData$"
+  [taskStatus]="taskStatus"
   (remove)="onRemove($event)"
   (toggleComplete)="onToggleComplete($event)"
 ></app-todo-list-ui>

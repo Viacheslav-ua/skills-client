@@ -16,6 +16,7 @@
   <tr class="table-head">
     <td class="cell-item"></td>
     <td class="cell-status">Status</td>
+    <td class="cell-item"></td>
     <td class="cell-title">Title</td>
     <td class="cell-created">Created</td>
     <td class="cell-conteht">Content</td>
@@ -25,6 +26,13 @@
 
   <tr *ngFor="let todo of todoData$ | async" class="row-reactive">
     <td></td>
+    <td>
+      <mat-select [value]="todo.status">
+        <mat-option *ngFor="let status of taskStatus" [value]="status.value">
+          {{status.viewValue}}
+        </mat-option>
+      </mat-select>
+    </td>
     <td></td>
     <td>
       <span *ngIf="!todo.isCompleted">{{ todo.title }}</span>

@@ -5,7 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
-import { AddFormUiComponent } from './add-form-ui/add-form-ui.component';
+import {MatSelectModule} from '@angular/material/select'
+import { AddFormUiComponent } from './add-form-ui/add-form-ui.component'
 import { TodoListUiComponent } from './todo-list-ui/todo-list-ui.component'
 import { SpinnerModule } from '../ui/spinner/spinner.module'
 import { ListRowModule } from '../ui/list-row/list-row.module'
@@ -22,6 +23,7 @@ import { ListRowModule } from '../ui/list-row/list-row.module'
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatSelectModule,
     SpinnerModule,
     ListRowModule,
   ],
