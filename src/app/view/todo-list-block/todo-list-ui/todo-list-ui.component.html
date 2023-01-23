@@ -1,17 +1,3 @@
-<!-- <ul>
-  <li *ngFor="let todo of todoData$ | async">
-    <input
-      type="checkbox"
-      name="isCompleted"
-      [checked]="todo.isCompleted"
-      (change)="onComplete(todo)"
-      >
-    <span *ngIf="!todo.isCompleted">{{ todo.title }}</span>
-    <span *ngIf="todo.isCompleted"><del>{{ todo.title }}</del></span>
-    <span (click)="onRemove(todo)">Remove!</span>
-  </li>
-</ul> -->
-
 <table class="table">
   <tr class="table-head">
     <td class="cell-item"></td>
@@ -27,7 +13,7 @@
   <tr *ngFor="let todo of todoData$ | async" class="row-reactive">
     <td></td>
     <td>
-      <mat-select [value]="todo.status">
+      <mat-select [value]="todo.status" (selectionChange)="onSelectChange($event, todo)">
         <mat-option *ngFor="let status of taskStatus" [value]="status.value">
           {{status.viewValue}}
         </mat-option>

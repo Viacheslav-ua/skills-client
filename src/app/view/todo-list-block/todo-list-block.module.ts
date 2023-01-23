@@ -9,7 +9,6 @@ import {MatSelectModule} from '@angular/material/select'
 import { AddFormUiComponent } from './add-form-ui/add-form-ui.component'
 import { TodoListUiComponent } from './todo-list-ui/todo-list-ui.component'
 import { SpinnerModule } from '../ui/spinner/spinner.module'
-import { ListRowModule } from '../ui/list-row/list-row.module'
 
 @NgModule({
   declarations: [
@@ -25,8 +24,7 @@ import { ListRowModule } from '../ui/list-row/list-row.module'
     MatButtonModule,
     MatSelectModule,
     SpinnerModule,
-    ListRowModule,
-  ],
+    ],
   exports: [TodoListBlockComponent],
 })
 export class TodoListBlockModule { }

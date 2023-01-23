@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, EventEmitter, Input, Output
 import { Observable } from 'rxjs'
 import { Todo } from 'src/app/store/todo-store/store/todo-store.reducer'
 import { ISelectOptions } from 'src/app/core/interfaces/select.interfaces'
+import { MatSelectChange } from "@angular/material/select"
 
 @Component({
   selector: 'app-todo-list-ui',
@@ -16,6 +17,7 @@ export class TodoListUiComponent implements OnInit {
 
   @Output() public remove = new EventEmitter()
   @Output() public toggleComplete = new EventEmitter()
+  @Output() public statusChange = new EventEmitter()
 
   ngOnInit(): void {
   }
@@ -24,7 +26,8 @@ export class TodoListUiComponent implements OnInit {
     this.remove.emit(todo.id)
   }
 
-  public onComplete(todo: Todo):void {
-    // this.todoService.update({...todo, isCompleted: !todo.isCompleted})
+  public onSelectChange(e: MatSelectChange, todo : Todo): void {
+    const isCompleted = e.value === 'done' ? true : false
+    this.statusChange.emit({ ...todo, status: e.value, isCompleted})
   }
 }

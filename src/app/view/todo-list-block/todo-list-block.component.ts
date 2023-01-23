@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
 import { ISelectOptions } from 'src/app/core/interfaces/select.interfaces'
-import { ICreateTodo } from 'src/app/core/interfaces/todo.interfaces'
-import { remove, add, getAll, loadingStatusStart } from 'src/app/store/todo-store/store/todo-store.actions'
+import { ICreateTodo, IUpdateTodo } from 'src/app/core/interfaces/todo.interfaces'
+import { remove, add, getAll, loadingStatusStart, update } from 'src/app/store/todo-store/store/todo-store.actions'
 import { Todo } from 'src/app/store/todo-store/store/todo-store.reducer'
 import {taskStatus} from 'src/app/core/enums/task-status'
 import * as todoSelectors from 'src/app/store/todo-store/store/todo-store.selectors'
@@ -40,6 +40,11 @@ export class TodoListBlockComponent  implements OnInit {
   public onRemove(id: number): void {
     this.store$.dispatch(loadingStatusStart())
     this.store$.dispatch(remove({ id }))
+  }
+
+  public onStatusSelectChange(updateTodo: IUpdateTodo): void {
+    this.store$.dispatch(loadingStatusStart())
+    this.store$.dispatch(update(updateTodo))
   }
 
   public onToggleComplete(e: Todo):void {

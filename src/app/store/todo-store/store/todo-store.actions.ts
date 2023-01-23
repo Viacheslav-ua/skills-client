@@ -41,6 +41,11 @@ export const todoRemoveSuccess = createAction(
   props<{ id: number }>()
 )
 
+export const todoUpdateSuccess = createAction(
+  '[Todo] Todo Update Success',
+  props<{ updateTodo: Todo }>()
+)
+
 export const todoFailed = createAction(
   '[Todo]  Todo Action Failed',
   props<{ serverError: string }>()

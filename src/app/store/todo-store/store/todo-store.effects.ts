@@ -4,7 +4,7 @@ import { catchError, delay, map, of, switchMap } from "rxjs";
 import { TodoService } from "../service/todo.service";
 import {
   add, getAll, loadingStatusDelay, loadingStatusStart,
-  remove, todoAddSuccess, todoFailed, todoRemoveSuccess, todoSuccess
+  remove, todoAddSuccess, todoFailed, todoRemoveSuccess, todoSuccess, todoUpdateSuccess, update
 } from "./todo-store.actions";
 
 
@@ -51,13 +51,40 @@ export class TodoEffects {
         }),
       ))
     ),
+  ))
 
+  updateTask$ = createEffect(() => this.actions$.pipe(
+    ofType(update),
+    switchMap((result) => this.todoService.updateTask({
+      id: result.id,
+      title: result.title,
+      description: result.description,
+      status: result.status,
+      isCompleted: result.isCompleted,
+    })),
+    map((updateTodo) => todoUpdateSuccess({ updateTodo })),
+
+    catchError(
+      err => (of(
+        todoFailed({
+          serverError: err.error.message,
+        }),
+      ))
+    ),
   ))
 
   loadingStatus$ = createEffect(() => this.actions$.pipe(
     ofType(loadingStatusStart),
     delay(500),
-    map(() => loadingStatusDelay())
+    map(() => loadingStatusDelay()),
+
+    catchError(
+      err => (of(
+        todoFailed({
+          serverError: err.error.message,
+        }),
+      ))
+    ),
   ))
 
   constructor(

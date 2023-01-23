@@ -2,7 +2,9 @@ export interface ICreateTodo {
   title: string
 }
 export interface IUpdateTodo {
-  id: number
-  title: string
-  isCompleted: boolean
+  readonly id?: number
+  readonly title?: string
+  readonly description?: string
+  readonly isCompleted?: boolean
+  readonly status?: string
 }
