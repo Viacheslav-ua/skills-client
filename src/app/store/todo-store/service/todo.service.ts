@@ -39,8 +39,6 @@ export class TodoService {
   }
 
   updateTask(todo: IUpdateTodo): Observable<any> {
-    console.log(todo)
-
     return this.httpClient
       .patch<UpdateResult>(`${BACKEND_BASE_DOMAIN}${Endpoints.Todo}/${todo.id}`, todo)
       .pipe(

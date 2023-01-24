@@ -1,15 +1,20 @@
-<app-add-form-ui
+<section class="container-form">
+  <app-add-form-ui
   [serverError]="serverError$ | async"
   [disabled]="loading$ | async"
   (add)="onCreate($event)"
 ></app-add-form-ui>
+</section>
 
-<app-todo-list-ui
+
+<section #sect class="container-table">
+  <app-todo-list-ui
   [todoData$]="todoData$"
   [taskStatus]="taskStatus"
   (remove)="onRemove($event)"
   (toggleComplete)="onToggleComplete($event)"
   (statusChange)="onStatusSelectChange($event)"
 ></app-todo-list-ui>
+</section>
 
 <app-spinner *ngIf="loading$ | async"></app-spinner>

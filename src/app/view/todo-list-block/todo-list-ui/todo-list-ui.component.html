@@ -1,16 +1,15 @@
-<table class="table container">
-  <!-- <tdead> -->
-      <tr class="table-head row">
-        <td class="cell-item"></td>
-        <td class="cell-status">Status</td>
-        <td class="cell-center"></td>
-        <td class="cell-title">Title</td>
-        <td class="cell-created">Created</td>
-        <td class="cell-conteht">Content</td>
-        <td class="cell-item"></td>
-        <td class="cell-item"></td>
-      </tr>
-    <!-- </tdead> -->
+<table class="table">
+
+  <tr class="table-head row">
+    <td class="cell-item"></td>
+    <td class="cell-status">Status</td>
+    <td class="cell-center"></td>
+    <td class="cell-title">Title</td>
+    <td class="cell-created">Created</td>
+    <td class="cell-conteht">Content</td>
+    <td class="cell-item"></td>
+    <td class="cell-item"></td>
+  </tr>
 
   <tbody>
     <tr *ngFor="let todo of todoData$ | async" class="row-reactive row">
@@ -18,6 +17,7 @@
       <div class="cell-center">
         <mat-icon aria-hidden="false" [style]="todo.color" >{{ todo.icon }}</mat-icon>
       </div>
+      <div class="divider"></div>
     </td>
     <td class="">
       <mat-select [value]="todo.status" (selectionChange)="onSelectChange($event, todo)" class="select">
@@ -26,6 +26,7 @@
           {{status.viewValue}}
         </mat-option>
       </mat-select>
+      <div class="divider"></div>
     </td>
     <td></td>
     <td class="">

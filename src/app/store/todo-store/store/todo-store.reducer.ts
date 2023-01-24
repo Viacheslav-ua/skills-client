@@ -15,6 +15,7 @@ export interface Todo {
   status: string
   createdAt: Date
   updatedAt: Date
+  isEdit?: boolean
 }
 
 export interface TodoState {
