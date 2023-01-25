@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { taskStatus } from 'src/app/core/enums/task-status'
 
 @Component({
   selector: 'app-add-form-ui',
@@ -10,6 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AddFormUiComponent implements OnInit {
 
   public formGroup!: FormGroup
+  public status = taskStatus
 
   @Input() public serverError: string | null = ''
   @Input() public disabled!: boolean | null

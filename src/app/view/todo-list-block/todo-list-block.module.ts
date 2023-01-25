@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { MatIconModule } from '@angular/material/icon'
+import { MatRadioModule } from '@angular/material/radio'
 import { AddFormUiComponent } from './add-form-ui/add-form-ui.component'
 import { TodoListUiComponent } from './todo-list-ui/todo-list-ui.component'
 import { SpinnerModule } from '../ui/spinner/spinner.module'
@@ -26,6 +27,7 @@ import { SpinnerModule } from '../ui/spinner/spinner.module'
     MatSelectModule,
     SpinnerModule,
     MatIconModule,
+    MatRadioModule,
     ],
   exports: [TodoListBlockComponent],
 })

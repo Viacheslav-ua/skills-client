@@ -3,20 +3,34 @@
   [formGroup]="formGroup"
   (ngSubmit)="onSubmit()"
 >
-  <div>
-    <mat-form-field class="filed">
-      <mat-label>Title</mat-label>
-      <input matInput formControlName="title">
-    </mat-form-field>
+  <div class="controls">
+    <div class="form-add">
+      <mat-form-field class="filed">
+        <mat-label>Title</mat-label>
+        <input class="title-input" matInput formControlName="title">
+      </mat-form-field>
 
-    <button
-      mat-stroked-button color="primary"
-      [disabled]="submitDisabled">
-        <b>Добавить</b>
-    </button>
+      <button
+        class="btn-add"
+        mat-stroked-button color="primary"
+        [disabled]="submitDisabled">
+          <b>Добавить</b>
+      </button>
+    </div>
+    <div class="form-filter">
+      <mat-radio-group value="all">
+        <mat-label class = "filter-label">Show</mat-label>
+        <mat-radio-button class = "mr" *ngFor="let item of status" [value]="item.value">
+          {{ item.viewValue }}
+        </mat-radio-button>
+
+      </mat-radio-group>
+    </div>
   </div>
 
-  <div class="error">
-    <mat-error *ngIf="serverError">{{ serverError }}</mat-error>
+    <mat-error class="error" *ngIf="serverError">{{ serverError }}</mat-error>
+    <!-- <mat-error class="error">lskjdf aejknwd asrgv erwgv awegrgbr rgrqrg </mat-error> -->
+  <div >
+
   </div>
 </form>

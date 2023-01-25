@@ -10,9 +10,8 @@
 <section #sect class="container-table">
   <app-todo-list-ui
   [todoData$]="todoData$"
-  [taskStatus]="taskStatus"
+
   (remove)="onRemove($event)"
-  (toggleComplete)="onToggleComplete($event)"
   (statusChange)="onStatusSelectChange($event)"
 ></app-todo-list-ui>
 </section>

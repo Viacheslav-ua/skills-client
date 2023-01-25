@@ -1,11 +1,8 @@
-import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } from '@angular/core'
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { select, Store } from '@ngrx/store'
-import { every, filter, first, map, Observable, of, switchMap } from 'rxjs'
-import { ISelectOptions } from 'src/app/core/interfaces/select.interfaces'
+import { Observable, of, switchMap } from 'rxjs'
 import { ICreateTodo, ITodoExtended, IUpdateTodo } from 'src/app/core/interfaces/todo.interfaces'
 import { remove, add, getAll, loadingStatusStart, update } from 'src/app/store/todo-store/store/todo-store.actions'
-import { Todo } from 'src/app/store/todo-store/store/todo-store.reducer'
-import {taskStatus} from 'src/app/core/enums/task-status'
 import * as todoSelectors from 'src/app/store/todo-store/store/todo-store.selectors'
 
 @Component({
@@ -18,7 +15,6 @@ export class TodoListBlockComponent implements OnInit, AfterViewInit {
 
   @ViewChild('sect') containerElement!: ElementRef
 
-  public taskStatus: ISelectOptions[] = taskStatus
   public todoData$: Observable<ITodoExtended[]> = this.store$.pipe(select(todoSelectors.getTodoDataExtended))
   public loading$: Observable<boolean> = this.store$.pipe(select(todoSelectors.getLoadingDelay))
   public serverError$: Observable<string> = this.store$.pipe(select(todoSelectors.getServerError))
@@ -26,13 +22,14 @@ export class TodoListBlockComponent implements OnInit, AfterViewInit {
   constructor(
     private store$: Store,
   ) { }
+
   ngAfterViewInit(): void {
     this.todoData$.pipe(
       switchMap(result => of(result.length)),
     ).subscribe(
       (result) => {
         this.containerElement.nativeElement.scrollTo({
-          top: result * 25,
+          top: (result + 2) * 45,
           behavior: "smooth"
         })
       }
@@ -60,9 +57,5 @@ export class TodoListBlockComponent implements OnInit, AfterViewInit {
   public onStatusSelectChange(updateTodo: IUpdateTodo): void {
     this.store$.dispatch(loadingStatusStart())
     this.store$.dispatch(update(updateTodo))
-  }
-
-  public onToggleComplete(e: Todo):void {
-
   }
 }

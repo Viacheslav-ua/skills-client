@@ -21,7 +21,7 @@
     </td>
     <td class="">
       <mat-select [value]="todo.status" (selectionChange)="onSelectChange($event, todo)" class="select">
-        <mat-option *ngFor="let status of taskStatus" [value]="status.value">
+        <mat-option *ngFor="let status of status" [value]="status.value">
 
           {{status.viewValue}}
         </mat-option>
