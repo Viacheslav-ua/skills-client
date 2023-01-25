@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatRadioChange } from '@angular/material/radio';
 import { taskStatus } from 'src/app/core/enums/task-status'
 
 @Component({
@@ -12,6 +13,7 @@ export class AddFormUiComponent implements OnInit {
 
   public formGroup!: FormGroup
   public status = taskStatus
+  // selectedStatus = 'all'
 
   @Input() public serverError: string | null = ''
   @Input() public disabled!: boolean | null
@@ -22,15 +24,21 @@ export class AddFormUiComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup = new FormGroup({
       title: new FormControl(''),
+      selectedStatus: new FormControl('all'),
     })
   }
 
   public onSubmit(): void {
     this.add.emit(this.formGroup.value)
-    this.formGroup.setValue({ title: '' })
+    this.formGroup.setValue({ title: '', selectedStatus: this.formGroup.value.selectedStatus })
+  }
+
+  onChangeFilter(e: MatRadioChange) {
+    console.log(e.value);
+
   }
 
   public get submitDisabled(): boolean {
-    return this.disabled || !this.formGroup.value.title //|| !! this.formError
+    return this.disabled || !this.formGroup.value.title
   }
 }

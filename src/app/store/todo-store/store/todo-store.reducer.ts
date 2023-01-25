@@ -22,6 +22,7 @@ export interface TodoState {
   loading: boolean
   loadingDelay: boolean
   loadTodoData: boolean
+  filterTodo: string
   serverError: string
   todoData: Todo[]
 }
@@ -30,6 +31,7 @@ const initialState: TodoState = {
   loading: false,
   loadingDelay: false,
   loadTodoData: false,
+  filterTodo: 'all',
   serverError: '',
   todoData: []
 }

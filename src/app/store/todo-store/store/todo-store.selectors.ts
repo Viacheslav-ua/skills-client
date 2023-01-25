@@ -32,3 +32,20 @@ export const getTodoDataExtended = createSelector(
     }
   })
 )
+
+export const getTodoDataFilteredExtended = createSelector(
+  getFeature,
+  state => state.todoData.filter(todo => {
+    if (state.filterTodo === 'all') {
+      return true
+    }
+    return state.filterTodo === todo.status
+  }).map(todoF => {
+    const itemStatus = taskStatus.find(item => item.value === todoF.status)
+    return {
+      ...todoF,
+      icon: itemStatus!.icon,
+      color:{ color: itemStatus!.color },
+    }
+  })
+)

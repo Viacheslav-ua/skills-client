@@ -3,6 +3,7 @@ import { select, Store } from '@ngrx/store'
 import { Observable, of, switchMap } from 'rxjs'
 import { ICreateTodo, ITodoExtended, IUpdateTodo } from 'src/app/core/interfaces/todo.interfaces'
 import { remove, add, getAll, loadingStatusStart, update } from 'src/app/store/todo-store/store/todo-store.actions'
+import { Todo } from 'src/app/store/todo-store/store/todo-store.reducer'
 import * as todoSelectors from 'src/app/store/todo-store/store/todo-store.selectors'
 
 @Component({
@@ -15,7 +16,7 @@ export class TodoListBlockComponent implements OnInit, AfterViewInit {
 
   @ViewChild('sect') containerElement!: ElementRef
 
-  public todoData$: Observable<ITodoExtended[]> = this.store$.pipe(select(todoSelectors.getTodoDataExtended))
+  public todoData$: Observable<ITodoExtended[]> = this.store$.pipe(select(todoSelectors.getTodoDataFilteredExtended))
   public loading$: Observable<boolean> = this.store$.pipe(select(todoSelectors.getLoadingDelay))
   public serverError$: Observable<string> = this.store$.pipe(select(todoSelectors.getServerError))
 

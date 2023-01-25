@@ -14,11 +14,11 @@
         class="btn-add"
         mat-stroked-button color="primary"
         [disabled]="submitDisabled">
-          <b>Добавить</b>
+          <b>Add task</b>
       </button>
     </div>
     <div class="form-filter">
-      <mat-radio-group value="all">
+      <mat-radio-group formControlName="selectedStatus" (change)="onChangeFilter($event)">
         <mat-label class = "filter-label">Show</mat-label>
         <mat-radio-button class = "mr" *ngFor="let item of status" [value]="item.value">
           {{ item.viewValue }}
