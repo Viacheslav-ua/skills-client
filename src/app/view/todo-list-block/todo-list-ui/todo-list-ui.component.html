@@ -20,7 +20,7 @@
       <div class="divider"></div>
     </td>
     <td class="">
-      <mat-select [value]="todo.status" (selectionChange)="onSelectChange($event, todo)" class="select">
+      <mat-select *ngIf="!todo.isEdit" [value]="todo.status" (selectionChange)="onSelectChange($event, todo)" class="select">
         <mat-option *ngFor="let status of status" [value]="status.value">
 
           {{status.viewValue}}
@@ -36,7 +36,7 @@
     <td class="">{{ todo.createdAt | date: 'dd/MM/YYYY' }}</td>
     <td class=""></td>
     <td class="">
-      <button mat-icon-button color="primary">
+      <button mat-icon-button color="primary" (click)="onEdit(todo.id)">
         <mat-icon>border_color</mat-icon>
       </button>
     </td>

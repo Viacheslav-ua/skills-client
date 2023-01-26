@@ -18,6 +18,7 @@ export class TodoListUiComponent implements OnInit {
   @Input() public todoData$!: Observable<ITodoExtended[]>
 
   @Output() public remove = new EventEmitter()
+  @Output() public edit = new EventEmitter()
   @Output() public statusChange = new EventEmitter()
 
 
@@ -35,5 +36,13 @@ export class TodoListUiComponent implements OnInit {
 
   public onDelete(id: number): void {
   this.remove.emit(id)
+  }
+
+  public onEdit(id: number): void {
+  this.edit.emit({id, isEdit: true})
+  }
+
+  public onEditOff(id: number): void {
+  this.edit.emit({id, isEdit: false})
   }
 }

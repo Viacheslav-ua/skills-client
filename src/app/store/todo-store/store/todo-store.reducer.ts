@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store"
 import {
-  add, getAll, loadingStatusDelay, remove, todoAddSuccess, todoFailed,
+  add, getAll, loadingStatusDelay, remove, todoAddSuccess, todoEditOneSet, todoFailed,
   todoRemoveSuccess, todoSetFilter, todoSuccess, todoUpdateSuccess
 } from "./todo-store.actions"
 
@@ -63,6 +63,7 @@ export const TodoReducer = createReducer(
     loadingDelay: false,
     serverError: '',
   })),
+
   on(todoAddSuccess, (state, { todo }) => ({
     ...state,
     todoData: [...state.todoData, todo],
@@ -70,6 +71,7 @@ export const TodoReducer = createReducer(
     loadingDelay: false,
     serverError: '',
   })),
+
   on(todoRemoveSuccess, (state, { id }) => ({
     ...state,
     todoData: state.todoData.filter(todo => todo.id !== id),
@@ -77,6 +79,7 @@ export const TodoReducer = createReducer(
     loadingDelay: false,
     serverError: '',
   })),
+
   on(todoUpdateSuccess, (state, { updateTodo }) => ({
     ...state,
     todoData: state.todoData.map(
@@ -86,8 +89,14 @@ export const TodoReducer = createReducer(
     loadingDelay: false,
     serverError: '',
   })),
+
   on(todoSetFilter, (state, { filterTodo }) => ({
     ...state,
     filterTodo,
+  })),
+
+  on(todoEditOneSet, (state, { id, isEdit }) => ({
+    ...state,
+    todoData: state.todoData.map(todo => todo.id === id ? { ...todo, isEdit } : todo)
   })),
 )

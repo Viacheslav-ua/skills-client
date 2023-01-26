@@ -59,3 +59,7 @@ export const todoSetFilter = createAction(
   '[Todo]  Todo Set Filter',
   props<{ filterTodo: string }>()
 )
+export const todoEditOneSet = createAction(
+  '[Todo]  Todo Edit One Set',
+  props<{ id: number, isEdit: boolean }>()
+)

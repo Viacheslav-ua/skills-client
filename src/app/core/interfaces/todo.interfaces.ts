@@ -17,6 +17,7 @@ export interface ITodoExtended {
   status: string
   createdAt: Date
   updatedAt: Date
+  isEdit?: boolean
   icon: string,
   color: { color: string },
 }

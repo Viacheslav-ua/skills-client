@@ -12,6 +12,7 @@
   <app-todo-list-ui
   [todoData$]="todoData$"
   (remove)="onRemove($event)"
+  (edit)="onEditOne($event)"
   (statusChange)="onStatusSelectChange($event)"
 ></app-todo-list-ui>
 </section>
