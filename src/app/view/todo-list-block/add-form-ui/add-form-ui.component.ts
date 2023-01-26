@@ -20,6 +20,7 @@ export class AddFormUiComponent implements OnInit {
 
   @Output() public add = new EventEmitter()
   @Output() public errorSkip = new EventEmitter()
+  @Output() public filter = new EventEmitter()
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
@@ -33,9 +34,8 @@ export class AddFormUiComponent implements OnInit {
     this.formGroup.setValue({ title: '', selectedStatus: this.formGroup.value.selectedStatus })
   }
 
-  onChangeFilter(e: MatRadioChange) {
-    console.log(e.value);
-
+  public onChangeFilter(e: MatRadioChange): void {
+    this.filter.emit(e.value)
   }
 
   public get submitDisabled(): boolean {

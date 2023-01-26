@@ -54,3 +54,8 @@ export const todoFailed = createAction(
 export const todoSkipError = createAction(
   '[Todo] Todo Skip Error',
 )
+
+export const todoSetFilter = createAction(
+  '[Todo]  Todo Set Filter',
+  props<{ filterTodo: string }>()
+)

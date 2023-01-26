@@ -2,7 +2,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit, 
 import { select, Store } from '@ngrx/store'
 import { Observable, of, switchMap } from 'rxjs'
 import { ICreateTodo, ITodoExtended, IUpdateTodo } from 'src/app/core/interfaces/todo.interfaces'
-import { remove, add, getAll, loadingStatusStart, update } from 'src/app/store/todo-store/store/todo-store.actions'
+import { remove, add, getAll, loadingStatusStart, update, todoSetFilter } from 'src/app/store/todo-store/store/todo-store.actions'
 import { Todo } from 'src/app/store/todo-store/store/todo-store.reducer'
 import * as todoSelectors from 'src/app/store/todo-store/store/todo-store.selectors'
 
@@ -58,5 +58,9 @@ export class TodoListBlockComponent implements OnInit, AfterViewInit {
   public onStatusSelectChange(updateTodo: IUpdateTodo): void {
     this.store$.dispatch(loadingStatusStart())
     this.store$.dispatch(update(updateTodo))
+  }
+
+  public onFilter(condition: string): void {
+    this.store$.dispatch(todoSetFilter({filterTodo: condition}))
   }
 }

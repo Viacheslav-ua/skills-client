@@ -3,6 +3,7 @@
   [serverError]="serverError$ | async"
   [disabled]="loading$ | async"
   (add)="onCreate($event)"
+  (filter)="onFilter($event)"
 ></app-add-form-ui>
 </section>
 
@@ -10,7 +11,6 @@
 <section #sect class="container-table">
   <app-todo-list-ui
   [todoData$]="todoData$"
-
   (remove)="onRemove($event)"
   (statusChange)="onStatusSelectChange($event)"
 ></app-todo-list-ui>
