@@ -4,6 +4,7 @@ import { Todo } from 'src/app/store/todo-store/store/todo-store.reducer'
 import { MatSelectChange } from "@angular/material/select"
 import { ITodoExtended } from 'src/app/core/interfaces/todo.interfaces'
 import { taskStatus } from 'src/app/core/enums/task-status'
+import { FormControl, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-todo-list-ui',
@@ -14,6 +15,9 @@ import { taskStatus } from 'src/app/core/enums/task-status'
 export class TodoListUiComponent implements OnInit {
 
   public status = taskStatus.filter(status => status.value !== 'all')
+  public formGroup!: FormGroup
+  public title: string = ''
+  public description: string = ''
 
   @Input() public todoData$!: Observable<ITodoExtended[]>
 
@@ -23,6 +27,16 @@ export class TodoListUiComponent implements OnInit {
 
 
   ngOnInit(): void {
+  }
+
+  public onChangeTitle(e: Event): void {
+    const target = e.target as HTMLInputElement
+    this.title = target.value
+  }
+
+  public onChangeDesc(e: Event): void {
+    const target = e.target as HTMLInputElement
+    this.description = target.value
   }
 
   public onRemove(todo : Todo):void {
@@ -43,6 +57,10 @@ export class TodoListUiComponent implements OnInit {
   }
 
   public onEditOff(id: number): void {
+  this.edit.emit({id, isEdit: false})
+  }
+
+  public onEditSaveOff(id: number): void {
   this.edit.emit({id, isEdit: false})
   }
 }

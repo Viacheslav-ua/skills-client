@@ -22,6 +22,10 @@ export class RegisterBlockUiComponent implements OnInit {
   public errorSkip = new EventEmitter()
 
 
+  public get submitDisabled(): boolean {
+    return this.disabled || this.formGroup.invalid || !! this.formError || !this.isEquate
+  }
+
   ngOnInit(): void {
     this.formGroup = new FormGroup({
       login: new FormControl('', [Validators.required]),
@@ -46,9 +50,4 @@ export class RegisterBlockUiComponent implements OnInit {
     e.preventDefault()
     this.hide = !this.hide
   }
-
-  public get submitDisabled(): boolean {
-    return this.disabled || this.formGroup.invalid || !! this.formError || !this.isEquate
-  }
-
 }

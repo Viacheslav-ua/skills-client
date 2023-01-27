@@ -38,7 +38,7 @@
 }
 
 .cell-created {
-  width: 250px;
+  width: 120px;
 }
 
 .cell-content {
@@ -58,4 +58,25 @@
 
 .row-reactive:hover {
   background-color: #ccc;
+}
+.green {
+  background-color: rgb(189, 238, 189) !important;
+}
+
+.filed-title {
+  width: 290px;
+  height: 25px;
+  border: none;
+
+}
+.filed-content {
+  width: 98%;
+  height: 25px;
+  border: none;
+}
+.edit-mark {
+  font-size: 18px;
+  font-weight: 600;
+  font-style: italic;
+  color: #263593;
 }

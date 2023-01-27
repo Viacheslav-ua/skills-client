@@ -22,6 +22,11 @@ export class LoginBlockUiComponent implements OnInit {
   @Output()
   public loginTest = new EventEmitter()
 
+
+  public get submitDisabled(): boolean {
+    return this.disabled || this.formGroup.invalid || !! this.formError
+  }
+
   ngOnInit(): void {
     this.formGroup = new FormGroup({
       login: new FormControl('', [Validators.required]),
@@ -46,9 +51,4 @@ export class LoginBlockUiComponent implements OnInit {
     e.preventDefault()
     this.hide = !this.hide
   }
-
-  public get submitDisabled(): boolean {
-    return this.disabled || this.formGroup.invalid || !! this.formError
-  }
-
 }
