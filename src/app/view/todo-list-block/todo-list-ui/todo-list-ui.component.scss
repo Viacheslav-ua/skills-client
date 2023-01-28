@@ -42,8 +42,7 @@
 }
 
 .cell-content {
-  width: auto;
-  font-size: 14px;
+  // font-size: 14px;
 }
 
 .row-reactive {
@@ -64,15 +63,17 @@
 }
 
 .filed-title {
-  width: 290px;
-  height: 25px;
-  border: none;
-
-}
-.filed-content {
   width: 98%;
   height: 25px;
   border: none;
+  font-size: 16px;
+
+}
+.filed-content {
+  width: 97%;
+  height: 25px;
+  border: none;
+  font-size: 16px;
 }
 .edit-mark {
   font-size: 18px;

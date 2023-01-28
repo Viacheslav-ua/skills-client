@@ -1,9 +1,8 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { select, Store } from '@ngrx/store'
 import { Observable, of, switchMap } from 'rxjs'
-import { ICreateTodo, ITodoExtended, IUpdateTodo } from 'src/app/core/interfaces/todo.interfaces'
-import { remove, add, getAll, loadingStatusStart, update, todoSetFilter, todoEditOneSet } from 'src/app/store/todo-store/store/todo-store.actions'
-import { Todo } from 'src/app/store/todo-store/store/todo-store.reducer'
+import { ICreateTodo, ISaveTodo, ITodoExtended, IUpdateTodo } from 'src/app/core/interfaces/todo.interfaces'
+import { remove, add, getAll, loadingStatusStart, update, todoSetFilter, todoEditOneSet, todoSaveOne } from 'src/app/store/todo-store/store/todo-store.actions'
 import * as todoSelectors from 'src/app/store/todo-store/store/todo-store.selectors'
 
 @Component({
@@ -56,6 +55,12 @@ export class TodoListBlockComponent implements OnInit, AfterViewInit {
   }
   public onEditOne(statusEditOne: {id: number, isEdit: boolean}): void {
     this.store$.dispatch(todoEditOneSet(statusEditOne))
+  }
+
+  public onSaveEditOne(payload: ISaveTodo ): void {
+    this.store$.dispatch(loadingStatusStart())
+    this.store$.dispatch(todoSaveOne({ payload }))
+    this.store$.dispatch(todoEditOneSet({id: payload.id, isEdit: false}))
   }
 
   public onStatusSelectChange(updateTodo: IUpdateTodo): void {

@@ -3,21 +3,36 @@ export interface ICreateTodo {
 }
 export interface IUpdateTodo {
   readonly id?: number
-  readonly title?: string
-  readonly description?: string
+  title?: string
+  description?: string
   readonly isCompleted?: boolean
   readonly status?: string
 }
 
 export interface ITodoExtended {
-  id: number
+  readonly id: number
+  readonly title: string
+  readonly description: string | null
+  readonly isCompleted: boolean
+  readonly status: string
+  readonly createdAt: Date
+  readonly updatedAt: Date
+  readonly isEdit?: boolean
+  readonly icon: string,
+  readonly color: { color: string },
+}
+
+export interface ISaveTodo {
+  readonly id: number
+  title?: string
+  description?: string
+}
+export interface ITitle {
+  readonly id: number
   title: string
-  description: string | null
-  isCompleted: boolean
-  status: string
-  createdAt: Date
-  updatedAt: Date
-  isEdit?: boolean
-  icon: string,
-  color: { color: string },
+}
+
+export interface IDescription {
+  readonly id: number
+  description: string
 }

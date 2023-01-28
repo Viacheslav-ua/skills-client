@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { catchError, delay, map, of, switchMap } from "rxjs";
+import { catchError, delay, map, of, switchMap, tap } from "rxjs";
 import { TodoService } from "../service/todo.service";
 import {
   add, getAll, loadingStatusDelay, loadingStatusStart,
-  remove, todoAddSuccess, todoFailed, todoRemoveSuccess, todoSuccess, todoUpdateSuccess, update
+  remove, todoAddSuccess, todoFailed, todoRemoveSuccess, todoSaveOne, todoSuccess, todoUpdateSuccess, update
 } from "./todo-store.actions";
 
 
@@ -62,6 +62,19 @@ export class TodoEffects {
       status: result.status,
       isCompleted: result.isCompleted,
     })),
+    map((updateTodo) => todoUpdateSuccess({ updateTodo })),
+
+    catchError(
+      err => (of(
+        todoFailed({
+          serverError: err.error.message,
+        }),
+      ))
+    ),
+  ))
+  saveTask$ = createEffect(() => this.actions$.pipe(
+    ofType(todoSaveOne),
+    switchMap(({ payload }) => this.todoService.updateTask(payload)),
     map((updateTodo) => todoUpdateSuccess({ updateTodo })),
 
     catchError(

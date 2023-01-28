@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { ICreateTodo, IUpdateTodo } from "src/app/core/interfaces/todo.interfaces";
+import { ICreateTodo, ISaveTodo, IUpdateTodo } from "src/app/core/interfaces/todo.interfaces";
 import { Todo } from "./todo-store.reducer";
 
 
@@ -43,7 +43,7 @@ export const todoRemoveSuccess = createAction(
 
 export const todoUpdateSuccess = createAction(
   '[Todo] Todo Update Success',
-  props<{ updateTodo: Todo }>()
+  props<{ updateTodo: IUpdateTodo }>()
 )
 
 export const todoFailed = createAction(
@@ -62,4 +62,8 @@ export const todoSetFilter = createAction(
 export const todoEditOneSet = createAction(
   '[Todo]  Todo Edit One Set',
   props<{ id: number, isEdit: boolean }>()
+)
+export const todoSaveOne = createAction(
+  '[Todo]  Todo Save',
+  props<{ payload: ISaveTodo }>()
 )
