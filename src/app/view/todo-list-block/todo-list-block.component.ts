@@ -1,6 +1,6 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } from '@angular/core'
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
-import { Observable, of, switchMap } from 'rxjs'
+import { Observable } from 'rxjs'
 import { ICreateTodo, ISaveTodo, ITodoExtended, IUpdateTodo } from 'src/app/core/interfaces/todo.interfaces'
 import { remove, add, getAll, loadingStatusStart, update, todoSetFilter, todoEditOneSet, todoSaveOne } from 'src/app/store/todo-store/store/todo-store.actions'
 import * as todoSelectors from 'src/app/store/todo-store/store/todo-store.selectors'
@@ -11,9 +11,7 @@ import * as todoSelectors from 'src/app/store/todo-store/store/todo-store.select
   styleUrls: ['./todo-list-block.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TodoListBlockComponent implements OnInit, AfterViewInit {
-
-  @ViewChild('sect') containerElement!: ElementRef
+export class TodoListBlockComponent implements OnInit{
 
   public todoData$: Observable<ITodoExtended[]> = this.store$.pipe(select(todoSelectors.getTodoDataFilteredExtended))
   public loading$: Observable<boolean> = this.store$.pipe(select(todoSelectors.getLoadingDelay))
@@ -22,19 +20,6 @@ export class TodoListBlockComponent implements OnInit, AfterViewInit {
   constructor(
     private store$: Store,
   ) { }
-
-  ngAfterViewInit(): void {
-    this.todoData$.pipe(
-      switchMap(result => of(result.length)),
-    ).subscribe(
-      (result) => {
-        this.containerElement.nativeElement.scrollTo({
-          top: (result + 2) * 45,
-          behavior: "smooth"
-        })
-      }
-    )
-  }
 
   ngOnInit(): void {
     this.store$.dispatch(loadingStatusStart())

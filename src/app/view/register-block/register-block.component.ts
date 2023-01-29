@@ -25,12 +25,6 @@ export class RegisterBlockComponent {
   }
 
   public onErrorSkip() {
-     this.serverError$.pipe(
-      first(),
-    ).subscribe((err) => {
-      if (err) {
-        this.store$.dispatch(loginSkipError())
-      }
-    })
+   this.store$.dispatch(loginSkipError())
   }
 }

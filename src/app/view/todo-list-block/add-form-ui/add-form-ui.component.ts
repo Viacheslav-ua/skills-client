@@ -13,7 +13,6 @@ export class AddFormUiComponent implements OnInit {
 
   public formGroup!: FormGroup
   public status = taskStatus
-  // selectedStatus = 'all'
 
   @Input() public serverError: string | null = ''
   @Input() public disabled!: boolean | null

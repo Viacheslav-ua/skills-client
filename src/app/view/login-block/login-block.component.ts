@@ -26,13 +26,7 @@ export class LoginBlockComponent {
   }
 
   public onErrorSkip():void {
-    this.serverError$.pipe(
-      first(),
-    ).subscribe((err) => {
-      if (err) {
-        this.store$.dispatch(loginSkipError())
-      }
-    })
+    this.store$.dispatch(loginSkipError())
   }
 
   public onLoginTest():void {
