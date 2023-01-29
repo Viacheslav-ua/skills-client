@@ -66,7 +66,7 @@ export const TodoReducer = createReducer(
 
   on(todoAddSuccess, (state, { todo }) => ({
     ...state,
-    todoData: [...state.todoData, todo],
+    todoData: [todo, ...state.todoData ],
     loading: false,
     loadingDelay: false,
     serverError: '',
