@@ -30,6 +30,12 @@ const routes: Routes = [
     //   .then(module => module.UserModule),
   // },
   {
+    path: AppRouteEnum.Resume,
+    component: LayoutComponent,
+    loadChildren: () => import('../resume/resume.module')
+      .then(module => module.ResumeModule),
+  },
+  {
     path: AppRouteEnum.Todos,
     component: LayoutComponent,
     loadChildren: () => import('../todos/todos.module')
