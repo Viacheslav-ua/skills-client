@@ -37,7 +37,7 @@ export class GuestGuard implements CanActivate, CanLoad {
       first(),
       map(isGuest => {
         if (!isGuest) {
-          this.router.navigateByUrl(AppRouteEnum.Contacts)
+          this.router.navigateByUrl(AppRouteEnum.Main)
         }
         return isGuest
       }),

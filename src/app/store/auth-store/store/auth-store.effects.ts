@@ -23,7 +23,7 @@ export class AuthEffects {
       password: action.password,
     }).pipe(
       map((authData: AuthData) => {
-       this.router.navigateByUrl(AppRouteEnum.Contacts)
+       this.router.navigateByUrl(AppRouteEnum.Main)
        return loginSuccess({ authData })
       }),
 
@@ -42,7 +42,7 @@ export class AuthEffects {
       password: action.password,
     }).pipe(
       map((authData: AuthData) => {
-       this.router.navigateByUrl(AppRouteEnum.Contacts)
+       this.router.navigateByUrl(AppRouteEnum.Main)
        return loginSuccess({ authData })
       }),
 
@@ -110,7 +110,7 @@ export class AuthEffects {
 
       if (isLogin) {
         this.router.navigateByUrl(
-          isAuthorized ? AppRouteEnum.Contacts : AppRouteEnum.Login
+          isAuthorized ? AppRouteEnum.Main : AppRouteEnum.Login
         )
       }
 
