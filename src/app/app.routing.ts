@@ -13,11 +13,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: AppRouteEnum.Contacts,
+        redirectTo: AppRouteEnum.Main,
         pathMatch: 'full'
       },
       {
-        path: AppRouteEnum.Contacts,
+        path: AppRouteEnum.Main,
         loadChildren: () => import('./pages/layout/layout.module').then(m => m.LayoutModule),
         canLoad: [AuthGuard],
         canActivate: [AuthGuard],

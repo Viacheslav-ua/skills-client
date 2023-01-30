@@ -1,7 +1,8 @@
 export enum AppRouteEnum {
-  Contacts = 'book',
+  Main = 'main',
+  Contacts = 'contacts',
   ContactEdit = 'edit/:id',
-  User = 'user',
+  Resume = 'resume',
   Todos = 'todos',
   Login = 'login',
   Registration = 'registration',
