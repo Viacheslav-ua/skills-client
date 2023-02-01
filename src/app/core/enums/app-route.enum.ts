@@ -1,5 +1,6 @@
 export enum AppRouteEnum {
   Main = 'main',
+  Home = 'home',
   Contacts = 'contacts',
   ContactEdit = 'edit/:id',
   Resume = 'resume',

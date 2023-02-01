@@ -1,3 +1,7 @@
+$bgDarkColor: #0a3a7d;
+$activeColor: #b00020;
+$accentColor: #3679d7;
+
 .grid-container {
   display: grid;
   // min-height: 100vh;
@@ -17,8 +21,23 @@
   grid-area: nav;
   display: flex;
   flex-direction: column;
+  padding-top: 20px;
   padding-left: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 2.2;
+  a {
+    color: $bgDarkColor;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $accentColor;
+  }
+  a.active-link {
+  color: $activeColor;
 }
+}
+
 .main {
   grid-area: main;
   background-color: rgba(0, 0, 0, 0.076);

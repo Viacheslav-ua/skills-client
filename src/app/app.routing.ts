@@ -34,12 +34,12 @@ const routes: Routes = [
         canLoad: [GuestGuard],
         canActivate: [GuestGuard],
       },
-      // {
-      //   path: AppRouteEnum.Login,
-      //   loadChildren: () => import('./pages/layout/layout.module').then(m => m.LayoutModule),
-      //   canLoad: [GuestGuard],
-      //   canActivate: [GuestGuard],
-      // },
+      {
+        path: AppRouteEnum.Resume,
+        loadChildren: () => import('./pages/resume/resume.module').then(m => m.ResumeModule),
+        // canLoad: [GuestGuard],
+        // canActivate: [GuestGuard],
+      },
       {
         path: AppRouteEnum.Registration,
         loadChildren: () => import('./pages/registration/registration.module').then(m => m.RegistrationModule),

@@ -2,12 +2,13 @@
   <app-header-block class="header"></app-header-block>
 
   <nav class="nav">
-    <a [routerLink]="'/main'">About</a>
-    <a [routerLink]="'/main/todos'">Tasks</a>
-    <a [routerLink]="'/main/contacts'">Contacts</a>
+    <a [routerLink]="'/main/home'" routerLinkActive="active-link">About</a>
+    <a [routerLink]="'/main/todos'" routerLinkActive="active-link">Tasks</a>
+    <a [routerLink]="'/main/contacts'" routerLinkActive="active-link">Contacts</a>
 
     <!-- <a [routerLink]="'/main/edit/:id'">Редактор</a> -->
-    <a [routerLink]="'/main/resume'">My Resume</a>
+  <hr>
+    <a [routerLink]="'/main/resume'" routerLinkActive="active-link">My Resume</a>
   </nav>
 
   <main class="main">

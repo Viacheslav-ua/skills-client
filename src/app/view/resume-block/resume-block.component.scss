@@ -10,13 +10,13 @@ $accentColor: #3679d7;
   width: 1200px;
   background: #fff;
   margin: 30px auto;
-  // height: 80vh;
-  overflow: auto;
+  box-shadow: 5px 10px 20px 5px #8a92c580;
+  border-radius: 6px;
 }
 
 .main-content {
   width: 100%;
-  padding: 80px 60px;
+  padding:  80px 60px 20px 60px;
   color: #595959;
 }
 

@@ -7,6 +7,11 @@ import { LayoutComponent } from './layout.component'
 const routes: Routes = [
   {
     path: '',
+    redirectTo: AppRouteEnum.Home,
+    pathMatch: 'full'
+  },
+  {
+    path: AppRouteEnum.Home,
     component: LayoutComponent,
     loadChildren: () => import('../home/home.module')
       .then(module => module.HomeModule),
@@ -16,12 +21,6 @@ const routes: Routes = [
     component: LayoutComponent,
     loadChildren: () => import('../contacts/contacts.module')
       .then(module => module.ContactsModule),
-  },
-  {
-    path: AppRouteEnum.ContactEdit,
-    component: LayoutComponent,
-    loadChildren: () => import('../contact-edit/contact-edit.module')
-      .then(module => module.ContactEditModule),
   },
   // {
     // path: AppRouteEnum.User,
