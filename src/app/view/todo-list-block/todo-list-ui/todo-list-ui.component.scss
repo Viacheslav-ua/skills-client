@@ -49,6 +49,9 @@
   background-color: #ddd;
   height: 45px;
   font-size: 16px;
+  transition-property: background-color;
+    transition-duration: 80ms;
+    transition-timing-function: linear;
 }
 
 .row-reactive:nth-child(2n) {

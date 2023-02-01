@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ResumeComponent } from './resume.component';
 import { ResumeRoutingModule } from './resume.routing';
+import { ResumeBlockModule } from 'src/app/view/resume-block/resume-block.module';
 
 
 
@@ -12,6 +13,8 @@ import { ResumeRoutingModule } from './resume.routing';
   imports: [
     CommonModule,
     ResumeRoutingModule,
+    ResumeBlockModule,
+
   ]
 })
 export class ResumeModule { }
