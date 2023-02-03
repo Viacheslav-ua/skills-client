@@ -10,6 +10,16 @@ import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app.routing'
 import { AuthStoreModule } from './store/auth-store/auth-store.module'
 import { TodoStoreModule } from './store/todo-store/todo-store.module'
+import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
+import {TranslateHttpLoader} from '@ngx-translate/http-loader'
+import { TranslateService } from '@ngx-translate/core'
+import { TranslateEnum } from './core/enums/translate.enum'
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json')
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,10 +32,19 @@ import { TodoStoreModule } from './store/todo-store/todo-store.module'
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreRouterConnectingModule.forRoot(),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      defaultLanguage: TranslateEnum.En
+    }),
     AuthStoreModule,
     TodoStoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,14 @@
+{
+  "AUTH": {
+    "TITLE_AUTH": "Authorization"
+  },
+  "HOME": {
+    "TITLE": "Skills"
+  },
+  "BUTTON": {
+    "LANG": {
+      "UA": "Ukrainian",
+      "EN": "English"
+    }
+  }
+}

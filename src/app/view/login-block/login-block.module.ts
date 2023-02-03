@@ -8,7 +8,8 @@ import { MatIconModule } from '@angular/material/icon'
 
 import { LoginBlockComponent } from './login-block.component'
 import { LoginBlockUiComponent } from './login-block-ui'
-import {  RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router'
+import { TranslateModule } from '@ngx-translate/core'
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {  RouterModule } from '@angular/router'
     MatIconModule,
     ReactiveFormsModule,
     RouterModule,
+    TranslateModule
   ],
   exports: [
     LoginBlockComponent,

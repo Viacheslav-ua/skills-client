@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { Store, StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { HTTP_INTERCEPTORS } from '@angular/common/http'
 import { JwtModule } from '@auth0/angular-jwt'
 import { AuthReducer, AUTH_FEATURE_NAME } from './store/auth-store.reducer'
 import { AuthEffects } from './store/auth-store.effects'
@@ -12,7 +12,7 @@ import { initAuth } from './store/auth-store.actions'
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule,
+    // HttpClientModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: request => request as any

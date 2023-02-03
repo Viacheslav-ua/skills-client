@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login-block-ui',
@@ -27,11 +28,16 @@ export class LoginBlockUiComponent implements OnInit {
     return this.disabled || this.formGroup.invalid || !! this.formError
   }
 
+  // constructor(translate: TranslateService) {
+  //   translate.use('ua');
+  // }
+
   ngOnInit(): void {
     this.formGroup = new FormGroup({
       login: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
     })
+
   }
 
   public onFormChange(): void {

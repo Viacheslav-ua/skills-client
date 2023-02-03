@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core'
 })
 export class AppComponent {
   title = 'phone-book'
+
+  constructor(public translate: TranslateService) {
+  //   translate.setDefaultLang('en');
+  //   translate.use('en');
+  }
 }
