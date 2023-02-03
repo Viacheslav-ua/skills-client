@@ -4,7 +4,6 @@ $accentColor: #3679d7;
 
 .grid-container {
   display: grid;
-  // min-height: 100vh;
   height: 100vh;
   grid-template-areas:
     "header header"
@@ -49,7 +48,6 @@ $accentColor: #3679d7;
   position: sticky;
   bottom: 0;
   width: 100%;
-  // height: 30px;
   background-color: aqua;
 
 }
