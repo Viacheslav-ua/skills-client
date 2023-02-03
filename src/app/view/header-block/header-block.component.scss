@@ -4,3 +4,18 @@
 .spacer {
   flex: 1 1 auto;
 }
+.logo {
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 4px;
+  .r {
+    color: rgb(251, 67, 67);
+  }
+  .g {
+    color: rgb(2, 211, 2);
+  }
+  .y {
+    color: rgb(247, 251, 33);
+  }
+}
