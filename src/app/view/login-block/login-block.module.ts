@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { LoginBlockComponent } from './login-block.component'
 import { LoginBlockUiComponent } from './login-block-ui'
 import { RouterModule } from '@angular/router'
-import { TranslateModule } from '@ngx-translate/core'
+import { SelectLangModule } from '../ui/select-lang/select-lang.module'
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import { TranslateModule } from '@ngx-translate/core'
     MatIconModule,
     ReactiveFormsModule,
     RouterModule,
-    TranslateModule
+    SelectLangModule,
   ],
   exports: [
     LoginBlockComponent,

@@ -1,14 +1,16 @@
 {
+  "LANG": {
+    "SELECT": [
+      {"KEY": "ua", "VALUE": "Українська"},
+      {"KEY": "en", "VALUE": "Англійська"}
+    ],
+    "LABEL": "Мова"
+  },
+
   "AUTH": {
     "TITLE_AUTH": "Авторизація"
   },
   "HOME": {
     "TITLE": "Skills"
-  },
-  "BUTTON": {
-    "LANG": {
-      "UA": "Українська",
-      "EN": "Англійська"
-    }
   }
 }

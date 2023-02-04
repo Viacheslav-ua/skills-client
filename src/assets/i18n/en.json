@@ -1,4 +1,12 @@
 {
+  "LANG": {
+    "SELECT": [
+      {"KEY": "ua", "VALUE": "Ukrainian"},
+      {"KEY": "en", "VALUE": "English"}
+    ],
+    "LABEL": "Language"
+  },
+
   "AUTH": {
     "TITLE_AUTH": "Authorization"
   },
@@ -11,4 +19,5 @@
       "EN": "English"
     }
   }
+
 }

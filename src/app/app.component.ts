@@ -8,10 +8,5 @@ import { TranslateService } from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  title = 'phone-book'
-
-  constructor(public translate: TranslateService) {
-  //   translate.setDefaultLang('en');
-  //   translate.use('en');
-  }
+  title = 'skills'
 }
