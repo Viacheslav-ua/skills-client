@@ -4,27 +4,27 @@
   (input)="onFormChange()"
   (ngSubmit)="onSubmit()"
 >
-  <h2 class="header">Registration</h2>
+  <h2 class="header">{{ 'AUTH.CAPTION.REG'| translate }}</h2>
 
   <div class="container">
 
     <mat-form-field class="filed">
-      <mat-label>Enter your login</mat-label>
+      <mat-label>{{ 'AUTH.LABEL.LOGIN'| translate }}</mat-label>
       <input matInput formControlName="login">
       <mat-error
         *ngIf="formGroup.hasError('required', 'login')"
-      >This field is required</mat-error>
+      >{{ 'AUTH.ERROR'| translate }}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="filed" appearance="fill">
-      <mat-label>Enter your password</mat-label>
+      <mat-label>{{ 'AUTH.LABEL.PASSWORD'| translate }}</mat-label>
       <input matInput [type]="hide ? 'password' : 'text'"
         (input)="onChangePass()"
         formControlName="password">
 
       <mat-error
         *ngIf="formGroup.hasError('required', 'password')"
-      >This field is required</mat-error>
+      >{{ 'AUTH.ERROR'| translate }}</mat-error>
 
       <button
         mat-icon-button
@@ -37,14 +37,14 @@
     </mat-form-field>
 
     <mat-form-field class="filed"class="filed" appearance="fill">
-      <mat-label>Confirm your password</mat-label>
+      <mat-label>{{ 'AUTH.LABEL.CONFIRM'| translate }}</mat-label>
       <input matInput [type]="hide ? 'password' : 'text'"
         (input)="onChangePass()"
         formControlName="confirmPassword">
 
       <mat-error
         *ngIf="formGroup.hasError('required', 'confirmPassword')"
-      >This field is required</mat-error>
+      >{{ 'AUTH.ERROR'| translate }}</mat-error>
 
       <button
         mat-icon-button
@@ -61,13 +61,13 @@
       <button
         mat-stroked-button color="primary"
         [disabled]="submitDisabled">
-        <b>Sign up</b>
+        <b>{{ 'AUTH.CAPTION.REG'| translate }}</b>
       </button>
       <a
         class="btn-auth"
         routerLink="/login"
         mat-stroked-button color="primary">
-        <b>Authorization</b>
+        <b>{{ 'AUTH.CAPTION.AUTH'| translate }}</b>
       </a>
     </div>
 

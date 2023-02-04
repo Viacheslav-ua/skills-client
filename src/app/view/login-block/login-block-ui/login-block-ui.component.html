@@ -4,41 +4,40 @@
   (input)="onFormChange()"
   (ngSubmit)="onSubmit()"
 >
-  <h2 class="header">{{ 'AUTH.TITLE_AUTH'| translate }}</h2>
+  <h2 class="header">{{ 'AUTH.CAPTION.AUTH'| translate }}</h2>
 
   <div class="container">
     <p>
-      You can come in to see the Test data:
+      {{ 'AUTH.TEXT_1'| translate }}
     </p>
     <div class="btn">
       <button type="button" mat-stroked-button color="primary" (click)="onLoginTest($event)">
-        <b>Sign in under Test login</b>
+        <b>{{ 'AUTH.CAPTION.TEST_LOGIN'| translate }}</b>
       </button>
     </div>
   </div>
 
   <div class="container">
     <p>
-      Or log in with your username and password,
-      by pre-registering:
+      {{ 'AUTH.TEXT_2'| translate }}
     </p>
 
     <mat-form-field class="filed">
-      <mat-label>Enter your login</mat-label>
+      <mat-label>{{ 'AUTH.LABEL.LOGIN'| translate }}</mat-label>
       <input matInput formControlName="login">
       <mat-error
         *ngIf="formGroup.hasError('required', 'login')"
-      >This field is required</mat-error>
+      >{{ 'AUTH.ERROR'| translate }}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="filed" appearance="fill">
-      <mat-label>Enter your password</mat-label>
+      <mat-label>{{ 'AUTH.LABEL.PASSWORD'| translate }}</mat-label>
       <input matInput [type]="hide ? 'password' : 'text'"
         formControlName="password">
 
       <mat-error
         *ngIf="formGroup.hasError('required', 'password')"
-      >This field is required</mat-error>
+      >{{ 'AUTH.ERROR'| translate }}</mat-error>
 
       <button
         mat-icon-button
@@ -54,13 +53,13 @@
       <button
         mat-stroked-button color="primary"
         [disabled]="submitDisabled">
-        <b>Log in</b>
+        <b>{{ 'AUTH.CAPTION.LOGIN'| translate }}</b>
       </button>
       <a
         class="btn-register"
         routerLink="/registration"
         mat-stroked-button color="primary">
-        <b>Registration</b>
+        <b>{{ 'AUTH.CAPTION.REG'| translate }}</b>
       </a>
     </div>
   </div>

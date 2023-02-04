@@ -1,6 +1,6 @@
 <mat-form-field appearance="legacy" class="select-field">
   <mat-label>{{ 'LANG.LABEL' | translate}}</mat-label>
-  <mat-select [value]="translate.getDefaultLang()" (selectionChange)="onSelectChange($event)" class="select">
+  <mat-select [value]="translate.currentLang" (selectionChange)="onSelectChange($event)" class="select">
     <mat-option *ngFor="let item of 'LANG.SELECT' | translate" [value]="item.KEY">
     {{item.VALUE}}
     </mat-option>

@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { RegisterBlockComponent } from './register-block.component'
 import { RegisterBlockUiComponent } from './register-block-ui/register-block-ui.component'
 import { RouterModule } from '@angular/router'
+import { SelectLangModule } from '../ui/select-lang/select-lang.module'
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router'
     MatIconModule,
     ReactiveFormsModule,
     RouterModule,
+    SelectLangModule,
   ],
   exports: [
     RegisterBlockComponent,

@@ -8,16 +8,24 @@
   },
 
   "AUTH": {
-    "TITLE_AUTH": "Authorization"
+    "CAPTION": {
+      "AUTH": "Authorization",
+      "REG":  "Registration",
+      "TEST_LOGIN": "Login with Test Login",
+      "LOGIN": "Log in"
+    },
+    "LABEL": {
+      "LOGIN": "Enter your login",
+      "PASSWORD": "Enter your password",
+      "CONFIRM": "Confirm your password"
+    },
+    "ERROR": "This field is required",
+    "TEXT_1": "You can come in to see the Test data.",
+    "TEXT_2": "Or log in with your username and password, by pre-registering."
+
   },
+
   "HOME": {
     "TITLE": "Skills"
-  },
-  "BUTTON": {
-    "LANG": {
-      "UA": "Ukrainian",
-      "EN": "English"
-    }
   }
-
 }
