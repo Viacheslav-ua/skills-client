@@ -24,6 +24,79 @@
     "TEXT_2": "Або увійдіть під своїм логіном і паролем."
 
   },
+  "RESUME": {
+    "NAME": "ВЯЧЕСЛАВ ПОПРОЦЬКИЙ",
+    "SPECIALTY": "Full-stack Розробник",
+    "TITLE": {
+      "VAL_1": "персональна інформація",
+      "VAL_2": "проектний досвід:",
+      "VAL_3": "досвід роботи:",
+      "VAL_4": "освіта:",
+      "VAL_5": "контакти:",
+      "VAL_6": "hard skills:",
+      "VAL_7": "soft skills:",
+      "VAL_8": "мови:"
+    },
+    "ARTICLE": {
+      "VAL_1": "Я Full stack JS-розробник. Зараз змінюю свою професію та вивчаю WEB програмування, Я планую працювати у сфері розробки програмного забезпечення. Пройшов навчання в IT-школі /«GoIT/» за курсом /«Full stack developer/» протягом одного року. Потім ще рік я вивчав додаткові технології самостійно, за допомогою WEB-навчання. Останнім часом я розвиваю свої здібності в стеку (Angular, NestJs).",
+      "VAL_2": ", в якому розміщено резюме, також написано на цих фреймворках. І зараз я шукаю роботу в цьому стеку. Загалом мій досвід програмування становитиме близько двох років навчальних проектів.",
+      "VAL_3": "Наприкінці 90-х я залишив сферу ІТ і почав працювати з електронними системами управління в автомобілях та автоматичними трансмісіями, працював на різних технічних станціях. Зараз я повертаюся до професії в IT."
+    },
+    "LINK": {
+      "VAL_1": "Цей проект",
+      "PROJECT": "посилання на проект",
+      "BASK_DOCS": "back-end docs",
+      "SOURCE": "вихідний код",
+      "SOURCE_1": "код Express",
+      "SOURCE_2": "код NestJs",
+      "SOURCE_3": "код front-end",
+      "SOURCE_4": "код back-end"
+    },
+    "TEXT": {
+      "VAL_1": "Проект: Web Studio. Адаптивна веб-сторінка веб-студії. Технології: HTML5 - CSS3 - SASS - BEM.",
+      "VAL_2": "Проект: Donut Masterclass. Командний проект, mobile-first adaptive landing. Мої завдання на проекті - слайдер і фон. Технології: HTML5 - CSS3 - JS - SASS - BEM.",
+      "VAL_3": "Проект: Image finder. Пошук і перегляд зображень. Технології: JS-Handlebars-Parcel.",
+      "VAL_4": "Проект: Event Booster. Командний проект, пошук подій. Мої завдання на проекті, це API та взаємодія програмних модулів. Технології: JS-HTML5-SASS-Handlebars-Parcel.",
+      "VAL_5": "Проект: Image finder. Пошук та перегляд зображення, на React. Технології: JS-TS-React-Webpack.",
+      "VAL_6": "Проект: Phone book. Work with backend and user registration. Technologies: JS-TS-React-Redux-RTK-ReactRouter6-MUI-Webpack.",
+      "VAL_8": "Проект: Kapusta-finance. Фінальний командний проект. Моєю роботою над проектом було створення сервера. Технології: NodeJS, MongoDB, Express.",
+      "VAL_9": "збірає різні фічі, які я створюю в процесі практики на Angular, NestJs",
+      "VAL_10": "IT School GoIT \"Full stack developer\" (February 2021 - February 2022)",
+      "VAL_11": "Національний технічний універсітет України \"Київський політехнічній інститут\" (1992 - 1998)",
+      "VAL_12": "Комп`ютери та інтелектуальні системи та мережі, Інженер системотехник"
+    },
+    "CONTACTS": {
+      "LI_1": "м. Київ",
+      "LI_2": "097-534-19-01",
+      "LI_3": "poprotskyi.v@gmail.com",
+      "LI_4": "www.linkedin.com/in/viacheslav-ua",
+      "LI_5": "https://github.com/Viacheslav-ua"
+    },
+    "TECH": {
+      "LI_1": "HTML5, CSS3, SASS",
+      "LI_2": "Git, Github",
+      "LI_3": "JS Es6, TS",
+      "LI_4": "Parcel, Webpack",
+      "LI_5": "React, Redux",
+      "LI_6": "RTK, RTK-Query",
+      "LI_7": "Angular, NgRx",
+      "LI_8": "NodeJS, Express, NestJS",
+      "LI_9": "SQL, MySQL, PostgreSQL",
+      "LI_10": "MongoDB, Redis",
+      "LI_11": "GraphQL, Docker"
+    },
+    "SOFT": {
+      "LI_2": "Самоврядний",
+      "LI_3": "Здатний",
+      "LI_4": "Прагнення вчитися",
+      "LI_5": "Творчий"
+    },
+    "LANG": {
+      "LI_1": "Англійська pre-intermediate",
+      "LI_2": "Українська - native",
+      "LI_3": "Російська - native"
+    }
+  },
 
   "HOME": {
     "TITLE": "Skills"

@@ -1,164 +1,134 @@
 <div class="main-container">
   <section class="main-content">
-    <app-select-lang class="lang"></app-select-lang>
-    <h1 class="main-title">VIACHESLAV POPROTSKYI</h1>
-    <span class="speciality">Full-stack Developer</span>
+    <app-select-lang *ngIf="isShowTranslator" class="lang"></app-select-lang>
+    <h1 class="main-title">{{ "RESUME.NAME" | translate }}</h1>
+    <span class="speciality">{{ "RESUME.SPECIALTY" | translate }}</span>
 
     <article class="personal article">
-      <h2 class="article-title">personal information</h2>
+      <h2 class="article-title">{{ "RESUME.TITLE.VAL_1" | translate }}</h2>
       <p class="article-content">
-        I'm full-stack JS developer.
-        Currently I switching my profession and learn WEB
-        programming and plan to work in software development.
-        Passed training at the IT-school "GoIT" on the course "Full stack developer" for one year.
-        And another year I studied additional technologies independently, with the help of WEB-learning.
-        Last time I develop my abilities in the stack (Angular, NestJs).
-        <a class="link-home" [routerLink]="'/main'">This project</a>  in which this summary
-        is posted is also written on these frameworks. And now I'm looking for a job in this stack. In general,
-        my programming experience will be about two years of training projects.
+        {{ "RESUME.ARTICLE.VAL_1" | translate }}
+        <a class="link-home" [routerLink]="'/main'">{{ "RESUME.LINK.VAL_1" | translate }}</a>
+        {{ "RESUME.ARTICLE.VAL_2" | translate }}
       </p>
     </article>
 
     <article class="projects article">
-      <h2 class="article-title">project experience:</h2>
+      <h2 class="article-title">{{ "RESUME.TITLE.VAL_2" | translate }}</h2>
       <span >
         <ul class="article-content">
           <li class="item-project">
             <p class="item-content">
-              Project: Web Studio. Adaptive web-page of web studio.
-              Technologies: HTML5 - CSS3 - SASS - BEM.
+              {{ "RESUME.TEXT.VAL_1" | translate }}
             </p>
             <div class="link-block">
               <a href="https://viacheslav-ua.github.io/goit-markup-hw-08" target="_blank" rel="noreferrer noopener">
-                project link
+                {{ "RESUME.LINK.PROJECT" | translate }}
               </a>
               <a href="https://github.com/Viacheslav-ua/goit-markup-hw-08" target="_blank" rel="noreferrer noopener">
-                source files
+                {{ "RESUME.LINK.SOURCE" | translate }}
               </a>
             </div>
           </li>
 
           <li class="item-project">
             <p class="item-content">
-              Project: Donut Masterclass. Team project, mobile-first
-              adaptive landing. My tasks on the project are the slider and the
-              background. Technologies: HTML5 - CSS3 - JS - SASS - BEM.
+              {{ "RESUME.TEXT.VAL_2" | translate }}
             </p>
             <div class="link-block">
               <a href="https://tatianachepovaya.github.io/donut-master-class" target="_blank" rel="noreferrer noopener">
-                project link
+                {{ "RESUME.LINK.PROJECT" | translate }}
               </a>
               <a href="https://github.com/Viacheslav-ua/donut-master-class" target="_blank" rel="noreferrer noopener">
-                source files
+                {{ "RESUME.LINK.SOURCE" | translate }}
               </a>
             </div>
           </li>
 
           <li class="item-project">
             <p class="item-content">
-              Project: Image finder. Search and view images.
-              Technologies: JS-Handlebars-Parcel.
+              {{ "RESUME.TEXT.VAL_3" | translate }}
             </p>
             <div class="link-block">
               <a href="https://viacheslav-ua.github.io/goit-js-hw-13-image-finder" target="_blank" rel="noreferrer noopener">
-                project link
+                {{ "RESUME.LINK.PROJECT" | translate }}
               </a>
               <a href="https://github.com/Viacheslav-ua/goit-js-hw-13-image-finder" target="_blank" rel="noreferrer noopener">
-                source files
+                {{ "RESUME.LINK.SOURCE" | translate }}
               </a>
             </div>
           </li>
 
           <li class="item-project">
             <p class="item-content">
-            Project: Image finder. Event Booster. Team project, events
-            finder. My tasks on the project, It's API and interaction of program
-            modules. Technologies: JS-HTML5-SASS-Handlebars-Parcel.
+              {{ "RESUME.TEXT.VAL_4" | translate }}
             </p>
             <div class="link-block">
               <a href="https://viacheslav-ua.github.io/team-attraction-project/" target="_blank" rel="noreferrer noopener">
-                project link
+                {{ "RESUME.LINK.PROJECT" | translate }}
               </a>
               <a href="https://github.com/Viacheslav-ua/team-attraction-project" target="_blank" rel="noreferrer noopener">
-                source files
+                {{ "RESUME.LINK.SOURCE" | translate }}
               </a>
             </div>
           </li>
 
           <li class="item-project">
             <p class="item-content">
-              Project: Image finder. Search and view images, using React.
-              Technologies: JS-TS-React-Webpack.
+              {{ "RESUME.TEXT.VAL_5" | translate }}
             </p>
             <div class="link-block">
               <a href="https://viacheslav-ua.github.io/goit-react-hw-04-hooks-images/" target="_blank" rel="noreferrer noopener">
-                project link
+                {{ "RESUME.LINK.PROJECT" | translate }}
               </a>
               <a href="https://github.com/Viacheslav-ua/goit-react-hw-04-hooks-images" target="_blank" rel="noreferrer noopener">
-                source files
+                {{ "RESUME.LINK.SOURCE" | translate }}
               </a>
             </div>
           </li>
 
           <li class="item-project">
             <p class="item-content">
-              Project: Phone book. Work with backend and user registration.
-              Technologies: JS-TS-React-Redux-RTK-ReactRouter6-MUI-Webpack.
+              {{ "RESUME.TEXT.VAL_6" | translate }}
             </p>
             <div class="link-block">
               <a href="https://vua-goit-react-hw-08-phonebook.netlify.app/" target="_blank" rel="noreferrer noopener">
-                project link
+                {{ "RESUME.LINK.PROJECT" | translate }}
               </a>
               <a href="https://github.com/Viacheslav-ua/goit-react-hw-08-phonebook" target="_blank" rel="noreferrer noopener">
-                source files
+                {{ "RESUME.LINK.SOURCE" | translate }}
               </a>
             </div>
           </li>
 
           <li class="item-project">
             <p class="item-content">
-              Project: REST API "Contacts". Backend REST application registration.
-              Technologies: NodeJS, MongoDB, Express, NestJS, Docker.
-            </p>
-            <div class="link-block">
-              <a href="https://github.com/Viacheslav-ua/nodejs-hw-rest-api" target="_blank" rel="noreferrer noopener">
-                source files on Express
-              </a>
-              <a href="https://github.com/Viacheslav-ua/nest-hw-rest-api" target="_blank" rel="noreferrer noopener">
-                source files on NestJs
-              </a>
-            </div>
-          </li>
-
-          <li class="item-project">
-            <p class="item-content">
-              Project: Kapusta-finance. Final team project.
-              My job on the project was to creation the server.
-              Technologies: NodeJS, MongoDB, Express.
+              {{ "RESUME.TEXT.VAL_8" | translate }}
             </p>
             <div class="link-block">
               <a href="https://kapusta-wallet-finance.netlify.app/" target="_blank" rel="noreferrer noopener">
-                project link
+                {{ "RESUME.LINK.PROJECT" | translate }}
               </a>
               <a href="https://github.com/Viacheslav-ua/team-project-kapusta-finance-back-end" target="_blank" rel="noreferrer noopener">
-                source files
+                {{ "RESUME.LINK.SOURCE" | translate }}
               </a>
             </div>
           </li>
 
           <li class="item-project">
             <p class="item-content">
-              <a href="">This project </a> collects various features that I create in the process of practice on Angular, NestJs
+              <a href="">{{ "RESUME.LINK.VAL_1" | translate }}</a>
+              {{ "RESUME.TEXT.VAL_9" | translate }}
             </p>
             <div class="link-block">
               <a href="https://github.com/Viacheslav-ua/skills-client/tree/dev" target="_blank" rel="noreferrer noopener">
-                source front-end
+                {{ "RESUME.LINK.SOURCE_3" | translate }}
               </a>
               <a href="https://github.com/Viacheslav-ua/skills-server/tree/after-refactoring" target="_blank" rel="noreferrer noopener">
-                source back-end
+                {{ "RESUME.LINK.SOURCE_4" | translate }}
               </a>
               <a [href]="serverDocs" target="_blank" rel="noreferrer noopener">
-                back-end docs
+                {{ "RESUME.LINK.BASK_DOCS" | translate }}
               </a>
             </div>
           </li>
@@ -168,25 +138,21 @@
     </article>
 
     <article class="article">
-      <h2 class="article-title">work experience:</h2>
+      <h2 class="article-title">{{ "RESUME.TITLE.VAL_3" | translate }}</h2>
       <p class="article-content">
-        In the late 90s, I left the IT field
-        and started working with electronic control systems for vehicle
-        and automatic transmission units and worked on different technical stations.
-        Now I am returning to the profession in IT.
+        {{ "RESUME.ARTICLE.VAL_3" | translate }}
       </p>
     </article>
 
     <article class="article">
-      <h2 class="article-title">education:</h2>
+      <h2 class="article-title">{{ "RESUME.TITLE.VAL_4" | translate }}</h2>
       <ul class="article-content">
         <li>
-          IT School GoIT "Full stack developer" (February 2021 - February 2022)
+          {{ "RESUME.TEXT.VAL_10" | translate }}
         </li>
         <li>
-          National Technical University of Ukraine
-          "Kyiv Polytechnic Institute" (1992 - 1998)
-          <p>Computer systems and networks, Master's degree -System engineer</p>
+          {{ "RESUME.TEXT.VAL_11" | translate }}
+          <p>{{ "RESUME.TEXT.VAL_12" | translate }}</p>
         </li>
       </ul>
     </article>
@@ -196,59 +162,57 @@
     <div class="wrapper-content">
 
       <section>
-        <h4>contacts:</h4>
+        <h4>{{ "RESUME.TITLE.VAL_5" | translate }}</h4>
         <ul>
-          <li>c. Kyiv</li>
-          <li>097-534-19-01</li>
-          <li>poprotskyi.v@gmail.com</li>
+          <li>{{ "RESUME.CONTACTS.LI_1" | translate }}</li>
+          <li>{{ "RESUME.CONTACTS.LI_2" | translate }}</li>
+          <li>{{ "RESUME.CONTACTS.LI_3" | translate }}</li>
           <li>
             <a href="https://www.linkedin.com/in/viacheslav-ua" target="_blank" rel="noreferrer noopener">
-              www.linkedin.com/in/viacheslav-ua
+              {{ "RESUME.CONTACTS.LI_4" | translate }}
             </a>
           </li>
           <li>
             <a href="https://github.com/Viacheslav-ua"  target="_blank" rel="noreferrer noopener">
-              https://github.com/Viacheslav-ua
+              {{ "RESUME.CONTACTS.LI_5" | translate }}
             </a>
           </li>
         </ul>
       </section>
 
       <section>
-        <h4>technical skills:</h4>
+        <h4>{{ "RESUME.TITLE.VAL_6" | translate }}</h4>
         <ul>
-          <li>HTML5, CSS3, SASS</li>
-          <li>Git, Github</li>
-          <li>JS Es6, TS</li>
-          <li>Parcel, Webpack</li>
-          <li>React, Redux, React-Redux</li>
-          <li>Angular, NgRx</li>
-          <li>RTK, RTK-Query</li>
-          <li>NodeJS, Express, NestJS</li>
-          <li>GraphQL, Apollo Client</li>
-          <li>SQL, MySQL, PostgreSQL</li>
-          <li>MongoDB, Redis</li>
-          <li>Docker</li>
+          <li>{{ "RESUME.TECH.LI_1" | translate }}</li>
+          <li>{{ "RESUME.TECH.LI_2" | translate }}</li>
+          <li>{{ "RESUME.TECH.LI_3" | translate }}</li>
+          <li>{{ "RESUME.TECH.LI_4" | translate }}</li>
+          <li>{{ "RESUME.TECH.LI_5" | translate }}</li>
+          <li>{{ "RESUME.TECH.LI_6" | translate }}</li>
+          <li>{{ "RESUME.TECH.LI_7" | translate }}</li>
+          <li>{{ "RESUME.TECH.LI_8" | translate }}</li>
+          <li>{{ "RESUME.TECH.LI_9" | translate }}</li>
+          <li>{{ "RESUME.TECH.LI_10" | translate }}</li>
+          <li>{{ "RESUME.TECH.LI_11" | translate }}</li>
         </ul>
       </section>
 
       <section>
-        <h4>soft skills:</h4>
+        <h4>{{ "RESUME.TITLE.VAL_7" | translate }}</h4>
         <ul>
-          <li>Astute</li>
-          <li>Autonomous</li>
-          <li>Capable</li>
-          <li>Eager to learn</li>
-          <li>Creative</li>
+          <li>{{ "RESUME.SOFT.LI_2" | translate }}</li>
+          <li>{{ "RESUME.SOFT.LI_3" | translate }}</li>
+          <li>{{ "RESUME.SOFT.LI_4" | translate }}</li>
+          <li>{{ "RESUME.SOFT.LI_5" | translate }}</li>
         </ul>
       </section>
 
       <section>
-        <h4>languages:</h4>
+        <h4>{{ "RESUME.TITLE.VAL_8" | translate }}</h4>
         <ul>
-          <li>English pre-intermediate</li>
-          <li>Ukrainian - native</li>
-          <li>Russian - native</li>
+          <li>{{ "RESUME.LANG.LI_1" | translate }}</li>
+          <li>{{ "RESUME.LANG.LI_2" | translate }}</li>
+          <li>{{ "RESUME.LANG.LI_3" | translate }}</li>
         </ul>
       </section>
     </div>

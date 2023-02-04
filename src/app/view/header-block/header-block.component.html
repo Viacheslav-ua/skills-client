@@ -9,14 +9,14 @@
       <span class="r">S</span>
     </span>
     <span class="spacer"></span>
-    <div>
-      <span>Hi {{ login$ | async }}</span>
-      <button mat-raised-button color="primary" (click)="onLogout()">
-        <mat-icon class="icon">logout</mat-icon>
-        Exit
-      </button>
-    </div>
 
+    <app-select-lang class="lang"></app-select-lang>
 
+    <span>Hi {{ login$ | async }}</span>
+
+    <button class="btn-logout" mat-raised-button color="primary" (click)="onLogout()">
+      <mat-icon class="icon">logout</mat-icon>
+      Exit
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>

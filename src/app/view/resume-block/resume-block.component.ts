@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BACKEND_BASE_DOMAIN } from 'src/env';
 
 @Component({
@@ -7,6 +8,15 @@ import { BACKEND_BASE_DOMAIN } from 'src/env';
   styleUrls: ['./resume-block.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ResumeBlockComponent {
-  serverDocs = BACKEND_BASE_DOMAIN + 'docs'
+export class ResumeBlockComponent implements OnInit {
+  public serverDocs = BACKEND_BASE_DOMAIN + 'docs'
+  public isShowTranslator = false
+
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+    this.router.url === '/resume'
+    this.isShowTranslator = this.router.url === '/resume' ? true : false
+
+  }
 }

@@ -2,7 +2,7 @@
   padding: 0 5px;
 }
 .spacer {
-  flex: 1 1 auto;
+   flex: 1 1 auto;
 }
 .logo {
   font-size: 22px;
@@ -18,4 +18,12 @@
   .y {
     color: rgb(247, 251, 33);
   }
+}
+.lang {
+  font-size: 14px;
+  margin-top: 11px;
+  margin-right: 80px;
+}
+.btn-logout {
+  margin-left: 20px;
 }

@@ -24,6 +24,81 @@
     "TEXT_2": "Or log in with your username and password, by pre-registering."
 
   },
+  "RESUME": {
+    "NAME": "VIACHESLAV POPROTSKYI",
+    "SPECIALTY": "Full-stack Developer",
+    "TITLE": {
+      "VAL_1": "personal information",
+      "VAL_2": "project experience:",
+      "VAL_3": "work experience:",
+      "VAL_4": "education:",
+      "VAL_5": "contacts:",
+      "VAL_6": "technical skills:",
+      "VAL_7": "soft skills:",
+      "VAL_8": "languages:"
+    },
+    "ARTICLE": {
+      "VAL_1": "I'm full-stack JS developer. Currently I switching my profession and learn WEB programming and plan to work in software development. Passed training at the IT-school \"GoIT\" on the course \"Full stack developer\" for one year. And another year I studied additional technologies independently, with the help of WEB-learning. Last time I develop my abilities in the stack (Angular, NestJs).",
+      "VAL_2": " in which this summary is posted is also written on these frameworks. And now I'm looking for a job in this stack. In general, my programming experience will be about two years of training projects.",
+      "VAL_3": "In the late 90s, I left the IT field and started working with electronic control systems for vehicle and automatic transmission units and worked on different technical stations. Now I am returning to the profession in IT.",
+      "VAL_4": ""
+    },
+    "LINK": {
+      "VAL_1": "This project",
+      "PROJECT": "project link",
+      "BASK_DOCS": "back-end docs",
+      "SOURCE": "source code",
+      "SOURCE_1": "code Express",
+      "SOURCE_2": "code NestJs",
+      "SOURCE_3": "code front-end",
+      "SOURCE_4": "code back-end"
+    },
+    "TEXT": {
+      "VAL_1": "Project: Web Studio. Adaptive web-page of web studio. Technologies: HTML5 - CSS3 - SASS - BEM.",
+      "VAL_2": "Project: Donut Masterclass. Team project, mobile-first adaptive landing. My tasks on the project are the slider and the background. Technologies: HTML5 - CSS3 - JS - SASS - BEM.",
+      "VAL_3": "Project: Image finder. Search and view images. Technologies: JS-Handlebars-Parcel.",
+      "VAL_4": "Project: Event Booster. Team project, events finder. My tasks on the project, It's API and interaction of program modules. Technologies: JS-HTML5-SASS-Handlebars-Parcel.",
+      "VAL_5": "Project: Image finder. Image search and browsing, on React. Technologies: JS-TS-React-Webpack.",
+      "VAL_6": "Project: Phone book. Work with backend and user registration. Technologies: JS-TS-React-Redux-RTK-ReactRouter6-MUI-Webpack.",
+      "VAL_8": "Project: Kapusta-finance. Final team project. My job on the project was to creation the server. Technologies: NodeJS, MongoDB, Express.",
+      "VAL_9": "collects various features that I create in the process of practice on Angular, NestJs",
+      "VAL_10": "IT School GoIT \"Full stack developer\" (February 2021 - February 2022)",
+      "VAL_11": "National Technical University of Ukraine \"Kyiv Polytechnic Institute\" (1992 - 1998)",
+      "VAL_12": "Computer systems and networks, Master's degree -System engineer",
+      "VAL_13": ""
+    },
+    "CONTACTS": {
+      "LI_1": "c. Kyiv",
+      "LI_2": "097-534-19-01",
+      "LI_3": "poprotskyi.v@gmail.com",
+      "LI_4": "www.linkedin.com/in/viacheslav-ua",
+      "LI_5": "https://github.com/Viacheslav-ua"
+    },
+    "TECH": {
+      "LI_1": "HTML5, CSS3, SASS",
+      "LI_2": "Git, Github",
+      "LI_3": "JS Es6, TS",
+      "LI_4": "Parcel, Webpack",
+      "LI_5": "React, Redux",
+      "LI_6": "RTK, RTK-Query",
+      "LI_7": "Angular, NgRx",
+      "LI_8": "NodeJS, Express, NestJS",
+      "LI_9": "SQL, MySQL, PostgreSQL",
+      "LI_10": "MongoDB, Redis",
+      "LI_11": "GraphQL, Docker"
+    },
+    "SOFT": {
+      "LI_2": "Autonomous",
+      "LI_3": "Capable",
+      "LI_4": "Eager to learn",
+      "LI_5": "Creative"
+    },
+    "LANG": {
+      "LI_1": "English pre-intermediate",
+      "LI_2": "Ukrainian - native",
+      "LI_3": "Russian - native"
+    }
+  },
 
   "HOME": {
     "TITLE": "Skills"

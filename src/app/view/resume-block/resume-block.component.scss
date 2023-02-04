@@ -14,9 +14,14 @@ $accentColor: #3679d7;
   border-radius: 6px;
 }
 
+.lang {
+  font-size: 16px;
+
+}
+
 .main-content {
   width: 100%;
-  padding:  80px 60px 20px 60px;
+  padding:  20px 60px 40px 60px;
   color: #595959;
 }
 
@@ -29,6 +34,7 @@ $accentColor: #3679d7;
   word-spacing: 10px;
   color: $bgDarkColor;
   margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .speciality {
