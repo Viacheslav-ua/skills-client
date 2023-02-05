@@ -97,6 +97,10 @@
       "LI_3": "Російська - native"
     }
   },
+   "HEADER": {
+    "LOGIN": "Привіт",
+    "EXIT": "Вихід"
+  },
 
   "HOME": {
     "TITLE": "Skills"

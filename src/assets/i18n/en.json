@@ -99,6 +99,10 @@
       "LI_3": "Russian - native"
     }
   },
+  "HEADER": {
+    "LOGIN": "Hello",
+    "EXIT": "Exit"
+  },
 
   "HOME": {
     "TITLE": "Skills"
