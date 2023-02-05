@@ -1,4 +1,5 @@
 $bgDarkColor: #0a3a7d;
+$bgColor: rgba(0, 0, 0, 0.076);
 $activeColor: #b00020;
 $accentColor: #3679d7;
 
@@ -39,15 +40,15 @@ $accentColor: #3679d7;
 
 .main {
   grid-area: main;
-  background-color: rgba(0, 0, 0, 0.076);
+  background-color: $bgColor;
 }
 .footer {
   grid-area: footer;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   position: sticky;
   bottom: 0;
   width: 100%;
-  background-color: aqua;
-
+  background-color: rgb(40, 123, 123);
 }
