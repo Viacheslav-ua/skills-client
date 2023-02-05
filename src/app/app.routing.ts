@@ -46,10 +46,15 @@ const routes: Routes = [
         canLoad: [GuestGuard],
         canActivate: [GuestGuard],
       },
+      // {
+      //   path: '**',
+      //   pathMatch: 'full',
+      //   loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule),
+      // }
       {
         path: '**',
         pathMatch: 'full',
-        loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule),
+        redirectTo: AppRouteEnum.Main,
       }
     ]
   }
