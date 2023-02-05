@@ -101,6 +101,12 @@
     "LOGIN": "Привіт",
     "EXIT": "Вихід"
   },
+    "LAYOUT": {
+    "ABOUT": "Про проект",
+    "TASKS": "Задачі",
+    "CONTACTS": "Контакти",
+    "RESUME": "Моє резюме"
+  },
 
   "HOME": {
     "TITLE": "Skills"

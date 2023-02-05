@@ -103,6 +103,12 @@
     "LOGIN": "Hello",
     "EXIT": "Exit"
   },
+  "LAYOUT": {
+    "ABOUT": "About",
+    "TASKS": "Tasks",
+    "CONTACTS": "Contacts",
+    "RESUME": "My Resume"
+  },
 
   "HOME": {
     "TITLE": "Skills"
