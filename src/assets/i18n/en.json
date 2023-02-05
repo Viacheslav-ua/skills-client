@@ -109,8 +109,23 @@
     "CONTACTS": "Contacts",
     "RESUME": "My Resume"
   },
+  "TODO": {
+    "ADD": "Add task",
+    "SHOW": "Show",
+    "TABLE": {
+      "STATUS": "Status",
+      "TITLE": "Title",
+      "CREATED": "Created",
+      "NOTES": "Notes",
+      "EDIT": "EDIT"
+    }
+  },
 
   "HOME": {
-    "TITLE": "Skills"
+    "TITLE": "Preface",
+    "TITLE_1": "The source code can be viewed on GitHub at the links:",
+    "TEXT_1": "This pet project is created during the practice of learning frameworks Angular and NestJs and has server and client parts. It's made as a collection of individual features that I add to it from simple to more difficult.",
+    "TEXT_2": "The project has a registration and authorization procedure, after which each user works with his data.",
+    "TEXT_3": "The aim of the project is the practical study of technologies of development and representation of my skills when applying for a job."
   }
 }

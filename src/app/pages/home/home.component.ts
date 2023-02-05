@@ -1,4 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Endpoints } from 'src/app/core/enums/server-endpoints.enum';
+import { BACKEND_BASE_DOMAIN } from 'src/env';
 
 @Component({
   selector: 'app-home',
@@ -6,4 +9,9 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {}
+export class HomeComponent {
+  public serverDocs = BACKEND_BASE_DOMAIN + Endpoints.Docs
+
+  constructor(public translate: TranslateService) {}
+
+}

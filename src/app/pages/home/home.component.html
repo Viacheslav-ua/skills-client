@@ -1,21 +1,16 @@
 <section class="preface-container">
-  <h1 class="preface-title">Preface</h1>
+  <h1 class="preface-title">{{ 'HOME.TITLE' | translate }}</h1>
   <p class="preface-content">
-    This pet project is created during the practice of learning
-    frameworks Angular and NestJs and has server and client parts.
-    It's made as a collection of individual features that I add to it
-    from simple to more difficult.
+    {{ 'HOME.TEXT_1' | translate }}
   </p>
   <p class="preface-content">
-    The project has a registration and authorization procedure,
-    after which each user works with his data.
+    {{ 'HOME.TEXT_2' | translate }}
   </p>
   <p class="preface-content">
-    The aim of the project is the practical study of technologies of development  and
-    representation of my skills when applying for a job.
+    {{ 'HOME.TEXT_3' | translate }}
   </p>
 
-  <h4 class="link-list-title">The source code can be viewed on GitHub at the links:</h4>
+  <h4 class="link-list-title">{{ 'HOME.TITLE_1' | translate }}</h4>
 
   <ul class="link-list">
       <li class="link-item">
@@ -27,7 +22,7 @@
         target="_blank" rel="noreferrer noopener">Back-end Here</a>
       </li>
       <li class="link-item">
-        <a href="https://github.com/Viacheslav-ua/skills-server/tree/after-refactoring" class=""
+        <a [href]="serverDocs" class=""
         target="_blank" rel="noreferrer noopener">Back-end docs Here</a>
       </li>
       <li class="link-item">

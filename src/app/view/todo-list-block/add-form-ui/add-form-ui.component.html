@@ -6,7 +6,7 @@
   <div class="controls">
     <div class="form-add">
       <mat-form-field class="filed">
-        <mat-label>Title</mat-label>
+        <mat-label>{{ 'TODO.TABLE.TITLE' | translate }}</mat-label>
         <input class="title-input" matInput formControlName="title">
       </mat-form-field>
 
@@ -14,12 +14,12 @@
         class="btn-add"
         mat-stroked-button color="primary"
         [disabled]="submitDisabled">
-          <b>Add task</b>
+          <b>{{ 'TODO.ADD' | translate }}</b>
       </button>
     </div>
     <div class="form-filter">
       <mat-radio-group formControlName="selectedStatus" (change)="onChangeFilter($event)">
-        <mat-label class = "filter-label">Show</mat-label>
+        <mat-label class = "filter-label">{{ 'TODO.SHOW' | translate }}</mat-label>
         <mat-radio-button class = "mr" *ngFor="let item of status" [value]="item.value">
           {{ item.viewValue }}
         </mat-radio-button>

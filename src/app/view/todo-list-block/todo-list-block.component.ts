@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
+import { TranslateService } from '@ngx-translate/core'
 import { Observable } from 'rxjs'
 import { ICreateTodo, ISaveTodo, ITodoExtended, IUpdateTodo } from 'src/app/core/interfaces/todo.interfaces'
 import { remove, add, getAll, loadingStatusStart, update, todoSetFilter, todoEditOneSet, todoSaveOne } from 'src/app/store/todo-store/store/todo-store.actions'
@@ -19,6 +20,7 @@ export class TodoListBlockComponent implements OnInit{
 
   constructor(
     private store$: Store,
+    public translate: TranslateService,
   ) { }
 
   ngOnInit(): void {

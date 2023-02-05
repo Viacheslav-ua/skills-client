@@ -3,5 +3,6 @@ export enum Endpoints {
   Register = 'auth/registration',
   Refresh = 'auth/refresh',
   User = 'auth/profile',
-  Todo = 'todo'
+  Todo = 'todo',
+  Docs = 'docs'
 }

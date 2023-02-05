@@ -11,6 +11,8 @@ import { MatRadioModule } from '@angular/material/radio'
 import { AddFormUiComponent } from './add-form-ui/add-form-ui.component'
 import { TodoListUiComponent } from './todo-list-ui/todo-list-ui.component'
 import { SpinnerModule } from '../ui/spinner/spinner.module'
+import { SelectLangModule } from '../ui/select-lang/select-lang.module'
+import { TranslateModule } from '@ngx-translate/core'
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { SpinnerModule } from '../ui/spinner/spinner.module'
     SpinnerModule,
     MatIconModule,
     MatRadioModule,
+    TranslateModule,
     ],
   exports: [TodoListBlockComponent],
 })
