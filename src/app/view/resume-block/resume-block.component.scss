@@ -1,0 +1,154 @@
+$bgDarkColor: #0a3a7d;
+$activeColor: #b00020;
+$accentColor: #3679d7;
+
+// $bgDarkColor: #0D47A1;
+
+.main-container {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 1200px;
+  background: #fff;
+  margin: 30px auto;
+  box-shadow: 5px 10px 20px 5px #8a92c580;
+  border-radius: 6px;
+}
+
+.lang {
+  font-size: 16px;
+
+}
+
+.main-content {
+  width: 100%;
+  padding:  20px 60px 40px 60px;
+  color: #595959;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  word-spacing: 10px;
+  color: $bgDarkColor;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.speciality {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 8px;
+  word-spacing: 15px;
+  border-bottom: #797070 solid 3px;
+  color: $accentColor;
+}
+
+.article {
+  padding-top: 50px;
+}
+
+.article-title {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 4px;
+  word-spacing: 8px;
+  text-transform: uppercase;
+  color: $accentColor;
+}
+
+.article-content {
+  font-size: 16px;
+  color: black;
+  a {
+    text-decoration: none;
+    color: $accentColor;
+    transition-property: color;
+    transition-duration: 200ms;
+    transition-timing-function: linear;
+  }
+  a:hover {
+    color: $activeColor;
+  }
+}
+
+.link-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.item-project {
+  padding-bottom: 20px;
+  transition-property: background-color;
+  transition-duration: 100ms;
+  transition-timing-function: linear;
+}
+
+.item-project:hover {
+  background-color: rgba(0, 0, 0, 0.076);
+}
+
+.item-content {
+  margin-bottom: 8px;
+}
+
+.sidebar-section {
+  background-color: $bgDarkColor;
+  min-height: 1200px;
+  width: 500px;
+  color: #fff;
+  padding: 40px 0 20px 0;
+}
+
+.wrapper-content {
+  color: white;
+
+  section {
+    margin-top: 60px;
+  }
+  h4 {
+    // text-align: center;
+    margin-left: 24px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 5px;
+    word-spacing: 8px;
+    text-transform: uppercase;
+  }
+  li {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+    transition-property: color;
+    transition-duration: 200ms;
+    transition-timing-function: linear;
+  }
+  a:hover {
+    color: #E1BEE7;
+  }
+
+}
+
+
+
+.wrapper-photo {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background-image: url('../../../assets/img/my-photo.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+
+}

@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="logo">
+      <span class="r">S</span>
+      <span class="g">K</span>
+      <span class="y">I</span>
+      <span class="g">L</span>
+      <span class="y">L</span>
+      <span class="r">S</span>
+    </span>
+    <span class="spacer"></span>
+
+    <app-select-lang class="lang"></app-select-lang>
+
+    <span>{{ 'HEADER.LOGIN'| translate }} {{ login$ | async }}</span>
+
+    <button class="btn-logout" mat-raised-button color="primary" (click)="onLogout()">
+      <mat-icon class="icon">logout</mat-icon>
+      {{ 'HEADER.EXIT'| translate }}
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

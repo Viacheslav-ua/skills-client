@@ -1,0 +1,19 @@
+<div class="grid-container">
+  <app-header-block class="header"></app-header-block>
+
+  <nav class="nav">
+    <a [routerLink]="'/main/home'" routerLinkActive="active-link">{{ 'LAYOUT.ABOUT'| translate }}</a>
+    <a [routerLink]="'/main/todos'" routerLinkActive="active-link">{{ 'LAYOUT.TASKS'| translate }}</a>
+    <a [routerLink]="'/main/contacts'" routerLinkActive="active-link">{{ 'LAYOUT.CONTACTS'| translate }}</a>
+
+    <!-- <a [routerLink]="'/main/edit/:id'">Редактор</a> -->
+  <hr>
+    <a [routerLink]="'/main/resume'" routerLinkActive="active-link">{{ 'LAYOUT.RESUME'| translate }}</a>
+  </nav>
+
+  <main class="main">
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-footer-block class="footer"></app-footer-block>
+</div>

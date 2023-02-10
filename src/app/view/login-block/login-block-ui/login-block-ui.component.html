@@ -1,0 +1,70 @@
+<form
+  class="form-login"
+  [formGroup]="formGroup"
+  (input)="onFormChange()"
+  (ngSubmit)="onSubmit()"
+>
+  <h2 class="header">{{ 'AUTH.CAPTION.AUTH'| translate }}</h2>
+
+  <div class="container">
+    <p>
+      {{ 'AUTH.TEXT_1'| translate }}
+    </p>
+    <div class="btn">
+      <button type="button" mat-stroked-button color="primary" (click)="onLoginTest($event)">
+        <b>{{ 'AUTH.CAPTION.TEST_LOGIN'| translate }}</b>
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+    <p>
+      {{ 'AUTH.TEXT_2'| translate }}
+    </p>
+
+    <mat-form-field class="filed">
+      <mat-label>{{ 'AUTH.LABEL.LOGIN'| translate }}</mat-label>
+      <input matInput formControlName="login">
+      <mat-error
+        *ngIf="formGroup.hasError('required', 'login')"
+      >{{ 'AUTH.ERROR'| translate }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="filed" appearance="fill">
+      <mat-label>{{ 'AUTH.LABEL.PASSWORD'| translate }}</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'"
+        formControlName="password">
+
+      <mat-error
+        *ngIf="formGroup.hasError('required', 'password')"
+      >{{ 'AUTH.ERROR'| translate }}</mat-error>
+
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="onHide($event)"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div class="btn">
+      <button
+        mat-stroked-button color="primary"
+        [disabled]="submitDisabled">
+        <b>{{ 'AUTH.CAPTION.LOGIN'| translate }}</b>
+      </button>
+      <a
+        class="btn-register"
+        routerLink="/registration"
+        mat-stroked-button color="primary">
+        <b>{{ 'AUTH.CAPTION.REG'| translate }}</b>
+      </a>
+    </div>
+  </div>
+
+  <div class="error">
+    <mat-error *ngIf="formError">{{ formError }}</mat-error>
+  </div>
+</form>

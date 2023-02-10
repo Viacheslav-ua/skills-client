@@ -1,0 +1,39 @@
+.form-login {
+  background-color: #ffffff;
+  box-shadow: 5px 10px 20px 5px #8a92c580;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 360px;
+  height: 450px;
+  border: none;
+  border-radius: 30px;
+}
+.container {
+  width: 270px;
+  padding: 10px;
+}
+.header {
+  margin-top: 20px;
+}
+.btn-register {
+  margin-left: 10px;
+}
+.error {
+  margin-top: 80px;
+  font-weight: 500;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+
+}
+.filed {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+

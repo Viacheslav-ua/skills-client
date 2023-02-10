@@ -1,0 +1,9 @@
+<app-login-block-ui
+  *ngIf="loaded$ | async"
+  [formError]="serverError$ | async"
+  [disabled]="loading$ | async"
+  (login)="onLogin($event)"
+  (errorSkip)="onErrorSkip()"
+  (loginTest)="onLoginTest()"
+></app-login-block-ui>
+<app-select-lang class="lang"></app-select-lang>

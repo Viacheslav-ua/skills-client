@@ -1,0 +1,49 @@
+$activeColor: #b00020;
+$accentColor: #3679d7;
+
+.preface-container {
+  width: 800px;
+  margin: 0 auto;
+  padding: 120px 40px 0 40px;
+  // background-color: #fff;
+  color: rgba(0, 0, 0, 0.635);
+
+}
+
+.preface-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.preface-content {
+  font-size: 20px;
+  line-height: 1.4;
+  margin-top: 30px;
+}
+
+.link-list-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.link-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+  a {
+    font-size: 16px;
+    text-decoration: none;
+    color: $accentColor;
+    transition-property: color;
+    transition-duration: 200ms;
+    transition-timing-function: linear;
+  }
+  a:hover {
+    color: $activeColor;
+  }
+}

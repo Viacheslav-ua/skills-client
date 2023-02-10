@@ -1,0 +1,35 @@
+<section class="preface-container">
+  <h1 class="preface-title">{{ 'HOME.TITLE' | translate }}</h1>
+  <p class="preface-content">
+    {{ 'HOME.TEXT_1' | translate }}
+  </p>
+  <p class="preface-content">
+    {{ 'HOME.TEXT_2' | translate }}
+  </p>
+  <p class="preface-content">
+    {{ 'HOME.TEXT_3' | translate }}
+  </p>
+
+  <h4 class="link-list-title">{{ 'HOME.TITLE_1' | translate }}</h4>
+
+  <ul class="link-list">
+      <li class="link-item">
+        <a href="https://github.com/Viacheslav-ua/skills-client/tree/dev" class=""
+        target="_blank" rel="noreferrer noopener">Front-end Here</a>
+      </li>
+      <li class="link-item">
+        <a href="https://github.com/Viacheslav-ua/skills-server/tree/after-refactoring" class=""
+        target="_blank" rel="noreferrer noopener">Back-end Here</a>
+      </li>
+      <li class="link-item">
+        <a [href]="serverDocs" class=""
+        target="_blank" rel="noreferrer noopener">Back-end docs Here</a>
+      </li>
+      <li class="link-item">
+        <a [routerLink]="'/main/resume'">My Resume Here</a>
+      </li>
+  </ul>
+
+</section>
+
+

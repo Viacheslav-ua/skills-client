@@ -1,0 +1,9 @@
+<app-register-block-ui
+  *ngIf="loaded$ | async"
+  [formError]="serverError$ | async"
+  [disabled]="loading$ | async"
+  (register)="onRegister($event)"
+  (errorSkip)="onErrorSkip()"
+>
+</app-register-block-ui>
+<app-select-lang class="lang"></app-select-lang>

@@ -1,0 +1,12 @@
+.link {
+  text-decoration: none;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: white;
+  transition-property: color;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+}
+.link:hover {
+  color: #b00020;
+}

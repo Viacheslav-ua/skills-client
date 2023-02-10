@@ -1,0 +1,79 @@
+<form
+  class="form-register"
+  [formGroup]="formGroup"
+  (input)="onFormChange()"
+  (ngSubmit)="onSubmit()"
+>
+  <h2 class="header">{{ 'AUTH.CAPTION.REG'| translate }}</h2>
+
+  <div class="container">
+
+    <mat-form-field class="filed">
+      <mat-label>{{ 'AUTH.LABEL.LOGIN'| translate }}</mat-label>
+      <input matInput formControlName="login">
+      <mat-error
+        *ngIf="formGroup.hasError('required', 'login')"
+      >{{ 'AUTH.ERROR'| translate }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="filed" appearance="fill">
+      <mat-label>{{ 'AUTH.LABEL.PASSWORD'| translate }}</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'"
+        (input)="onChangePass()"
+        formControlName="password">
+
+      <mat-error
+        *ngIf="formGroup.hasError('required', 'password')"
+      >{{ 'AUTH.ERROR'| translate }}</mat-error>
+
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="onHide($event)"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field class="filed"class="filed" appearance="fill">
+      <mat-label>{{ 'AUTH.LABEL.CONFIRM'| translate }}</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'"
+        (input)="onChangePass()"
+        formControlName="confirmPassword">
+
+      <mat-error
+        *ngIf="formGroup.hasError('required', 'confirmPassword')"
+      >{{ 'AUTH.ERROR'| translate }}</mat-error>
+
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="onHide($event)"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+
+    <div class="btn">
+      <button
+        mat-stroked-button color="primary"
+        [disabled]="submitDisabled">
+        <b>{{ 'AUTH.CAPTION.REG'| translate }}</b>
+      </button>
+      <a
+        class="btn-auth"
+        routerLink="/login"
+        mat-stroked-button color="primary">
+        <b>{{ 'AUTH.CAPTION.AUTH'| translate }}</b>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="error">
+    <mat-error *ngIf="formError">{{ formError }}</mat-error>
+  </div>
+</form>

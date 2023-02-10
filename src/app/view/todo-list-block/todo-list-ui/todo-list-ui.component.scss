@@ -1,0 +1,86 @@
+.table-head {
+  background-color: #aaa;
+  height: 40px;
+  color: white;
+  font-size: 20px;
+}
+
+
+.table {
+  width: 100%;
+  border-spacing: 0 6px;
+  text-align: left;
+}
+
+.cell-item {
+  width: 50px;
+  height: 42px;
+}
+
+.cell-center {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell-spacer {
+  width: 20px;
+}
+
+.cell-status {
+  width: 80px;
+}
+
+.cell-title {
+  width: 300px;
+}
+
+.cell-created {
+  width: 120px;
+}
+
+.cell-content {
+  // font-size: 14px;
+}
+
+.row-reactive {
+  background-color: #ddd;
+  height: 45px;
+  font-size: 16px;
+  transition-property: background-color;
+    transition-duration: 80ms;
+    transition-timing-function: linear;
+}
+
+.row-reactive:nth-child(2n) {
+  background-color: #ddf;
+}
+
+.row-reactive:hover {
+  background-color: #ccc;
+}
+.green {
+  background-color: rgb(189, 238, 189) !important;
+}
+
+.filed-title {
+  width: 98%;
+  height: 25px;
+  border: none;
+  font-size: 16px;
+
+}
+.filed-content {
+  width: 97%;
+  height: 25px;
+  border: none;
+  font-size: 16px;
+}
+.edit-mark {
+  font-size: 18px;
+  font-weight: 600;
+  font-style: italic;
+  color: #263593;
+}

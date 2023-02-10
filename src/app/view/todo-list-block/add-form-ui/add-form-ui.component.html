@@ -1,0 +1,36 @@
+<form
+  class="form"
+  [formGroup]="formGroup"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="controls">
+    <div class="form-add">
+      <mat-form-field class="filed">
+        <mat-label>{{ 'TODO.TABLE.TITLE' | translate }}</mat-label>
+        <input class="title-input" matInput formControlName="title">
+      </mat-form-field>
+
+      <button
+        class="btn-add"
+        mat-stroked-button color="primary"
+        [disabled]="submitDisabled">
+          <b>{{ 'TODO.ADD' | translate }}</b>
+      </button>
+    </div>
+    <div class="form-filter">
+      <mat-radio-group formControlName="selectedStatus" (change)="onChangeFilter($event)">
+        <mat-label class = "filter-label">{{ 'TODO.SHOW' | translate }}</mat-label>
+        <mat-radio-button class = "mr" *ngFor="let item of status" [value]="item.value">
+          {{ item.viewValue }}
+        </mat-radio-button>
+
+      </mat-radio-group>
+    </div>
+  </div>
+
+    <mat-error class="error" *ngIf="serverError">{{ serverError }}</mat-error>
+    <!-- <mat-error class="error">lskjdf aejknwd asrgv erwgv awegrgbr rgrqrg </mat-error> -->
+  <div >
+
+  </div>
+</form>
