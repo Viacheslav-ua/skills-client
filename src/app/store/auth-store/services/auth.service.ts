@@ -28,7 +28,7 @@ export class AuthService {
     private store$: Store
   ) { }
 
-  login(body: IAuthUser): Observable<AuthData> {
+  login(body: IAuthUser): Observable<any> {
     return this.httpClient
       .post<{ accessToken: string }>(BACKEND_BASE_DOMAIN + Endpoints.Login, body)
       .pipe(
@@ -39,7 +39,7 @@ export class AuthService {
       )
   }
 
-  register(body: IAuthUser): Observable<AuthData> {
+  register(body: IAuthUser): Observable<any> {
     return this.httpClient
       .post<{ accessToken: string }>(BACKEND_BASE_DOMAIN + Endpoints.Register, body)
       .pipe(
@@ -50,7 +50,7 @@ export class AuthService {
       )
   }
 
-  refresh(): Observable<AuthData> {
+  refresh(): Observable<any> {
     return this.httpClient
       .post<{ accessToken: string }>(BACKEND_BASE_DOMAIN + Endpoints.Refresh, {})
       .pipe(
