@@ -15,7 +15,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import {TranslateHttpLoader} from '@ngx-translate/http-loader'
 import { TranslateService } from '@ngx-translate/core'
 import { TranslateEnum } from './core/enums/translate.enum'
-import { SelectLangModule } from './view/ui/select-lang/select-lang.module'
+import { SelectLangModule } from './view/ui/select-lang/select-lang.module';
+import { TranslateMockPipe } from './pipes/translate-mock.pipe'
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -24,6 +25,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    TranslateMockPipe,
   ],
   imports: [
     BrowserModule,
