@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { TranslateService } from '@ngx-translate/core';
+import { IAuthUser } from 'src/app/core/interfaces/user.interfaces'
 
 @Component({
   selector: 'app-login-block-ui',
@@ -11,26 +11,22 @@ import { TranslateService } from '@ngx-translate/core';
 export class LoginBlockUiComponent implements OnInit {
 
   public hide = true;
-  formGroup!: FormGroup
+  public formGroup!: FormGroup
 
   @Input() public formError: string | null = ''
   @Input() public disabled!: boolean | null
 
   @Output()
-  public login = new EventEmitter()
+  public login: EventEmitter<IAuthUser> = new EventEmitter<IAuthUser>()
   @Output()
-  public errorSkip = new EventEmitter()
+  public errorSkip: EventEmitter<void> = new EventEmitter<void>()
   @Output()
-  public loginTest = new EventEmitter()
+  public loginTest: EventEmitter<void> = new EventEmitter<void>()
 
 
   public get submitDisabled(): boolean {
     return this.disabled || this.formGroup.invalid || !! this.formError
   }
-
-  // constructor(translate: TranslateService) {
-  //   translate.use('ua');
-  // }
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
