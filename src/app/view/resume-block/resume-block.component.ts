@@ -8,15 +8,15 @@ import { BACKEND_BASE_DOMAIN } from 'src/env';
   styleUrls: ['./resume-block.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ResumeBlockComponent implements OnInit {
-  public serverDocs = BACKEND_BASE_DOMAIN + 'docs'
-  public isShowTranslator = false
+export class ResumeBlockComponent {
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-    this.router.url === '/resume'
-    this.isShowTranslator = this.router.url === '/resume' ? true : false
+  public get isShow(): boolean {
+    return this.router.url === '/resume' ? true : false
+  }
 
+  public get serverDocs(): string {
+    return BACKEND_BASE_DOMAIN + 'docs'
   }
 }
