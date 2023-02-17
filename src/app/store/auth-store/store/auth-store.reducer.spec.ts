@@ -1,4 +1,4 @@
-import { fakeAuthData } from 'test/store-mock'
+import { fakeAuthData } from 'test/auth-store-mock'
 import { loginSuccess, login, loginFailed, logoutSuccess, register } from './auth-store.actions'
 import * as fromReducer from './auth-store.reducer'
 
