@@ -1,25 +1,25 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { ReactiveFormsModule } from "@angular/forms";
-import { By } from "@angular/platform-browser";
-import { TranslatePipeMock } from "test/translate-pipe-mock";
-import { LoginBlockUiComponent } from "./login-block-ui.component";
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core"
+import { ComponentFixture, TestBed } from "@angular/core/testing"
+import { ReactiveFormsModule } from "@angular/forms"
+import { By } from "@angular/platform-browser"
+import { TranslatePipeMock } from "test/translate-pipe-mock"
+import { RegisterBlockUiComponent } from "./register-block-ui.component"
 
-describe("LoginBlockUiComponent", () => {
-  let component: LoginBlockUiComponent;
-  let fixture: ComponentFixture<LoginBlockUiComponent>;
+describe("RegisterBlockUiComponent", () => {
+  let component: RegisterBlockUiComponent
+  let fixture: ComponentFixture<RegisterBlockUiComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ReactiveFormsModule],
-      declarations: [ LoginBlockUiComponent, TranslatePipeMock ],
+      declarations: [ RegisterBlockUiComponent, TranslatePipeMock ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginBlockUiComponent);
+    fixture = TestBed.createComponent(RegisterBlockUiComponent);
     component = fixture.componentInstance;
 
     component.formError = ''
@@ -36,6 +36,7 @@ describe("LoginBlockUiComponent", () => {
     component.formGroup.setValue({
       login: '',
       password: 'password',
+      confirmPassword: 'password',
     });
     expect(component.formGroup.valid).toEqual(false);
   });
@@ -44,19 +45,32 @@ describe("LoginBlockUiComponent", () => {
     component.formGroup.setValue({
       login: 'login',
       password: '',
+      confirmPassword: 'password',
     })
     expect(component.formGroup.valid).toEqual(false);
   })
 
-  it('checking submitDisabled logic on inputs and fields', () => {
+  it('checking #1 submitDisabled logic on inputs and fields', () => {
     component.formGroup.setValue({
       login: 'login',
       password: 'password',
+      confirmPassword: 'password',
     })
     component.formError = ''
     component.disabled = false
-
+    component.onChangePass()
     expect(component.submitDisabled).toEqual(false)
+  })
+  it('checking #2 submitDisabled logic on inputs and fields', () => {
+    component.formGroup.setValue({
+      login: 'login',
+      password: 'password',
+      confirmPassword: 'pass',
+    })
+    component.formError = ''
+    component.disabled = false
+    component.onChangePass()
+    expect(component.submitDisabled).toEqual(true)
   })
 
   it('the onHide method reverses the Hide state', () => {
@@ -69,24 +83,15 @@ describe("LoginBlockUiComponent", () => {
     expect(component.hide).toEqual(false)
   });
 
-  it('Should emit a login event with an IAuthUser object on Submit', () => {
-    const event = spyOn(component.login, "emit");
+  it('Should emit a register event with an IAuthUser object on Submit', () => {
+    const event = spyOn(component.register, "emit");
     component.formGroup.setValue({
       login: 'user',
       password: 'confidentiality',
+      confirmPassword: 'confidentiality',
     })
-
     component.onSubmit();
     expect(event).toHaveBeenCalledWith({login: 'user', password: 'confidentiality'});
-  })
-
-  it('Should emit a loginTest event when the \"Test Login\" button in the template is clicked',
-  () => {
-    const event = spyOn(component.loginTest, "emit");
-    const button = fixture.debugElement.query(By.css(".ng-test-login"));
-    event.calls.reset();
-    button.nativeElement.click();
-    expect(event).toHaveBeenCalled();
   })
 
   it('Should emit an errorSkip event when the form changes.',
