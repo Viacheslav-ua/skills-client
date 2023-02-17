@@ -1,14 +1,15 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { Router } from '@angular/router'
 import { RouterTestingModule } from '@angular/router/testing'
-import { TranslatePipeMock } from 'src/app/core/test/translate-pipe-mock'
+import { TranslatePipeMock } from 'test/translate-pipe-mock'
 import { ResumeBlockComponent } from './resume-block.component'
 
 describe('ResumeBlockComponent', () => {
   let component: ResumeBlockComponent;
   let fixture: ComponentFixture<ResumeBlockComponent>
 
-  const fakeRouter = jasmine.createSpyObj(['url'])
+  const fakeRouter = jasmine.createSpyObj(['url', 'navigateByUrl'])
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -33,11 +34,11 @@ describe('ResumeBlockComponent', () => {
   })
 
   // it('isShowTranslator should take the value true if url === /resume', () => {
-    // fakeRouter.url.and.returnValue('/resume')
-    // fakeRouter.url.calls.reset()
-    // fixture.detectChanges()
-    // console.log(component.getUrl());
+  //   // fakeRouter.url.and.returnValue('/resume')
+  //   fakeRouter.navigateByUrl.and.returnValue('/resume')
+  //   // fixture.detectChanges()
+  //   // console.log(component.getUrl());
 
-    // expect(component.isShow).toBeTruthy()
+  //   expect(component.isShow).toBeFalsy()
   // })
 });
