@@ -1,6 +1,10 @@
 <div class="main-container">
   <section class="main-content">
-    <app-select-lang *ngIf="isShow" class="lang"></app-select-lang>
+    <div class="menu" *ngIf="isShow">
+        <app-select-lang  class="lang"></app-select-lang>
+        <a class="menu-home" [routerLink]="'/main'">{{ "RESUME.LINK.VAL_1_2" | translate }}</a>
+    </div>
+
     <h1 class="main-title">{{ "RESUME.NAME" | translate }}</h1>
     <span class="speciality">{{ "RESUME.SPECIALTY" | translate }}</span>
 
@@ -17,6 +21,23 @@
       <h2 class="article-title">{{ "RESUME.TITLE.VAL_2" | translate }}</h2>
       <span >
         <ul class="article-content">
+          <li class="item-project">
+            <p class="item-content">
+              <a href="">{{ "RESUME.LINK.VAL_1_1" | translate }}</a>
+              {{ "RESUME.TEXT.VAL_9" | translate }}
+            </p>
+            <div class="link-block">
+              <a href="https://github.com/Viacheslav-ua/skills-client/tree/dev" target="_blank" rel="noreferrer noopener">
+                {{ "RESUME.LINK.SOURCE_3" | translate }}
+              </a>
+              <a href="https://github.com/Viacheslav-ua/skills-server/tree/after-refactoring" target="_blank" rel="noreferrer noopener">
+                {{ "RESUME.LINK.SOURCE_4" | translate }}
+              </a>
+              <a [href]="serverDocs" target="_blank" rel="noreferrer noopener">
+                {{ "RESUME.LINK.BASK_DOCS" | translate }}
+              </a>
+            </div>
+          </li>
           <li class="item-project">
             <p class="item-content">
               {{ "RESUME.TEXT.VAL_1" | translate }}
@@ -111,24 +132,6 @@
               </a>
               <a href="https://github.com/Viacheslav-ua/team-project-kapusta-finance-back-end" target="_blank" rel="noreferrer noopener">
                 {{ "RESUME.LINK.SOURCE" | translate }}
-              </a>
-            </div>
-          </li>
-
-          <li class="item-project">
-            <p class="item-content">
-              <a href="">{{ "RESUME.LINK.VAL_1" | translate }}</a>
-              {{ "RESUME.TEXT.VAL_9" | translate }}
-            </p>
-            <div class="link-block">
-              <a href="https://github.com/Viacheslav-ua/skills-client/tree/dev" target="_blank" rel="noreferrer noopener">
-                {{ "RESUME.LINK.SOURCE_3" | translate }}
-              </a>
-              <a href="https://github.com/Viacheslav-ua/skills-server/tree/after-refactoring" target="_blank" rel="noreferrer noopener">
-                {{ "RESUME.LINK.SOURCE_4" | translate }}
-              </a>
-              <a [href]="serverDocs" target="_blank" rel="noreferrer noopener">
-                {{ "RESUME.LINK.BASK_DOCS" | translate }}
               </a>
             </div>
           </li>
