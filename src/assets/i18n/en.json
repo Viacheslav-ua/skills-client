@@ -45,6 +45,8 @@
     },
     "LINK": {
       "VAL_1": "This project",
+      "VAL_1_1": "This project: Skills.",
+      "VAL_1_2": "Home page",
       "PROJECT": "project link",
       "BASK_DOCS": "back-end docs",
       "SOURCE": "source code",
@@ -61,7 +63,7 @@
       "VAL_5": "Project: Image finder. Image search and browsing, on React. Technologies: JS-TS-React-Webpack.",
       "VAL_6": "Project: Phone book. Work with backend and user registration. Technologies: JS-TS-React-Redux-RTK-ReactRouter6-MUI-Webpack.",
       "VAL_8": "Project: Kapusta-finance. Final team project. My job on the project was to creation the server. Technologies: NodeJS, MongoDB, Express.",
-      "VAL_9": "collects various features that I create in the process of practice on Angular, NestJs",
+      "VAL_9": "This is a collection of various features that I create in the process of practices on Angular, NestJs. It has front and back parts, and a registration procedure, after which each user works with his own data. Currently, Todo is ready and working, which uses the following technologies: Angular, NgRx, NestJS, PostgreSQL, Docker.",
       "VAL_10": "IT School GoIT \"Full stack developer\" (February 2021 - February 2022)",
       "VAL_11": "National Technical University of Ukraine \"Kyiv Polytechnic Institute\" (1992 - 1998)",
       "VAL_12": "Computer systems and networks, Master's degree -System engineer",
