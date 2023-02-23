@@ -1,8 +1,9 @@
 import { fakeAsync, flush, TestBed, tick } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { provideMockActions } from '@ngrx/effects/testing';
-import { Action, Store } from '@ngrx/store';
-import { fromEvent, Observable, of, switchMap, tap, throwError } from 'rxjs';
+import { Action, on, Store } from '@ngrx/store';
+import { Observable, of, switchMap, tap, throwError } from 'rxjs';
+// import * as rxjs from 'rxjs';
 import { fakeAuthData } from 'test/auth-store-mock';
 import { fakeStorage } from 'test/local-storage-mock';
 import { AuthService } from '../services/auth.service';
@@ -12,9 +13,11 @@ describe('Auth Effects', () => {
   let actions$ = new Observable<Action>()
   let effects: AuthEffects
 
-  const fakeAuthService = jasmine.createSpyObj(['login', 'register', 'refresh' ])
+  const fakeAuthService = jasmine.createSpyObj(['login', 'register', 'refresh', 'isAuth$' ])
   const fakeStore = jasmine.createSpyObj(["dispatch", "pipe"])
   const fakeRouter = jasmine.createSpyObj(['url', 'navigateByUrl'])
+  // const fakeRxjs = jasmine.createSpyObj(['fromEvent'])
+
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -24,10 +27,12 @@ describe('Auth Effects', () => {
         { provide: AuthService, useValue: fakeAuthService },
         { provide: Router, useValue: fakeRouter },
         { provide: Store, useValue: fakeStore },
-        { provide: Storage, useValue: fakeStorage }
+        { provide: Storage, useValue: fakeStorage },
+        // { provide: rxjs, useValue: fakeRxjs },
       ],
     })
 
+    // spyOn(rxjs, 'fromEvent').and.callFake(fakeRxjs.fromEvent);
     spyOn(localStorage, 'getItem').and.callFake(fakeStorage.getItem);
     spyOn(localStorage, 'setItem').and.callFake(fakeStorage.setItem);
     spyOn(localStorage, 'removeItem').and.callFake(fakeStorage.removeItem);
@@ -165,22 +170,39 @@ describe('Auth Effects', () => {
 
   xit('check listenStorageEffect$', done => {
     actions$ = of({ type: '[Auth] Init Auth' });
+    // fakeRxjs.fromEvent.and.returnValue(of(1))
 
-    let window = { storage: fromEvent }
-    spyOn(window, 'storage')
+    // spyOnProperty(fakeRxjs, 'fromEvent').and.returnValue(() => rxjs.of(1));
 
-    // spyOn(window, 'storage')
+    // window.dispatchEvent(new StorageEvent('storage', {
+    //   key: 'test_key',
+    //   newValue: 'test_value'
+    // }))
     effects.listenStorageEffect$.subscribe(
-      () => {
-        expect(window.storage).toHaveBeenCalled();
+      (action) => {
+        expect(action).toEqual({
+          type: '[Auth] Extract Login Data'
+        });
         done()
       }
     )
   })
 
-  xit('check skipServerError$', done => {
-    actions$ = of({ type: 'Login Skip Error' });
+  xit('check listenAuthorizeEffect$', done => {
+    actions$ = of({ type: '[Auth] Init Auth' })
+    // fakeAuthService.isAuth$.and.returnValue(of(true))
 
+    effects.listenAuthorizeEffect$
+      .subscribe(
+      (action) => {
+        expect(action).toEqual(false);
+        done()
+      }
+    )
+  })
+
+  it('check skipServerError$', done => {
+    actions$ = of({ type: '[Auth] Login Skip Error' })
     effects.skipServerError$
       .subscribe(action => {
         expect(action).toEqual({
@@ -192,4 +214,19 @@ describe('Auth Effects', () => {
     )
   })
 
+  it('check logout$ should remove localStorage item', done => {
+    actions$ = of({ type: '[Auth] Logout'});
+     localStorage.setItem('authData', JSON.stringify(fakeAuthData))
+     expect(localStorage.getItem('authData')).toEqual(JSON.stringify(fakeAuthData))
+
+
+    effects.logout$
+      .subscribe((action) => {
+        expect(localStorage.getItem('authData')).toEqual(null)
+        expect(action).toEqual({
+          type: '[Auth] Logout Success',
+        })
+        done()
+      })
+  })
 })

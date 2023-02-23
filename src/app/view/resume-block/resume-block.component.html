@@ -23,7 +23,8 @@
         <ul class="article-content">
           <li class="item-project">
             <p class="item-content">
-              <a href="">{{ "RESUME.LINK.VAL_1_1" | translate }}</a>
+              <a *ngIf="isShow" href="">{{ "RESUME.LINK.VAL_1_1" | translate }}</a>
+              <span *ngIf="!isShow">{{ "RESUME.LINK.VAL_1_1" | translate }}</span>
               {{ "RESUME.TEXT.VAL_9" | translate }}
             </p>
             <div class="link-block">
