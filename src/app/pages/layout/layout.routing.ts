@@ -40,6 +40,12 @@ const routes: Routes = [
     loadChildren: () => import('../todos/todos.module')
       .then(module => module.TodosModule),
   },
+  {
+    path: AppRouteEnum.Schedule,
+    component: LayoutComponent,
+    loadChildren: () => import('../schedule/schedule.module')
+      .then(module => module.ScheduleModule),
+  },
 
 ]
 

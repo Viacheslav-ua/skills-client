@@ -109,7 +109,8 @@
     "ABOUT": "About",
     "TASKS": "Tasks",
     "CONTACTS": "Contacts",
-    "RESUME": "My Resume"
+    "RESUME": "My Resume",
+    "SCHEDULE": "Schedule"
   },
   "TODO": {
     "ADD": "Add task",
