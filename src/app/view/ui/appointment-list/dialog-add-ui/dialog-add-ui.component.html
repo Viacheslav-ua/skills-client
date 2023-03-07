@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{ 'SCHEDULE.DIALOG.TITLE' | translate }}</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <textarea class="text-input" matInput placeholder="Event" [(ngModel)]="data.appointment">{{data.appointment}}</textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">{{ 'SCHEDULE.DIALOG.BTN_CANCEL' | translate }}</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>{{ 'SCHEDULE.DIALOG.BTN_ADD' | translate }}</button>
+</div>

@@ -1,0 +1,19 @@
+<div class="container" cdkDropListGroup>
+  <div class="time-list">
+    <div class="time-box" *ngFor="let item of hoursCaption">
+      {{item | appNumberToTime}}
+      <button mat-icon-button (click)="openDialog(item)" color="primary">
+          <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div cdkDropList class="appointment-list" (cdkDropListDropped)="drop($event)">
+    <div class="appointment-box" *ngFor="let item of appointments" cdkDrag>
+      <div class="appointment-custom-placeholder" *cdkDragPlaceholder></div>
+      {{item}}
+    </div>
+  </div>
+
+
+</div>
