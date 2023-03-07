@@ -19,4 +19,4 @@ const routes: Routes = [
         RouterModule
     ]
 })
-export class ScheduleComponentModule {}
+export class ScheduleRoutingModule {}

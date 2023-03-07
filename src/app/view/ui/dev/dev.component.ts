@@ -9,5 +9,5 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class DevComponent{
 
-  constructor(public translte: TranslateService) { }
+  constructor(public translate: TranslateService) { }
 }

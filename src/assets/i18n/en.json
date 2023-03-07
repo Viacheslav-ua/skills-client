@@ -131,5 +131,12 @@
     "TEXT_2": "The project has a registration and authorization procedure, after which each user works with his data.",
     "TEXT_3": "The aim of the project is the practical study of technologies of development and representation of my skills when applying for a job."
   },
-  "DEV": "This module is currently under development."
+  "DEV": "This module is currently under development.",
+  "SCHEDULE": {
+    "DIALOG": {
+      "TITLE": "Adding an event",
+      "BTN_ADD": "Add",
+      "BTN_CANCEL": "Cancel"
+    }
+  }
 }
