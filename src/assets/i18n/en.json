@@ -137,6 +137,8 @@
       "TITLE": "Adding an event",
       "BTN_ADD": "Add",
       "BTN_CANCEL": "Cancel"
-    }
+    },
+    "CHOOSE_DATE": "Choose a date",
+    "TITLE": "This time schedule is stored in the local storage. Here it is possible to drag positions with the mouse within one day."
   }
 }

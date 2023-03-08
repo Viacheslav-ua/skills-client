@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { ScheduleService } from './service/schedule.service';
 
 @Component({
@@ -11,7 +12,10 @@ export class ScheduleComponent implements OnInit {
  public activeDay!: Date
   public appointmentsOfDay!: Array<string | null>
 
-  constructor( private scheduleService: ScheduleService) { }
+  constructor(
+    private scheduleService: ScheduleService,
+    public translate: TranslateService,
+  ) { }
 
   ngOnInit(): void {
     const now = new Date()
