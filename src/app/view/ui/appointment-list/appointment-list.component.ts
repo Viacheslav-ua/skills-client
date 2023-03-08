@@ -56,7 +56,7 @@ export class AppointmentListComponent{
     dialogRef.afterClosed().subscribe(result => {
       if(!result) return
 
-      this.appointments[result.hour] = result.appointment
+      this.appointments[result.hour - 1] = result.appointment
       this.cdr.markForCheck();
       this.saveDey.emit(this.appointments)
     });
