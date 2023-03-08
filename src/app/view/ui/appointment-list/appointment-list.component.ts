@@ -51,7 +51,6 @@ export class AppointmentListComponent{
   openDialog(item: number): void {
     const dialogRef = this.dialog.open(DialogAddUiComponent, {
       data: { hour: item, appointment: this.appointment },
-      width: '400px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
