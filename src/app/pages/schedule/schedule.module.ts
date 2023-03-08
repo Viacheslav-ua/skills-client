@@ -11,6 +11,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { AppointmentListModule } from 'src/app/view/ui/appointment-list/appointment-list.module';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -21,8 +22,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ScheduleRoutingModule,
-     AppointmentListModule,
+    AppointmentListModule,
     FormsModule,
+    TranslateModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatButtonModule,
