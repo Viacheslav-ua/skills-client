@@ -12,8 +12,8 @@
       <h2 class="article-title">{{ "RESUME.TITLE.VAL_1" | translate }}</h2>
       <p class="article-content">
         {{ "RESUME.ARTICLE.VAL_1" | translate }}
-        <a class="link-home" [routerLink]="'/main'">{{ "RESUME.LINK.VAL_1" | translate }}</a>
-        {{ "RESUME.ARTICLE.VAL_2" | translate }}
+        <!-- <a class="link-home" [routerLink]="'/main'">{{ "RESUME.LINK.VAL_1" | translate }}</a> -->
+        <!-- {{ "RESUME.ARTICLE.VAL_2" | translate }} -->
       </p>
     </article>
 
@@ -21,6 +21,21 @@
       <h2 class="article-title">{{ "RESUME.TITLE.VAL_2" | translate }}</h2>
       <span >
         <ul class="article-content">
+
+          <li class="item-project">
+            <p class="item-content">
+              {{ "RESUME.TEXT.VAL_9_1" | translate }}
+            </p>
+            <div class="link-block">
+              <a href="https://netflix-fsd.vercel.app" target="_blank" rel="noreferrer noopener">
+                {{ "RESUME.LINK.PROJECT" | translate }}
+              </a>
+              <a href="https://github.com/Viacheslav-ua/netflix-fsd" target="_blank" rel="noreferrer noopener">
+                {{ "RESUME.LINK.SOURCE" | translate }}
+              </a>
+            </div>
+          </li>
+
           <li class="item-project">
             <p class="item-content">
               <a *ngIf="isShow" href="">{{ "RESUME.LINK.VAL_1_1" | translate }}</a>
@@ -182,6 +197,11 @@
               {{ "RESUME.CONTACTS.LI_5" | translate }}
             </a>
           </li>
+          <li>
+            <a href="https://t.me/via_slav"  target="_blank" rel="noreferrer noopener">
+              {{ "RESUME.CONTACTS.LI_6" | translate }}
+            </a>
+          </li>
         </ul>
       </section>
 
@@ -189,13 +209,16 @@
         <h4>{{ "RESUME.TITLE.VAL_6" | translate }}</h4>
         <ul>
           <li>{{ "RESUME.TECH.LI_1" | translate }}</li>
+          <li>{{ "RESUME.TECH.LI_1_1" | translate }}</li>
           <li>{{ "RESUME.TECH.LI_2" | translate }}</li>
           <li>{{ "RESUME.TECH.LI_3" | translate }}</li>
           <li>{{ "RESUME.TECH.LI_4" | translate }}</li>
           <li>{{ "RESUME.TECH.LI_5" | translate }}</li>
           <li>{{ "RESUME.TECH.LI_6" | translate }}</li>
+          <li>{{ "RESUME.TECH.LI_6_1" | translate }}</li>
           <li>{{ "RESUME.TECH.LI_7" | translate }}</li>
           <li>{{ "RESUME.TECH.LI_8" | translate }}</li>
+          <li>{{ "RESUME.TECH.LI_8_1" | translate }}</li>
           <li>{{ "RESUME.TECH.LI_9" | translate }}</li>
           <li>{{ "RESUME.TECH.LI_10" | translate }}</li>
           <li>{{ "RESUME.TECH.LI_11" | translate }}</li>
