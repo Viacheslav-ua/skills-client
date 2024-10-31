@@ -56,6 +56,7 @@
       "SOURCE_4": "code back-end"
     },
     "TEXT": {
+      "VAL_0": "Project: React-Skills. This project is designed to practice programming skills using React. Technologies: React, TS, TailwindCSS, Zustand, TanStack Query, Vite, Vitest",
       "VAL_1": "Project: Web Studio. Adaptive web-page of web studio. Technologies: HTML5 - CSS3 - SASS - BEM.",
       "VAL_2": "Project: Donut Masterclass. Team project, mobile-first adaptive landing. My tasks on the project are the slider and the background. Technologies: HTML5 - CSS3 - JS - SASS - BEM.",
       "VAL_3": "Project: Image finder. Search and view images. Technologies: JS-Handlebars-Parcel.",
@@ -80,15 +81,15 @@
     },
     "TECH": {
       "LI_1": "HTML5, CSS3, SASS",
-      "LI_1_1": "TailwindCSS, Shadcn/ui",
+      "LI_1_1": "TailwindCSS",
       "LI_2": "Git, Github",
-      "LI_3": "JS Es6, TS",
+      "LI_3": "JS, NodeJS, TS",
       "LI_4": "Parcel, Webpack",
       "LI_5": "React, Redux",
       "LI_6": "RTK, RTK-Query",
-      "LI_6_1": "NextJS, FSD, ReactQuery",
+      "LI_6_1":"NextJS, ReactQuery",
       "LI_7": "Angular, NgRx",
-      "LI_8": "NodeJS, Express, NestJS",
+      "LI_8": "Express, NestJS",
       "LI_8_1": "Prisma, Sequelize, TypeORM",
       "LI_9": "SQL, MySQL, PostgreSQL",
       "LI_10": "MongoDB, Redis",

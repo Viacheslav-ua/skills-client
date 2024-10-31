@@ -55,6 +55,7 @@
       "SOURCE_4": "код back-end"
     },
     "TEXT": {
+      "VAL_0": "Проект: React-Skills. Цей проект створений для відпрацювання навичок програмування з використанням React. Технології: React, TS, TailwindCSS, Zustand, TanStack Query, Vite, Vitest",
       "VAL_1": "Проект: Web Studio. Адаптивна веб-сторінка веб-студії. Технології: HTML5 - CSS3 - SASS - BEM.",
       "VAL_2": "Проект: Donut Masterclass. Командний проект, mobile-first adaptive landing. Мої завдання на проекті - слайдер і фон. Технології: HTML5 - CSS3 - JS - SASS - BEM.",
       "VAL_3": "Проект: Image finder. Пошук і перегляд зображень. Технології: JS-Handlebars-Parcel.",
@@ -78,15 +79,15 @@
     },
     "TECH": {
       "LI_1": "HTML5, CSS3, SASS",
-      "LI_1_1": "TailwindCSS, Shadcn/ui",
+      "LI_1_1": "TailwindCSS",
       "LI_2": "Git, Github",
-      "LI_3": "JS Es6, TS",
+      "LI_3": "JS, NodeJS, TS",
       "LI_4": "Parcel, Webpack",
       "LI_5": "React, Redux",
       "LI_6": "RTK, RTK-Query",
-      "LI_6_1": "NextJS, FSD, ReactQuery",
+      "LI_6_1":"NextJS, ReactQuery",
       "LI_7": "Angular, NgRx",
-      "LI_8": "NodeJS, Express, NestJS",
+      "LI_8": "Express, NestJS",
       "LI_8_1": "Prisma, Sequelize, TypeORM",
       "LI_9": "SQL, MySQL, PostgreSQL",
       "LI_10": "MongoDB, Redis",
