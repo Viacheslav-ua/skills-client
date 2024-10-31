@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { IAuthUser } from 'src/app/core/interfaces/user.interfaces';
 
 @Component({
   selector: 'app-register-block-ui',
@@ -17,9 +18,9 @@ export class RegisterBlockUiComponent implements OnInit {
   @Input() public disabled!: boolean | null
 
   @Output()
-  public register = new EventEmitter()
+  public register: EventEmitter<IAuthUser> = new EventEmitter<IAuthUser>()
   @Output()
-  public errorSkip = new EventEmitter()
+  public errorSkip: EventEmitter<void> = new EventEmitter<void>()
 
 
   public get submitDisabled(): boolean {
@@ -38,8 +39,9 @@ export class RegisterBlockUiComponent implements OnInit {
     this.errorSkip.emit()
   }
 
-  public onSubmit():void {
-    this.register.emit(this.formGroup.value)
+  public onSubmit(): void {
+    const { confirmPassword, ...authUser  } = this.formGroup.value
+    this.register.emit(authUser)
   }
 
   public onChangePass(): void {

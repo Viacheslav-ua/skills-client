@@ -1,0 +1,24 @@
+  <div class="content-header">
+    <mat-form-field appearance="fill">
+
+      <input
+        class="date-input"
+        matInput
+        [matDatepicker]="picker"
+        [(ngModel)]="activeDay"
+        (ngModelChange)="onChange($event)">
+      <mat-label class="date-label">{{'SCHEDULE.CHOOSE_DATE' | translate}}</mat-label>
+      <span>{{ activeDay | date:'dd/MM/yyyy'}}</span>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <span class="date-title">{{'SCHEDULE.TITLE' | translate}}</span>
+  </div>
+
+  <div class="content">
+    <app-appointment-list
+    [appointments]="appointmentsOfDay"
+    (saveDey)="onSave($event)"
+    ></app-appointment-list>
+  </div>
+

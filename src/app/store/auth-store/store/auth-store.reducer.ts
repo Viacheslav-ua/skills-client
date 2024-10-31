@@ -5,8 +5,6 @@ import {
   loginSuccess,
   logoutSuccess,
   register,
-  registerSuccess,
-  registerFailed,
 } from "./auth-store.actions"
 
 export const AUTH_FEATURE_NAME = 'auth'
@@ -27,14 +25,14 @@ export interface AuthState {
   authData?: AuthData | null
 }
 
-const initialState: AuthState = {
+export const initialState: AuthState = {
   loading: false,
   loaded: true,
   loadAuthData: false,
   serverError: '',
 }
 
-export const AuthReducer = createReducer(
+export const authReducer = createReducer(
   initialState,
   on(login, store => ({
     ...store,
@@ -65,20 +63,4 @@ export const AuthReducer = createReducer(
     ...store,
     loading: true,
   })),
-  // on(registerSuccess, (state, { authData }) => ({
-    // ...state,
-    // authData,
-    // loaded: true,
-    // loadAuthData: true,
-    // loading: false,
-    // serverError: '',
-  // })),
-  // on(registerFailed, (state, { serverError }) => ({
-    // ...state,
-    // authData: null,
-    // loaded: true,
-    // loadAuthData: true,
-    // loading: false,
-    // serverError,
-  // })),
 )

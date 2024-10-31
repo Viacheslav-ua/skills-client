@@ -7,4 +7,5 @@ export enum AppRouteEnum {
   Todos = 'todos',
   Login = 'login',
   Registration = 'registration',
+  Schedule = 'schedule',
 }

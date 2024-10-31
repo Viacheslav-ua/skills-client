@@ -8,5 +8,5 @@ import { TranslateService } from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  title = 'skills'
+  title = 'Skills'
 }

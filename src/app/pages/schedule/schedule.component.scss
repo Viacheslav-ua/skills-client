@@ -1,0 +1,46 @@
+// .main-container {
+//   display: flex;
+//   flex-direction: row-reverse;
+//   width:  100%;
+//   height: 100%;
+// }
+.content-header {
+  height: 90px;
+  padding: 0 20px;
+}
+
+.date-input {
+  visibility: hidden;
+}
+
+.date-label {
+  font-size: 18px;
+}
+
+.date-title {
+  color: #0d1197de;
+}
+
+// .sidebar {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   background-color: #f8f7f7;
+//   width: 250px;
+//   height: 100%;
+// }
+
+.content {
+  width:  100%;
+  height: 80vh;
+  // height: auto;
+  overflow: scroll;
+  padding: 0 20px;
+}
+
+.btn-add {
+  /* width: 100px; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  margin: 20px 0;
+}

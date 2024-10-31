@@ -41,6 +41,7 @@ $accentColor: #3679d7;
 .main {
   grid-area: main;
   background-color: $bgColor;
+  overflow: hidden;
 }
 .footer {
   grid-area: footer;
